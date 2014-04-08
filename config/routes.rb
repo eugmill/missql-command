@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  get 'levels/:id' => 'levels#show'
+
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
   get 'users/:id' => 'users#show', as: :user

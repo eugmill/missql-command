@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def authorize
+    redirect_to login_path, alert: "Not authorized" if current_user.nil?
+  end
+
 end
