@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 group :test do
   gem 'rspec-rails'  
   gem 'pry'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'factory_girl_rails'
 end
 
 group :development do
