@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get 'users/new' => 'user#new'
+  post 'users' => 'user#create'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
