@@ -10,5 +10,4 @@ class User < ActiveRecord::Base
   	self.user_database = UserDatabase.create(:name => "user_database_#{self.id}")
   end
 
-
 end
