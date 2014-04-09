@@ -1,5 +1,4 @@
 class Level < ActiveRecord::Base
-  has_many :master_tables  
 
   def clone_for_user(user)
     # checks to see if user has these tables

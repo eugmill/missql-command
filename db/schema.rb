@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409144424) do
+ActiveRecord::Schema.define(version: 20140409195241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,12 @@ ActiveRecord::Schema.define(version: 20140409144424) do
     t.integer  "stage_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "database_path"
   end
 
-  create_table "master_tables", force: true do |t|
+  create_table "user_databases", force: true do |t|
     t.string   "name"
-    t.integer  "level_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,14 +38,6 @@ ActiveRecord::Schema.define(version: 20140409144424) do
     t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "user_tables", force: true do |t|
-    t.string   "table_name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "master_table_id"
   end
 
   create_table "users", force: true do |t|

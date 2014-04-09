@@ -1,16 +1,12 @@
 namespace :missql do
-
- 	# task :environment do 
- 	# 	require_relative "../"
-
-	task :db_methods => :environment do
-		require_relative "./missql.rb"
+	desc "Drop and recreate the development level db"
+	task :setup => :environment do
+		Rake::Task['db:reset'].invoke
+		
 	end
 
-	task :db_test_env => :db_methods do
-		require "benchmark"
-	end
 
+	# delete all this crap
 	desc "Create dev_cities table"
 	task :create_dev_cities => :environment do
 		DBC = ActiveRecord::Base.connection
