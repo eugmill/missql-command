@@ -36,6 +36,7 @@ end
 
 group :development do
   gem 'pry' 
+  gem 'rails-erd'
 end
 
 # Use ActiveModel has_secure_password
