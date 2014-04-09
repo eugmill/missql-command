@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   has_many :user_levels
   has_many :levels, :through => :user_levels
-  has_one :user_database
+  has_one :user_database, :dependent => :destroy
 
   after_create do 
   	self.user_database = UserDatabase.create(:name => "user_database_#{self.id}")
