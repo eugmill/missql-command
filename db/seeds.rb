@@ -9,3 +9,4 @@
 level=Level.create(:title => "Development Level", :prompt => "Do what u want.", :stage_number => 1)
 level.master_tables.create(:name => "dev_cities")
 
+user1 = User.create(:user_name => "Test User", :email => "test@test.com", :password => "password", :password_confirmation => "password")
