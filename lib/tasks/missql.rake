@@ -28,16 +28,16 @@ namespace :missql do
 
 	desc "Clear missql development database"
 	task :drop => [:environment] do
-		Rake::Task['db:drop'].invoke()
+		Rake::Task['db:drop'].invoke
 	end
 
 	desc "Setup missql development database"
 	task :setup => :environment do
-		Rake::Task['db:drop'].invoke()
-		Rake::Task['db:create'].invoke()
-		Rake::Task['db:migrate'].invoke()
-		Rake::Task['missql:populate_dev'].invoke()		
-		Rake::Task['db:seed'].invoke()
+		Rake::Task['db:drop'].invoke
+		Rake::Task['db:create'].invoke
+		Rake::Task['db:migrate'].invoke
+		Rake::Task['missql:populate_dev'].invoke
+		Rake::Task['db:seed'].invoke
 	end
 
 	desc "Spin up a temporary table for a user based on an existing table"
