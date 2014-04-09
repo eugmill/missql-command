@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   has_many :user_levels
   has_many :levels, :through => :user_levels
-  has_many :user_tables
+  has_one :user_database
 
 end
