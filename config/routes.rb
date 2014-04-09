@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   post 'sessions' => 'sessions#create'
 
+  post 'user_levels/:id' => 'user_levels#execute', as: :user_level
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

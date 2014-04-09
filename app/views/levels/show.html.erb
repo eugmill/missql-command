@@ -1,1 +1,14 @@
 <%= "You're on level #{@level.id}" %>
+<div id="repl" width="500" height ="500">
+	<div id="output">
+		<pre id="output-text">
+		</pre>
+	</div>
+<div id="command-input">
+	<%= form_tag @user_level, :method =>"POST", :remote => true do %>
+		<%= token_tag %>
+		<%= text_field_tag :sql_command %>
+		<%= submit_tag "Execute" %>
+	<% end %>
+</div>
+</div>

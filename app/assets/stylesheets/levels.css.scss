@@ -1,3 +1,19 @@
 // Place all the styles related to the levels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#repl{
+	width: 100%;
+	height: 500px;
+}
+div#repl div#output{
+	width: 100%;
+	height: 450px;
+}
+div#repl div#command-input{
+	width: 100%;
+	height: 50px;
+}
+div#repl div#command-input form{
+	
+}

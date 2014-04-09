@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408205414) do
+ActiveRecord::Schema.define(version: 20140409144424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dev_cities", id: false, force: true do |t|
+    t.string  "name"
+    t.integer "population"
+  end
 
   create_table "levels", force: true do |t|
     t.string   "title"
@@ -34,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140408205414) do
   create_table "user_levels", force: true do |t|
     t.integer  "user_id"
     t.integer  "level_id"
-    t.boolean  "completed"
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,16 +58,6 @@ ActiveRecord::Schema.define(version: 20140408205414) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "users1", id: false, force: true do |t|
-    t.integer  "id"
-    t.string   "user_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "current_table"
   end
 
 end
