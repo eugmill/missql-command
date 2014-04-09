@@ -1,12 +1,2 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-level=Level.create(:title => "Development Level", :prompt => "Do what u want.", :stage_number => 1)
-level.master_tables.create(:name => "dev_cities")
-
-user1 = User.create(:user_name => "Test User", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+level_1 = Level.create(:title => "Paris is Burning", :prompt => "Find out how many people will die by selecting the population of Paris.", :database_path =>"db/dumps/lvl1.sql")
+test_user = User.create(:user_name => "Test User", :email => "test@test.com", :password => "test", :password_confirmation => "test")
