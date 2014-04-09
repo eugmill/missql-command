@@ -9,11 +9,15 @@ class UserLevelsController < ApplicationController
       @values << x
     end
     @string_values = "" 
+    @values[0].each do |k,v|
+      @string_values << k + " | "
+    end
+    @string_values << "\n"
     @values.each do |hash|
       hash.each do |k,v|
-        @string_values << k + "\n"
-        @string_values << v + "\n"
+        @string_values << v + " | "
       end
+    @string_values << "\n"      
     end
 
     respond_to do |format|
