@@ -1,14 +1,19 @@
 namespace :missql do
 
+ 	# task :environment do 
+ 	# 	require_relative "../"
+
 	task :db_methods => :environment do
 		require_relative "./missql.rb"
 	end
+
 	task :db_test_env => :db_methods do
 		require "benchmark"
 	end
 
 	desc "Create dev_cities table"
-	task :create_dev_cities => :db_methods do
+	task :create_dev_cities => :environment do
+		DBC = ActiveRecord::Base.connection
 		DBC.execute("CREATE TABLE dev_cities (name VARCHAR(255), population INTEGER);")
 	end
 
@@ -19,6 +24,20 @@ namespace :missql do
 		DBC.execute("INSERT INTO dev_cities VALUES ('San Francisco', 825000);")
 		DBC.execute("INSERT INTO dev_cities VALUES ('Moscow', 11000000);")
 		DBC.execute("INSERT INTO dev_cities VALUES ('Tokyo', 13000000);")
+	end
+
+	desc "Clear missql development database"
+	task :drop => [:environment] do
+		Rake::Task['db:drop'].invoke()
+	end
+
+	desc "Setup missql development database"
+	task :setup => :environment do
+		Rake::Task['db:drop'].invoke()
+		Rake::Task['db:create'].invoke()
+		Rake::Task['db:migrate'].invoke()
+		Rake::Task['missql:populate_dev'].invoke()		
+		Rake::Task['db:seed'].invoke()
 	end
 
 	desc "Spin up a temporary table for a user based on an existing table"

@@ -16,11 +16,6 @@ ActiveRecord::Schema.define(version: 20140409144424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dev_cities", id: false, force: true do |t|
-    t.string  "name"
-    t.integer "population"
-  end
-
   create_table "levels", force: true do |t|
     t.string   "title"
     t.text     "prompt"
