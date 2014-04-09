@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   has_many :levels, :through => :user_levels
   has_one :user_database
 
+  after_create do 
+  	self.user_database = UserDatabase.create(:name => "user_database_#{self.id}")
+  end
+
+
 end
