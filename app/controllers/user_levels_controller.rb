@@ -3,7 +3,7 @@ class UserLevelsController < ApplicationController
   def execute
     @user_level = UserLevel.find(params[:id])
     @sql_command = params[:sql_command]
-    @result = ActiveRecord::Base.connection.execute(@sql_command)
+    @result = current_user.user_database.execute(@sql_command)
     @values = [] 
     
     @result.each do |x|
