@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :user_database, :dependent => :destroy
 
   after_create do 
-  	self.user_database = UserDatabase.create(:name => "user_database_#{self.id}")
+  	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")
   end
 
 end

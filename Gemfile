@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc2'
@@ -28,16 +29,17 @@ gem 'spring',        group: :development
 
 group :test do
   gem 'rspec-rails'  
-  gem 'pry'
   gem 'capybara'
   gem 'rack-test'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
-  gem 'pry' 
   gem 'rails-erd'
 end
+
+gem 'pry', group: [:development,:test]
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

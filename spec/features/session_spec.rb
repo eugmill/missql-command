@@ -10,7 +10,6 @@ describe "Session" do
     end       
 
     it "should redirect to user's profile upon successful login" do
-      binding.pry
       visit '/login'
       fill_in 'Username', :with => @user.user_name
       fill_in 'Password', :with => @user.password
