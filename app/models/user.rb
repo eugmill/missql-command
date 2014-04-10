@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :levels, :through => :user_levels
   has_one :user_database, :dependent => :destroy
 
+  validates_uniqueness_of :email, :user_name
+
   after_create do 
   	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")
   end

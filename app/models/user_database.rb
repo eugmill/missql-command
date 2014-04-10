@@ -18,7 +18,7 @@ class UserDatabase < ActiveRecord::Base
   	end
   end
 
-  def copy_level(level)
+  def load_level(level)
   	empty_self
   	commands = File.open(level.database_path) do |file|
   		file.read
