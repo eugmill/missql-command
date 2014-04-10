@@ -25,11 +25,22 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
-  
+
+  # Database cleaner
+  config.before(:suite) do
+    User.destroy_all
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.after(:each) do
+    User.destroy_all
+    DatabaseCleaner.clean_with(:truncation)
+  end  
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -40,5 +51,5 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = "default"
 end

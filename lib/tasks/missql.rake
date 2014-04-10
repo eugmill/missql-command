@@ -11,7 +11,7 @@ namespace :missql do
   desc "Delete first 20 user_databases in a pretty hacky way. "
   task :clean do
     20.times do |i|
-      `dropdb user_database_#{i}`
+      `dropdb user_database_#{Rails.env}_#{i}`
     end
   end
 
