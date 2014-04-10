@@ -2,6 +2,7 @@ class UserDatabase < ActiveRecord::Base
 	belongs_to :user
 	after_create :create_user_database
   before_destroy :destroy_user_database
+  has_one :level
 
   def connection
   	@connection ||= PG.connect(:dbname => self.name)
@@ -20,10 +21,9 @@ class UserDatabase < ActiveRecord::Base
 
   def load_level(level)
   	empty_self
-  	commands = File.open(level.database_path) do |file|
-  		file.read
-  	end
+  	commands = level.dump
   	connection.exec(commands)
+    self.level = level
   end
 
   def empty_self

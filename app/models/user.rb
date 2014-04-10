@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")
   end
 
+  def current_level
+    self.user_database.level
+  end
+
 end
