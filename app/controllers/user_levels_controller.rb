@@ -3,12 +3,10 @@ class UserLevelsController < ApplicationController
   def execute
     @user_level = UserLevel.find(params[:id])
     @sql_command = params[:sql_command]
-    @result = current_user.user_database.execute(@sql_command)
-    @values = [] 
+    @output = current_user.user_database.execute(@sql_command)
     
-    @result.each do |x|
-      @values << x
-    end
+    @values = @output[:result]
+    flash[:notice] = @output[:correct].to_s
 
     @string_values = "" 
     

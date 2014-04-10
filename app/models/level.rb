@@ -12,4 +12,8 @@ class Level < ActiveRecord::Base
     end
   end
 
+  def correct_answer?(result)
+    self.answer == result.to_a.to_s
+  end
+
 end
