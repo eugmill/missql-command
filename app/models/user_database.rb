@@ -1,7 +1,7 @@
 class UserDatabase < ActiveRecord::Base
 	belongs_to :user
 	after_create :create_user_database
-  	before_destroy :destroy_user_database
+  before_destroy :destroy_user_database
 
   def connection
   	@connection ||= PG.connect(:dbname => self.name)
