@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(new_user_params)
     if @user.save
+      session[:user_id]=@user.id
       redirect_to @user
     else
+      flash[:alert] = @user.errors.full_messages.join('. ')
       render :new
     end
   end

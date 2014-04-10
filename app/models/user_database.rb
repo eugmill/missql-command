@@ -18,16 +18,26 @@ class UserDatabase < ActiveRecord::Base
   	end
   end
 
-  private
+  def load_level(level)
+  	empty_self
+  	commands = File.open(level.database_path) do |file|
+  		file.read
+  	end
+  	connection.exec(commands)
+  end
+
+  def empty_self
+  	connection.exec("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
+  end
+
+private
   def destroy_user_database
     `dropdb #{self.name}`
   end
 
-	def create_user_database
-  	`createdb #{self.name}`
-	end
-
-
+  def create_user_database
+	`createdb #{self.name}`
+  end
 
 class RollbackFlag < StandardError
 end

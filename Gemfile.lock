@@ -45,6 +45,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -158,6 +159,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   capybara
   coffee-rails (~> 4.0.0)
+  database_cleaner
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails

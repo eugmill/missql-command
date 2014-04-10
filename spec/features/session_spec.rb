@@ -28,8 +28,52 @@ describe "Session" do
   end
 
   describe "header changes depending on login" do
-    
+    pending
   end
+
+
+  describe "creating a new account" do
+    before :each do 
+      @user = FactoryGirl.build(:user)
+    end 
+
+    it "should log you in if you make a new account" do
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => @user.password
+      click_button 'Create User'
+      new_user = User.find_by(:email => @user.email)
+      expect(current_path).to eq("/users/#{new_user.id}")
+    end
+
+    it "should tell you if a username is already taken" do
+      @user.save
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Password', :with => @user.password
+      click_button 'Create User'
+      expect(page).to have_content("User name has already been taken")
+    end
+
+    it "should tell you if your password doesn't match the confirmation" do
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => "lolllll"
+      click_button 'Create User'
+      expect(page).to have_content("Password confirmation doesn't match Password")
+    end
+
+    it "should tell you if your email has already been used" do
+      pending
+    end
+
+  end
+
+
 
 
 end
