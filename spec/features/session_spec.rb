@@ -58,7 +58,13 @@ describe "Session" do
     end
 
     it "should tell you if your password doesn't match the confirmation" do
-      pending
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => "lolllll"
+      click_button 'Create User'
+      expect(page).to have_content("Password confirmation doesn't match Password")
     end
 
     it "should tell you if your email has already been used" do
