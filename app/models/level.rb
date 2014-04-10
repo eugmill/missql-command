@@ -1,4 +1,5 @@
 class Level < ActiveRecord::Base
+  has_many :user_databases
 
   before_create :load_dump
 

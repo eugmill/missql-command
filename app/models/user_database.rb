@@ -2,7 +2,7 @@ class UserDatabase < ActiveRecord::Base
 	belongs_to :user
 	after_create :create_user_database
   before_destroy :destroy_user_database
-  has_one :level
+  belongs_to :level
 
   def connection
   	@connection ||= PG.connect(:dbname => self.name)
@@ -24,6 +24,7 @@ class UserDatabase < ActiveRecord::Base
   	commands = level.dump
   	connection.exec(commands)
     self.level = level
+    self.save
   end
 
   def empty_self
