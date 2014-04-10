@@ -8,4 +8,11 @@ namespace :missql do
 		Rake::Task["db:seed"].invoke
 	end
 
+  desc "Delete first 20 user_databases in a pretty hacky way. "
+  task :clean do
+    50.times do |i|
+      `dropdb user_database_#{i}`
+    end
+  end
+
 end
