@@ -53,9 +53,8 @@ describe "Session" do
       visit '/users/new'
       fill_in 'User name', :with => @user.user_name
       fill_in 'Password', :with => @user.password
-      click_button 'Login'
-      expect(current_path).to eq("/users/new")
-      expect(page).to have_content("User name is already taken.")
+      click_button 'Create User'
+      expect(page).to have_content("User name has already been taken")
     end
 
     it "should tell you if your password doesn't match the confirmation" do
