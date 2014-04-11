@@ -21,20 +21,27 @@ class GameResponse
     pg_output.class != PG::Result
   end
 
+  def type
+    error? ? "error" : "table"
+  end
+
   def result_array
-    if error?
-      pg_output.to_s
-    else
+    if type == "error"
+      [pg_output.to_s]
+    elsif type == "table"
       pg_output.to_a
     end
   end
 
-  def full_errors
-    #todo
-  end
-
-  def get_json
-    
+  def json    
+    {
+      :query => self.query,
+      :response => {
+        :type => type,
+        :correct => self.correct?,
+        :result => result_array
+      }
+    }
   end
 
 end

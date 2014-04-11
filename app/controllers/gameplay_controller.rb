@@ -1,12 +1,12 @@
 class GameplayController < ApplicationController
 
   def execute
-    @response = GameResponse.new(current_user, params[:sql_command])
+    @response = GameResponse.new(current_user, params[:sql_command]).json
 
     # @output = current_user.user_database.execute(@sql_command)
     
-    @values = @response.result_array.to_s
-    @notice = @response.correct?.to_s
+    # @values = @response[""][:result]
+    # @notice = @response.correct?.to_s
 
     # @string_values = "" 
     
@@ -24,8 +24,8 @@ class GameplayController < ApplicationController
     # end
 
     respond_to do |format|
-      format.js {
-        render :show_output
+      format.json {
+        render json: @response
       }
     end
   end
