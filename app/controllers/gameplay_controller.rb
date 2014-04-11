@@ -1,7 +1,6 @@
-class UserLevelsController < ApplicationController
+class GameplayController < ApplicationController
 
   def execute
-    @user_level = UserLevel.find(params[:id])
     @sql_command = params[:sql_command]
     @output = current_user.user_database.execute(@sql_command)
     
