@@ -11,11 +11,8 @@
 			</pre>
 		</div>
 		<div id="command-input">
-			<%= form_tag "/query.json", :method =>"POST", :remote => true do %>
-				<%= token_tag %>
-				<%= text_field_tag :sql_command %>
-				<%= submit_tag "Execute" %>
-			<% end %>
+			<input id="sql-command" type="text">
+			<button type="button" id="execute"> Execute </button>
 		</div>
 	</section>
 </main>
