@@ -6,7 +6,7 @@ class UserLevelsController < ApplicationController
     @output = current_user.user_database.execute(@sql_command)
     
     @values = @output[:result]
-    flash[:notice] = @output[:correct].to_s
+    @notice = @output[:correct].to_s
 
     @string_values = "" 
     
