@@ -11,7 +11,11 @@ class UserDatabase < ActiveRecord::Base
   def execute(query)
   	begin
   		connection.transaction do |conn|
-  			@last_result=conn.exec(query)
+  			begin
+          @last_result=conn.exec(query)
+        rescue PG::Error => e
+          @last_result = e
+        end
   			raise RollbackFlag
   		end
   	rescue RollbackFlag
