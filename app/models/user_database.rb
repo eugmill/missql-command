@@ -15,7 +15,7 @@ class UserDatabase < ActiveRecord::Base
   			raise RollbackFlag
   		end
   	rescue RollbackFlag
-  		{correct: self.level.correct_answer?(@last_result), result: @last_result.to_a}
+  		@last_result
   	end
   end
 
