@@ -33,6 +33,7 @@ class GameResponse
       :response => {
         :display_type => type,
         :correct => output_hash[:correct],
+        :errors => output_hash[:errors],
         :result => output_hash[:output]
       }
     }

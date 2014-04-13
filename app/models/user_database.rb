@@ -9,11 +9,12 @@ class UserDatabase < ActiveRecord::Base
   end
   
   def execute(query, level)
-    correct = nil
+    correct = true
     last_result = nil
+    errors = []
+    if level.level_type == "read"
   	begin
   		connection.transaction do |conn|
-        # if level.type == "read"
     			begin
             last_result=conn.exec(query)
             correct = (level.correct_answer?(last_result)) 
@@ -24,10 +25,36 @@ class UserDatabase < ActiveRecord::Base
           end
   			  raise RollbackFlag
     		end
-      # end
   	rescue RollbackFlag
        {:correct => correct, :errors => errors, :output => last_result}
   	end
+
+    elsif level.level_type == "write"
+      begin
+        connection.transaction do |conn|
+        begin
+          last_result=conn.exec(query)
+          begin
+            level.level_tests.each do |test|
+              if test.expected_output != conn.exec(test.test_query).to_a.to_s
+                errors << test.error_message
+                correct = false
+              end
+            end
+          rescue
+            errors = ["You changed the table in an unexpected way. Try again!"]
+            correct = false
+          end
+        rescue PG::Error => e
+          last_result = e.to_s
+          correct = false            
+        end
+          raise RollbackFlag
+        end
+      rescue RollbackFlag
+         {:correct => correct, :errors => errors, :output => last_result}
+      end
+    end
   end
 
   def load_level(level)

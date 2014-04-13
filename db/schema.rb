@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140413175320) do
     t.string   "database_path"
     t.text     "dump"
     t.text     "answer"
-    t.string   "type"
+    t.string   "level_type"
   end
 
   create_table "user_databases", force: true do |t|
