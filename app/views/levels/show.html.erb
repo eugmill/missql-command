@@ -3,6 +3,9 @@
 		<aside id="portrait">
 		</aside>
 		<div id="level-text">
+			<% @level_pages.each do |page| %>
+			<p> <%= page.content %> </p>
+			<% end %>
 		</div>
 	</section>
 	<section id="repl">

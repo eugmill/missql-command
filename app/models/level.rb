@@ -1,5 +1,6 @@
 class Level < ActiveRecord::Base
   has_many :user_databases
+  has_many :level_pages
 
   before_create :load_dump
 
@@ -16,4 +17,8 @@ class Level < ActiveRecord::Base
     self.answer == result.to_a.to_s
   end
 
+  def ordered_pages
+    self.level_pages.order(:page_number)
+  end
+  
 end
