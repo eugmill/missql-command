@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.pane{
+	border-width: 4px 4px 0px 0px;
+	border-style: solid;
+	border-color: #444444;
+}

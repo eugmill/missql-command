@@ -1,4 +1,4 @@
-##Basic Algorithm For "checking out" a level
+##Basic Procedure For "checking out" a level
 
 -User adds level to their associations
 	- Level contains names of all associated tables
