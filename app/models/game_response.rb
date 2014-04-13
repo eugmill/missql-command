@@ -14,7 +14,11 @@ class GameResponse
   # end
 
   def type
-    output_hash[:output].class == PG::Result ? "table" : "string"
+    if output_hash[:output].class == PG::Result && output_hash[:output].to_a.length > 0
+      "table"
+    else 
+      "string"
+    end
     # we have an edge case here. if a user does a write statement on a read level, and does not throw 
     # an exception, this method will break. we want to return a string, but the method will return "table".
   end
