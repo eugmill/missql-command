@@ -6,9 +6,12 @@
 			<% @level_pages.each do |page| %>
 			<p> <%= page.content %> </p>
 			<% end %>
+			
+			<%= link_to "Congrats you dont suck! Move on up.",level_path(@level.next_level) if @level.next_level %>
 		</div>
 	</section>
 	<section id="repl">
+		<pre id="messages-text"></pre>
 		<div id="output" class="pane">
 			<pre id="output-text"></pre>
 		</div>

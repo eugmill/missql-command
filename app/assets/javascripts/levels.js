@@ -8,6 +8,11 @@ appendToOutput = function(text) {
   return container.html(container.html()+text);
 }
 
+clearOutput = function(){
+  $('div#output pre').html("");
+  $('#messages-text').hide();
+}
+
 drawTable = function(tablearray) {
   var table = getHeader(tablearray[0]);
   table += getRows(tablearray);
@@ -61,10 +66,28 @@ submitQuery = function(text) {
 }
 
 updateView = function(data){
+  clearOutput();
   if (data.response.display_type == "string"){
     appendToOutput(data.response.result)
   } else if (data.response.display_type == "table"){
     drawTable(data.response.result)
+  }
+  showMessages(data.response)
+}
+
+showMessages = function(response){
+  var message = ""
+  if(response.correct){
+    message = "Good job, you can go on now."
+  }
+  else if(response.errors.length > 0){
+    for(err in response.errors){
+      message+=response.errors[err]+"\n";
+    }
+  }
+  if(message.length>0){
+    $('#messages-text').html(message);
+    $('#messages-text').show();
   }
 }
 

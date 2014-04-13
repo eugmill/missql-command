@@ -19,6 +19,7 @@ level_2.level_pages.build(:page_number => 2, :content => "Some more stuff.")
 level_2.level_pages.build(:page_number => 3, :content => "Super duper lesson goes here.")
 
 level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Tsar Bomba is not the right strength. Try again.")
+level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Womp Womp. Try again.")
 
 
 level_2.save
