@@ -8,18 +8,25 @@ class UserDatabase < ActiveRecord::Base
   	@connection ||= PG.connect(:dbname => self.name)
   end
   
-  def execute(query)
+  def execute(query, level)
+    correct = nil
+    last_result = nil
   	begin
   		connection.transaction do |conn|
-  			begin
-          @last_result=conn.exec(query)
-        rescue PG::Error => e
-          @last_result = e
-        end
-  			raise RollbackFlag
-  		end
+        # if level.type == "read"
+    			begin
+            last_result=conn.exec(query)
+            correct = (level.correct_answer?(last_result)) 
+            errors = "You selected the wrong rows. Take a closer look!" if !correct
+          rescue PG::Error => e
+            last_result = e.to_s
+            correct = false            
+          end
+  			  raise RollbackFlag
+    		end
+      # end
   	rescue RollbackFlag
-  		@last_result
+       {:correct => correct, :errors => errors, :output => last_result}
   	end
   end
 

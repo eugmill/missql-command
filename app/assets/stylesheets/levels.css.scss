@@ -42,6 +42,8 @@ body{
 	background-color: #333333;
 	z-index: 3;
 	box-sizing: inherit;
+	color: white;
+
 }
 #repl{
 	position: absolute;
@@ -80,8 +82,9 @@ div#repl div#output{
 	min-height: 100%;
 	height: auto;
 	box-sizing: inherit;
-
+	color: #66ff33;
 }
+
 #command-input{
 	position: absolute;
 	right: 0;

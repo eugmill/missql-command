@@ -8,6 +8,13 @@ appendToOutput = function(text) {
   return container.html(text);
 }
 
+drawTable = function(array) {
+  appendToOutput(array.toString());
+  // array.each(function(el){
+  //   appendToOutput(el);
+  // })
+}
+
 submitQuery = function(text) {
   $.post('/query', 
         {sql_command: text},
@@ -17,7 +24,11 @@ submitQuery = function(text) {
 }
 
 updateView = function(data){
-  alert(data);
+  if (data.response.display_type == "string"){
+    appendToOutput(data.response.result)
+  } else if (data.response.display_type == "table"){
+    drawTable(data.response.result)
+  }
   console.log(data);
 }
 

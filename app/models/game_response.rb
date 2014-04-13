@@ -5,41 +5,35 @@ class GameResponse
     self.query = query
   end
 
-  def pg_output
-    @pg_output ||= self.user.user_database.execute(self.query)
+  def output_hash
+    @output_hash ||= self.user.user_database.execute(self.query, self.user.current_level)
   end
 
-  def correct?
-    if error?
-      false
-    else
-      @correct ||= user.current_level.correct_answer?(pg_output)
-    end
-  end
-
-  def error?
-    pg_output.class != PG::Result
-  end
+  # def error?
+  #   output_hash[:output].class != PG::Result
+  # end
 
   def type
-    error? ? "error" : "table"
+    output_hash[:output].class == PG::Result ? "table" : "string"
+    # we have an edge case here. if a user does a write statement on a read level, and does not throw 
+    # an exception, this method will break. we want to return a string, but the method will return "table".
   end
 
-  def result_array
-    if type == "error"
-      [pg_output.to_s]
-    elsif type == "table"
-      pg_output.to_a
-    end
-  end
+  # def result_array
+  #   if type == "error"
+  #     [output_hash.to_s]
+  #   elsif type == "table"
+  #     output_hash.to_a
+  #   end
+  # end
 
   def json    
     {
       :query => self.query,
       :response => {
-        :type => type,
-        :correct => self.correct?,
-        :result => result_array
+        :display_type => type,
+        :correct => output_hash[:correct],
+        :result => output_hash[:output]
       }
     }
   end

@@ -1,6 +1,7 @@
 class Level < ActiveRecord::Base
   has_many :user_databases
   has_many :level_pages
+  has_many :level_tests
 
   before_create :load_dump
 
@@ -20,5 +21,5 @@ class Level < ActiveRecord::Base
   def ordered_pages
     self.level_pages.order(:page_number)
   end
-  
+
 end
