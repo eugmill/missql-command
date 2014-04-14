@@ -32,12 +32,22 @@ RSpec.configure do |config|
   # Database cleaner
   config.before(:suite) do
     User.destroy_all
+    Level.destroy_all
     DatabaseCleaner.clean_with(:truncation)
+    `RAILS_ENV=test rake missql:kill_postgres_connections`
+    Level.load_from_yaml("./db/levels/lvl1.yml")
+    Level.load_from_yaml("./db/levels/lvl2.yml")
+  end
+
+  config.after(:suite) do
+    `RAILS_ENV=test rake missql:clean`
+    DatabaseCleaner.clean_with(:truncation)
+    ActiveRecord::Base.remove_connection    
   end
 
   config.after(:each) do
     User.destroy_all
-    DatabaseCleaner.clean_with(:truncation)
+    # DatabaseCleaner.clean_with(:truncation)
   end  
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

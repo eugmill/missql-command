@@ -23,10 +23,24 @@ namespace :missql do
   end
 
   desc "Delete first 20 user_databases in a pretty hacky way. "
-  task :clean do
+  task :clean => :kill_postgres_connections do
     20.times do |i|
       `dropdb user_database_#{Rails.env}_#{i}`
     end
   end
 
+  task :kill_postgres_connections => :environment do
+    20.times do |i|
+      db_name = "user_database_#{Rails.env}_#{i}"
+      sh = <<-EOF
+      ps xa \
+        | grep postgres: \
+        | grep #{db_name} \
+        | grep -v grep \
+        | awk '{print $1}' \
+        | xargs kill
+      EOF
+      puts `#{sh}`
+    end
+  end
 end
