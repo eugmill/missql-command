@@ -7,9 +7,9 @@
 <section id="left-pane" class="pane">
 	<aside id="portrait">
 	</aside>
-	<div id="level-text">
+	<div id="level-pages">
 		<% @level_pages.each do |page| %>
-		<p> <%= page.content.html_safe %> </p>
+		<article class="level"> <%= page.content.html_safe %> </article>
 		<% end %>
 	</div>
 </section>
