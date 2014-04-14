@@ -97,6 +97,7 @@ describe "Session" do
       fill_in 'Password', :with => @user.password
       fill_in 'Password confirmation', :with => @user.password
       click_button 'Create User'
+      click_link('Logout')
       visit '/users/new'
       fill_in 'User name', :with => @user.user_name
       fill_in 'Email', :with => @user.email
