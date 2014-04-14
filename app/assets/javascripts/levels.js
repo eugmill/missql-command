@@ -96,5 +96,12 @@ $(document).ready(function() {
   $('#execute').on("click",function(){
       var text = $('#sql-command').val();
       return submitQuery(text);
-    })
+    });
+
+  $(document).keypress(13,function(e) {
+  if(e.ctrlKey)
+     $('#execute').click()
+  });
+
+  
 })
