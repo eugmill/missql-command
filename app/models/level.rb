@@ -2,6 +2,7 @@ class Level < ActiveRecord::Base
   has_many :user_databases
   has_many :level_pages, :dependent => :destroy
   has_many :level_tests, :dependent => :destroy
+  has_many :level_schemas, :dependent => :destroy
 
   before_create :load_dump
 
@@ -27,7 +28,14 @@ class Level < ActiveRecord::Base
         new_level.level_tests << LevelTest.new(test)
       end
     end
-
+    if config["level_schemas"]
+      config["level_schemas"].each do |schema|
+        new_schema = new_level.level_schemas.create(:table_name=> schema["table_name"])
+          schema["schema_columns"].each do |column|
+            new_schema.schema_columns << SchemaColumn.new(column)
+          end
+      end
+    end
   end
 
   def correct_answer?(result)

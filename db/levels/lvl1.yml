@@ -13,3 +13,12 @@ level_pages:
     content: "<p>So let's get started. We've created a small database, with a single table : <strong>cities</strong></p><p>Your first task is just to pull the list of cities from the database<p><p>You'll do that with a <strong>SELECT</strong> query. Here's what the syntax for a select query looks like:</p><p><span class='green'>SELECT [column] FROM [table];</span></p>"
   - page_number: 3
     content: "<p>Here's an example:</p><p><span class=green>SELECT age FROM cats;</span></p><p>That would the <strong>age</strong> column from the cats table. Why don't you give it a try by returning the <strong>name</strong> column from the <strong>cities</strong> table."
+level_schemas:
+  - table_name: "cities"
+    schema_columns: 
+      - column_name: "id"
+        column_type: "serial"
+      - column_name: "name"
+        column_type: "varchar(255)"
+      - column_name: "population"
+        column_type: "integer"
