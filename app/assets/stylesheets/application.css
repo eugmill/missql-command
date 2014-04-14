@@ -15,91 +15,39 @@
  *= require_self
  */
  body{
-  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
- }
- body a {
-  color: white;
- }
-
- header h2 {
-  padding: 0 1em 0 0;
-  display: inline-block;
-  margin: 0;
- }
-
- header {
   position: absolute;
-  top:0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  z-index: 4;
-  height: 40px;
-  color: white;
-  background-color: #333333;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 5px;
- }
-
- header span.session{
-  display: inline-block;
-  float: right;
-  position: relative;
-  top: 6px;
-  padding-right: 1em;
- }
-
- header img.header-logo{
-  padding: 2px 1em 0 0;
- }
-
-nav {
-  width: 300px;
-  height: 30px;
-  display: block;
-  float: right;
-  position: relative;
-  border: 1px solid #666666;
-  padding: 5px 1em;
-  box-sizing: inherit;
-}
-
-nav:hover {
-}
-
-nav ul.nav-links {
-  display: none;
-}
-
-nav:hover ul.nav-links {
-  display: block;
-  position: absolute;
-  background-color: #333333;  
-  top: 28px;
-  left: -1px;
-  width: 300px;
-  height: auto;
-  list-style: none;
+  min-width: 800px;
+  height: 100%;
   padding: 0;
   margin: 0;
-  border: 1px solid #666666;;  
-  box-sizing: inherit;
+  font-size: 16px;
+  color: white;
+  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
 }
 
-nav:hover ul.nav-links li {
-  display: block;
+body a {
+  color: white;
+}
+
+#content{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
   width: 100%;
-  height: auto;
-  padding: .5em 1em;
-  border-bottom: 1px solid #666666;
-  box-sizing: inherit;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.pane{
-	border-width: 4px 4px 0px 0px;
-	border-style: solid;
-	border-color: #333333;
+input{
+  background-color: black;
+  color: #00ff00;
+  outline: none;
+  padding: .25em;
+  border: 1px solid #00ff00;
 }

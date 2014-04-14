@@ -1,32 +1,12 @@
-body{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	font-size: 16px;
-	font-color: white;
-	text-shadow: -1px 1px 0px #333333, -1px 0px 0px #333333;
-}
-
-#content{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 100%;
-	width: 100%;
-	background-color: #333333;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+@mixin border-box{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+
 #left-pane{
 	position: absolute;
 	top: 0px;
@@ -36,7 +16,7 @@ body{
 	padding: 40px .5em .5em .5em;
 	background-color: black;
 	z-index: 3;
-	box-sizing: inherit;
+	@include border-box;
 	color: white;
 
 }
@@ -50,7 +30,7 @@ body{
 	height: 100%;
 	background-color: #333333;
 	z-index: 1;
-	box-sizing: inherit;
+	@include border-box;
 	font-family: Consolas, monaco, monospace;
 }
 div#repl div#output{
@@ -68,7 +48,7 @@ div#repl div#output{
 	z-index: 1;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	box-sizing: inherit;
+	@include border-box;
 }
 #output pre{
 	position: relative;
@@ -78,7 +58,7 @@ div#repl div#output{
 	width: 100%;
 	min-height: 100%;
 	height: auto;
-	box-sizing: inherit;
+	@include border-box;
 	color: #66ff33;
 }
 
@@ -90,41 +70,44 @@ div#repl div#output{
 	width: 100%;
 	height: auto;
 	padding: 0 0 0 350px;
-	box-sizing: inherit;
+	@include border-box;
 	z-index: 2;
-	box-sizing: inherit;
+	@include border-box;
+	background-color: black;
 }
 #command-input #sql-command{
 	display: block;
 	width: 100%;
-	box-sizing: inherit;
+	@include border-box;
 	height: 125px;
 	resize: none;
 	background-color: black;
 	color: #66ff33;
-	box-sizing: inherit;
-	padding: 1em 1em 4em 1em;
+	@include border-box;
+	padding: 1em 1em 1em 1em;
+	margin-bottom: 4em;
 	font-size: 1em;
 	line-height: 1.5;
 	outline: none;
 	border: none;
 }
 #command-input #execute{
+	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
 	position: absolute;
-	bottom: 2px;
-	right: 2px;
+	bottom: 4px;
+	right: 6px;
 	z-index: 3;
 	display: block;
 	width: auto;
-	box-sizing: inherit;
+	@include border-box;
+	box-shadow: -2px 0px 0px 0px #66ff33, 0px -2px 0px 0px #66ff33, 0px 2px 0px 0px #66ff33, 2px 0px 0px 0px #66ff33;
 	font-size: 1em;
 	line-height: 1;
 	padding: .75em;
-	border: 1px solid #00cc00;
-	background-color:rgba(0, 255, 0, 0.25);
+	border: 0px solid transparent;
+	background-color: black;
 	border-radius: 2px;
 	color: #66ff33;
-	text-shadow: -1px 0px 0px #66ff33, 0px -1px 0px #66ff33, 1px 0px 0px #66ff33, 0px 1px 0px #66ff33;
 }
 
 span.error{
@@ -140,7 +123,7 @@ span.message{
 	position: absolute;
 	top: 0;
 	left: 0;
-	box-sizing: inherit;
+	@include border-box;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,.5);
@@ -158,5 +141,5 @@ span.message{
 	background-color: #333333;
 	border: 4px solid #444444;
 	padding: 2em;
-	box-sizing: inherit;
+	@include border-box;
 }
