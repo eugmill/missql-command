@@ -1,7 +1,7 @@
 <div id="next-level-modal">
 	<div class="modal-content">
 		<h1>Congratulations, you passed this challenge!</h1>	
-		<%= link_to "Move on to the next level >",level_path(@level.next_level) if @level.next_level %>
+		<%= link_to "Move on to the next level >","/levels/#{@level.next_level.stage_number}" if @level.next_level %>
 	</div>
 </div>
 <section id="left-pane" class="pane">

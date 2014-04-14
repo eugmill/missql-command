@@ -6,7 +6,7 @@
 		<span>Levels ▾</span>
 		<ul class="nav-links">
 			<% @levels.each do |level| %>
-			<li><%= link_to "##{level.stage_number.to_s} #{level.title}", level_path(level) %> </li>
+			<li><%= link_to "##{level.stage_number.to_s} #{level.title}", "/levels/#{level.stage_number}" %> </li>
 			<% end %>
 		</ul>
 	</nav>
