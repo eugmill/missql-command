@@ -115,12 +115,38 @@ showMessages = function(response){
   }
 }
 
+swapPage = function($arrowEl){
+  var curPage = $("article.level-page.active"),
+      count = $("article.level-page").length,
+      curNum = curPage.data('page-number'),
+      nextNum = 0,
+      nextPage = {};
+  if($arrowEl.hasClass('left')){
+    nextNum = (curNum - 1 < 0) ? count : curNum - 1;
+  } else{
+    nextNum = (curNum + 1 > count - 1) ? 0 : curNum + 1;
+  }
+    nextPage = $("article.level-page[data-page-number='"+ nextNum +"']");
+    curPage.toggleClass("active"); 
+    nextPage.toggleClass("active");
+    return updatePageNumber(nextNum + 1)
+}
+updatePageNumber = function(number){
+  var pagenumber = $("span#page-number");
+  return pagenumber.html(number)
+}
+
 $(document).ready(function() {
 
   $('#execute').on("click",function(){
       var text = $('#sql-command').val();
       return submitQuery(text);
     });
+
+  $('#pages-nav').on("click", function(e){
+    var arrow = $(e.target);
+    return swapPage(arrow);
+  });
 
   $(document).keypress(13,function(e) {
   if(e.ctrlKey)
