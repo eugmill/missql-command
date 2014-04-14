@@ -11,24 +11,29 @@
 # level_1.save
 Level.load_from_yaml("./db/levels/lvl1.yml")
 
-level_2 = Level.create(:title => "Shoot down the nuke about to kill your family!", 
-  :prompt => "Alter the strength of Tsar Bomba so it is 1 megaton", 
-  :database_path =>"db/dumps/lvl2.sql", :stage_number=> 2, 
-  :answer=>"[{\"1134000\"}]",
-  :level_type => "write")
-level_2.level_pages.build(:page_number => 1, :content => "You can also use SQL to change the values within tables.")
-level_2.level_pages.build(:page_number => 2, :content => "Some more stuff.")
-level_2.level_pages.build(:page_number => 3, :content => "Super duper lesson goes here.")
 
-level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Tsar Bomba is not the right strength. Try again.")
-level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Womp Womp. Try again.")
+# level_2 = Level.create(:title => "Shoot down the nuke about to kill your family!", 
+#   :prompt => "Alter the strength of Tsar Bomba so it is 1 megaton", 
+#   :database_path =>"db/dumps/lvl2.sql", :stage_number=> 2, 
+#   :answer=>"[{\"1134000\"}]",
+#   :level_type => "write")
+# level_2.level_pages.build(:page_number => 1, :content => "You can also use SQL to change the values within tables.")
+# level_2.level_pages.build(:page_number => 2, :content => "Some more stuff.")
+# level_2.level_pages.build(:page_number => 3, :content => "Super duper lesson goes here.")
+
+# level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Tsar Bomba is not the right strength. Try again.")
+# level_2.level_tests.build(:test_query => "SELECT megatons from missiles where name ='Tsar Bomba';", :expected_output => "[{\"megatons\"=>\"1\"}]", :error_message => "Womp Womp. Try again.")
+
+# level_2.save
+Level.load_from_yaml("./db/levels/lvl2.yml")
 
 
-level_2.save
+level_1 = Level.find_by(:stage_number => 1);
+level_2 = Level.find_by(:stage_number => 2);
 
 #Create test users
 test_user = User.create(:user_name => "Test User", :email => "test@test.com", :password => "test", :password_confirmation => "test")
-test_user.user_database.load_level(Level.first)
+test_user.user_database.load_level(level_1)
 
 test_user_2 = User.create(:user_name => "Test User 2", :email => "test2@test.com", :password => "test", :password_confirmation => "test")
 test_user_2.user_database.load_level(level_2)

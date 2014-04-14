@@ -1,0 +1,21 @@
+level: 
+  stage_number: 2
+  title: "Save the city by weakening the missile!"
+  prompt: "Alter the strength of Tsar Bomba so it is 1 megaton"
+  database_path: "db/dumps/lvl2.sql"
+  answer: ""
+  level_type: "write"
+level_tests:
+  - test_query: "SELECT megatons from missiles where name ='Tsar Bomba';"
+    expected_output: "[{\"megatons\"=>\"1\"}]"
+    error_message: "Tsar Bomba is not the right strength. Try again."
+  - test_query: "SELECT megatons from missiles where name ='Tsar Bomba';"
+    expected_output: "[{\"megatons\"=>\"1\"}]"
+    error_message: "This is a second test just to see if we show both."
+level_pages:
+  - page_number: 1
+    content: "<p>Level 2 buddy</p>"
+  - page_number: 2
+    content: "<p>Alter Tsar Bomba so it is 0 megatons</p>"
+  - page_number: 3
+    content: "<p>This is page 3</p>"
