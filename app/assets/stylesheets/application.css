@@ -25,6 +25,36 @@
   background-color: white;
  }
 
+nav {
+  width: 300px;
+  height: 30px;
+  display: block;
+  float: right;
+  position: relative;
+}
+
+nav ul.nav-links {
+  display: none;
+}
+
+nav:hover ul.nav-links {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav:hover ul.nav-links li {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .pane{
 	border-width: 4px 4px 0px 0px;
 	border-style: solid;
