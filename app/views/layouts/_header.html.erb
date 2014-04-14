@@ -1,4 +1,5 @@
 <header>
+	<h2> Missql Command </h2>
 	<% if current_user -%>
 		<%= "Logged in as #{current_user.email}" -%>
 		<%= link_to("Logout", logout_path) -%>
@@ -7,6 +8,7 @@
 		<%= link_to("Login", login_path) -%>
 	<% end -%>
 	<nav>
+		<span> Levels ▾ </span>
 		<ul class="nav-links">
 			<% if current_user %>
 			<% @levels.each do |level| %>

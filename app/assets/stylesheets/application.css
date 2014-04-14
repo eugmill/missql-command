@@ -15,6 +15,16 @@
  *= require_self
  */
 
+ body a {
+  color: white;
+ }
+
+ header h2 {
+  padding: 0 1em 0 0;
+  display: inline-block;
+  margin: 0;
+ }
+
  header {
   position: absolute;
   top:0;
@@ -22,7 +32,14 @@
   width: 100%;
   z-index: 4;
   height: 40px;
-  background-color: white;
+  color: white;
+  background-color: #444444;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
  }
 
 nav {
@@ -31,6 +48,12 @@ nav {
   display: block;
   float: right;
   position: relative;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: inherit;
+}
+
+nav:hover {
 }
 
 nav ul.nav-links {
@@ -40,19 +63,25 @@ nav ul.nav-links {
 nav:hover ul.nav-links {
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
+  background-color: #444444;  
+  top: 28px;
+  left: -1px;
   width: 300px;
   height: auto;
   list-style: none;
   padding: 0;
   margin: 0;
+  border: 1px solid black;  
+  box-sizing: inherit;
 }
 
 nav:hover ul.nav-links li {
   display: block;
   width: 100%;
   height: auto;
+  padding: 1em;
+  border-bottom: 1px solid black;
+  box-sizing: inherit;
 }
 
 .pane{
