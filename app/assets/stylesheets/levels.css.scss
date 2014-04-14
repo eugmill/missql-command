@@ -135,3 +135,29 @@ span.error{
 span.message{
 	color:orange;
 }
+
+#next-level-modal{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: inherit;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+	z-index: 10;
+}
+#next-level-modal.active{
+	display: block;
+}
+#next-level-modal div.modal-content{
+	position: relative;
+	width: 500px;
+	height: auto;
+	top: 50%;
+	margin: -250px auto auto auto;
+	background-color: #444444;
+	border: 4px solid #333333;
+	padding: 2em;
+	box-sizing: inherit;
+}
