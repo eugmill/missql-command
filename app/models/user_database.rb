@@ -18,7 +18,7 @@ class UserDatabase < ActiveRecord::Base
     			begin
             last_result=conn.exec(query)
             correct = (level.correct_answer?(last_result)) 
-            errors = "You selected the wrong rows. Take a closer look!" if !correct
+            errors << "You selected the wrong rows. Take a closer look!" if !correct
           rescue PG::Error => e
             last_result = e.to_s
             correct = false            

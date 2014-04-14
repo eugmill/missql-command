@@ -10,9 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
+
+ header {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  height: 40px;
+  background-color: white;
+ }
 
 .pane{
 	border-width: 4px 4px 0px 0px;

@@ -67,12 +67,12 @@ submitQuery = function(text) {
 
 updateView = function(data){
   clearOutput();
+  showMessages(data.response)
   if (data.response.display_type == "string"){
     appendToOutput(data.response.result)
   } else if (data.response.display_type == "table"){
     drawTable(data.response.result)
   }
-  showMessages(data.response)
 }
 
 showMessages = function(response){
@@ -86,8 +86,8 @@ showMessages = function(response){
     }
   }
   if(message.length>0){
-    $('#messages-text').html(message);
-    $('#messages-text').show();
+    var container = $('div#output pre');
+    container.append($('<span class="message">'+message+'</span>'));
   }
 }
 

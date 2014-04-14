@@ -74,6 +74,7 @@ GEM
     multi_json (1.9.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    normalize-rails (3.0.1)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -170,6 +171,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  normalize-rails
   pg
   pry
   rack-test
