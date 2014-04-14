@@ -1,14 +1,15 @@
+# Answer : SELECT name from cities
 level: 
   stage_number: 1
   title: "Welcome to Missql Command!"
   prompt: "Welcome to Missql Command! Write your first basic query."
   database_path: "db/dumps/lvl1.sql"
-  answer: "[{\"id\"=>\"1\", \"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"id\"=>\"2\", \"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"id\"=>\"3\", \"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"id\"=>\"4\", \"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"id\"=>\"5\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"id\"=>\"6\", \"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"id\"=>\"7\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+  answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Hello Commander! Welcome to Missql Command! Your job is to defend the worlds cities from a missile attack, and learn some SQL along the way.</p><p>SQL is a language used to access a relational database. A relational database is composed of tables, which are similar to spreadsheets.</p>"
+    content: "<h2>Armed and ready!</h2><p>Hello Commander, and welcome to Missql Command! Your job is to defend the worlds cities from a missile attack (and learn some <strong>SQL</strong> along the way!).</p><p><strong>SQL</strong> is a language used to accesss and interact with relational databases.</p><p>So what is a relation databse? A relational database is composed of tables, which are similar to spreadsheets.</p>"
   - page_number: 2
-    content: "<p>The first SQL lesson is on how to select data from a table.</p>"
+    content: "<p>So let's get started. We've created a small database, with a single table : <strong>cities</strong></p><p>Your first task is just to pull the list of cities from the database<p><p>You'll do that with a <strong>SELECT</strong> query. Here's what the syntax for a select query looks like:</p><p><span class='green'>SELECT [column] FROM [table];</span></p>"
   - page_number: 3
-    content: "<p>A SELECT statement is how you pull specific data from a table. See the example below:</p>"
+    content: "<p>Here's an example:</p><p><span class=green>SELECT age FROM cats;</span></p><p>That would the <strong>age</strong> column from the cats table. Why don't you give it a try by returning the <strong>name</strong> column from the <strong>cities</strong> table."
