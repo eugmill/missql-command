@@ -1,20 +1,22 @@
 <header>
-	<h2> Missql Command </h2>
-	<% if current_user -%>
-		<%= "Logged in as #{current_user.email}" -%>
+
+	<a href="/"><img src="/assets/missql-logo-8.png" alt="MISSQL COMMAND" class="header-logo" /></a>
+
+	<nav>
+		<span>Levels ▾</span>
+		<ul class="nav-links">
+			<% @levels.each do |level| %>
+			<li><%= link_to "##{level.stage_number.to_s} #{level.title}", level_path(level) %> </li>
+			<% end %>
+		</ul>
+	</nav>
+
+		<span class="session"><% if current_user -%>
+		<%= "#{current_user.display_name} | " -%>
 		<%= link_to("Logout", logout_path) -%>
 	<% else -%>
 		<%= link_to("Sign Up", users_new_path) -%> or
 		<%= link_to("Login", login_path) -%>
-	<% end -%>
-	<% if current_user %>
-	<nav>
-		<span> Levels ▾ </span>
-		<ul class="nav-links">
-			<% @levels.each do |level| %>
-			<li><%= link_to level.title+" "+level.stage_number.to_s, level_path(level) %> </li>
-			<% end %>
-		</ul>
-	</nav>
-	<% end %>
+	<% end -%></span>
+
 </header>

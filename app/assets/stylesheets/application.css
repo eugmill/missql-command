@@ -14,7 +14,9 @@
  *= require_tree .
  *= require_self
  */
-
+ body{
+  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+ }
  body a {
   color: white;
  }
@@ -33,7 +35,7 @@
   z-index: 4;
   height: 40px;
   color: white;
-  background-color: #444444;
+  background-color: #333333;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -42,14 +44,26 @@
   padding: 5px;
  }
 
+ header span.session{
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: 6px;
+  padding-right: 1em;
+ }
+
+ header img.header-logo{
+  padding: 2px 1em 0 0;
+ }
+
 nav {
   width: 300px;
   height: 30px;
   display: block;
   float: right;
   position: relative;
-  border: 1px solid black;
-  padding: 5px;
+  border: 1px solid #666666;
+  padding: 5px 1em;
   box-sizing: inherit;
 }
 
@@ -63,7 +77,7 @@ nav ul.nav-links {
 nav:hover ul.nav-links {
   display: block;
   position: absolute;
-  background-color: #444444;  
+  background-color: #333333;  
   top: 28px;
   left: -1px;
   width: 300px;
@@ -71,7 +85,7 @@ nav:hover ul.nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid black;  
+  border: 1px solid #666666;;  
   box-sizing: inherit;
 }
 
@@ -79,13 +93,13 @@ nav:hover ul.nav-links li {
   display: block;
   width: 100%;
   height: auto;
-  padding: 1em;
-  border-bottom: 1px solid black;
+  padding: .5em 1em;
+  border-bottom: 1px solid #666666;
   box-sizing: inherit;
 }
 
 .pane{
 	border-width: 4px 4px 0px 0px;
 	border-style: solid;
-	border-color: #444444;
+	border-color: #333333;
 }

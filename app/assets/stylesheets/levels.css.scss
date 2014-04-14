@@ -17,7 +17,7 @@ body{
 	left: 0px;
 	height: 100%;
 	width: 100%;
-	background-color: #444444;
+	background-color: #333333;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -33,9 +33,8 @@ body{
 	left: 0px;
 	width: 350px;
 	height: 100%;
-	padding-top:40px;
-	padding-left: 5px;
-	background-color: #333333;
+	padding: 40px .5em .5em .5em;
+	background-color: black;
 	z-index: 3;
 	box-sizing: inherit;
 	color: white;
@@ -52,6 +51,7 @@ body{
 	background-color: #333333;
 	z-index: 1;
 	box-sizing: inherit;
+	font-family: Consolas, monaco, monospace;
 }
 div#repl div#output{
 	width: 100%;
@@ -106,7 +106,6 @@ div#repl div#output{
 	padding: 1em 1em 4em 1em;
 	font-size: 1em;
 	line-height: 1.5;
-	font-family: Courier, monospace;
 	outline: none;
 	border: none;
 }
@@ -156,8 +155,8 @@ span.message{
 	height: auto;
 	top: 50%;
 	margin: -250px auto auto auto;
-	background-color: #444444;
-	border: 4px solid #333333;
+	background-color: #333333;
+	border: 4px solid #444444;
 	padding: 2em;
 	box-sizing: inherit;
 }
