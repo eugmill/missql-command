@@ -17,6 +17,7 @@ class UserDatabase < ActiveRecord::Base
   		connection.transaction do |conn|
     			begin
             last_result=conn.exec(query)
+            binding.pry
             correct = (level.correct_answer?(last_result)) 
             errors << "You selected the wrong rows. Take a closer look!" if !correct
           rescue PG::Error => e
