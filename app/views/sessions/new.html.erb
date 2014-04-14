@@ -1,6 +1,6 @@
-<h1>Login</h1>
+<h1 class="login">Login</h1>
 
-<%= form_tag(sessions_path) do %>
+<%= form_tag(sessions_path, {:class => 'login_form'}) do %>
   <p>  
     <%= label_tag "user_name","Username:" %>
     <input id="user_name" name="user[user_name]" type="text" />

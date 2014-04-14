@@ -1,11 +1,11 @@
-<%= form_for @user do |f|%>
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit %>
-  <% end %>
+<%= form_for @user, :html => {:class => 'sign_up_form'} do |f|%>
+<p>  <%= f.label :user_name %> </p>
+<p>  <%= f.text_field :user_name %> </p>
+<p>  <%= f.label :email %> </p>
+<p>  <%= f.text_field :email %> </p>
+<p>  <%= f.label :password %> </p>
+<p>  <%= f.password_field :password %> </p>
+<p>  <%= f.label :password_confirmation %> </p>
+<p>  <%= f.password_field :password_confirmation %> </p>
+<p>  <%= f.submit %> </p>
+<% end %>

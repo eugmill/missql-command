@@ -7,14 +7,14 @@
 		<%= link_to("Sign Up", users_new_path) -%> or
 		<%= link_to("Login", login_path) -%>
 	<% end -%>
+	<% if current_user %>
 	<nav>
 		<span> Levels ▾ </span>
 		<ul class="nav-links">
-			<% if current_user %>
 			<% @levels.each do |level| %>
 			<li><%= link_to level.title+" "+level.stage_number.to_s, level_path(level) %> </li>
 			<% end %>
-			<% end %>
 		</ul>
 	</nav>
+	<% end %>
 </header>
