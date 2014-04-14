@@ -18,15 +18,23 @@
 	color: white;
 
 }
-
+#left-pane #hed{
+	padding: 1em;
+}
 #left-pane #level-pages{
 	@include border-box;
-	padding: .5em;
-	border-top: 4px solid #333333;
-	position: relative;
+	padding: 1em;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
-	height: 400px;
-	overflow: hidden;
+	height: auto;
+	min-height: 200px;
+	max-height: 500px;
+	padding-bottom: 75px;
+}
+
+#level-pages h4{
+	margin-top: 0;
 }
 
 #level-pages article.level-page{
@@ -36,10 +44,9 @@
 #level-pages article.level-page.active{
 	display: block;
 	overflow-y: scroll;
-	height: 100%;
+	height: auto;
 	@include border-box;
-	padding-bottom: 30px;
-	padding: 0;
+	padding: .5em 0;
 	margin: 0;
 }
 #level-pages #pages-nav{
@@ -47,16 +54,22 @@
 	position: absolute;
 	width: 100%;
 	@include border-box;
-	padding: 0 1em 1.5em 1em;
-	bottom: 0;
+	padding: 0 1em 0 1em;
+	bottom: 5px;
 	left: 0;
-	height: 22px;
+	height: 50px;
 	margin: 0;
 }
+span#page-number, span#number-of-pages{
+	position: relative;
+	top: .8em;
+}
 #pages-nav span.arrow{
+	padding: 0;
+	margin: 0;
 	display: inline-block;
-	width: 22px;
-	height: 22px;
+	width: 73px;
+	height: 50px;
 	cursor: pointer;
 	background-image: url(/assets/arrow-sprite.png);
 }

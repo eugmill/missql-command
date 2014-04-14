@@ -122,7 +122,7 @@ swapPage = function($arrowEl){
       nextNum = 0,
       nextPage = {};
   if($arrowEl.hasClass('left')){
-    nextNum = (curNum - 1 < 0) ? count : curNum - 1;
+    nextNum = (curNum - 1 < 0) ? count - 1 : curNum - 1;
   } else{
     nextNum = (curNum + 1 > count - 1) ? 0 : curNum + 1;
   }
@@ -144,8 +144,11 @@ $(document).ready(function() {
     });
 
   $('#pages-nav').on("click", function(e){
-    var arrow = $(e.target);
-    return swapPage(arrow);
+    e.preventDefault()
+    var target = $(e.target);
+    if (target.hasClass('arrow')){
+    return swapPage(target);
+    }
   });
 
   $(document).keypress(13,function(e) {
