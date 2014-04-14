@@ -1,7 +1,7 @@
 class Level < ActiveRecord::Base
   has_many :user_databases
-  has_many :level_pages
-  has_many :level_tests
+  has_many :level_pages, :dependent => :destroy
+  has_many :level_tests, :dependent => :destroy
 
   before_create :load_dump
 
@@ -21,6 +21,13 @@ class Level < ActiveRecord::Base
     config["level_pages"].each do |page|
       new_level.level_pages << LevelPage.new(page)
     end
+
+    if config["level_tests"]
+      config["level_tests"].each do |test|
+        new_level.level_tests << LevelTest.new(test)
+      end
+    end
+
   end
 
   def correct_answer?(result)

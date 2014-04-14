@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get 'levels/:id' => 'levels#show', as: :level
+  get 'levels/:stage_number' => 'levels#show', as: :level
 
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
