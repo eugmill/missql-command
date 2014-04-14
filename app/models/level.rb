@@ -14,6 +14,18 @@ class Level < ActiveRecord::Base
     end
   end
 
+  def self.load_from_yaml(path)
+    #config = YAML.load_file("./db/levels/lvl1.yml")
+    # config = YAML.load_file(path)
+    # binding.pry
+    config = YAML.load_file(path)
+    new_level = Level.create(config["level"])
+
+    config["level_pages"].each do |page|
+      new_level.level_pages << LevelPage.new(page)
+    end
+  end
+
   def correct_answer?(result)
     self.answer == result.to_a.to_s
   end
