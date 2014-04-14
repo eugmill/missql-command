@@ -8,7 +8,11 @@
 	<% end %>
 	<nav>
 		<ul class="nav-links">
-			<li></li>
+			<% if current_user %>
+			<% @levels.each do |level| %>
+			<li><%= link_to level.title+" "+level.stage_number.to_s, level_path(level) %> </li>
+			<% end %>
+			<% end %>
 		</ul>
 	</nav>
 </header>
