@@ -20,17 +20,21 @@ drawTable = function(tablearray) {
 }
 
 getHeader = function(row){
-  var headerString = "", 
+  var headerString = "\n", 
       len = "",
       i = 0;
-
+      padding = 15;
   Object.keys(row).forEach(function (key) {
-    headerString += padString(key.toString()) + " | ";
+    padding = 15;
+    if(key.toString()=="id"){
+      padding = 5;
+    }
+    headerString += padString(key.toString(), padding) + " | ";
   });
   len = headerString.length
   
   headerString+="\n";
-  for(i=0; i<len-1; i++){
+  for(i=0; i<len-2; i++){
     headerString+="‾";
   }
   headerString+="\n";
@@ -39,10 +43,15 @@ getHeader = function(row){
 
 getRows = function(tablearray){
   var rowString = "",
-      row = {};
+      row = {}, 
+      padding = 15;
   for (row in tablearray) {
     Object.keys(tablearray[row]).forEach(function (key) {
-      rowString += padString(tablearray[row][key].toString()) + " | ";
+    padding = 15
+    if(key.toString()=="id"){
+      padding = 5;
+    }
+      rowString += padString(tablearray[row][key].toString(), padding) + " | ";
     });
     rowString += "\n";
   }
@@ -50,8 +59,9 @@ getRows = function(tablearray){
 }
 
 
-padString = function(str){
-  while (str.length < 15){
+padString = function(str, length){
+  var len = (length) ? length : 15;
+  while (str.length < len){
     str +=" ";
   }
   return str;
@@ -102,7 +112,7 @@ showMessages = function(response){
   }
   if(message.length>0){
     var container = $('div#output pre');
-    container.append($('<span class="message">'+message+'</span>'));
+    container.append($('<span class="message">'+message+'</span>\n'));
   }
 }
 
