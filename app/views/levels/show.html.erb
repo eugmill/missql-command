@@ -1,4 +1,10 @@
 <main role="main" id="content">
+	<div id="next-level-modal">
+		<div class="modal-content">
+			<h1>Congratulations, you passed this challenge!</h1>	
+			<%= link_to "Move on to the next level >",level_path(@level.next_level) if @level.next_level %>
+		</div>
+	</div>
 	<section id="left-pane" class="pane">
 		<aside id="portrait">
 		</aside>
@@ -6,8 +12,6 @@
 			<% @level_pages.each do |page| %>
 			<p> <%= page.content %> </p>
 			<% end %>
-			
-			<%= link_to "Congrats you dont suck! Move on up.",level_path(@level.next_level) if @level.next_level %>
 		</div>
 	</section>
 	<section id="repl">
