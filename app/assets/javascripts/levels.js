@@ -73,6 +73,21 @@ updateView = function(data){
   } else if (data.response.display_type == "table"){
     drawTable(data.response.result)
   }
+  if (data.response.correct){
+    correctAnswer()
+  }
+}
+
+correctAnswer = function(){
+  toggleModal("#next-level-modal");
+}
+
+toggleModal = function(selector){
+  var $modal = $(selector);
+  $modal.toggleClass("active");
+  return $modal.on('click', function(){
+   toggleModal(selector)
+  })
 }
 
 showMessages = function(response){
