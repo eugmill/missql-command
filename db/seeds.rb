@@ -1,7 +1,7 @@
-#Create test levels
-
-Level.load_from_yaml("./db/levels/lvl1.yml")
-Level.load_from_yaml("./db/levels/lvl2.yml")
+#Load levels
+Dir.glob('db/levels/*.yml') do |yml_file|
+  Level.load_from_yaml(yml_file)
+end
 
 
 level_1 = Level.find_by(:stage_number => 1);

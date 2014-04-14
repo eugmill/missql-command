@@ -8,7 +8,7 @@ level:
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<h2>Armed and ready!</h2><p>Hello Commander, and welcome to Missql Command! Your job is to defend the worlds cities from a missile attack (and learn some <strong>SQL</strong> along the way!).</p><p><strong>SQL</strong> is a language used to accesss and interact with relational databases.</p><p>So what is a relation databse? A relational database is composed of tables, which are similar to spreadsheets.</p>"
+    content: "<h2>Armed and ready!</h2><p>Hello Commander, and welcome to Missql Command! Your job is to defend the worlds cities from a missile attack (and learn some <strong>SQL</strong> along the way!).</p><p><strong>SQL</strong> is a language used to accesss and interact with relational databases.</p><p>So what is a relation database? A relational database is composed of tables, which are similar to spreadsheets.</p>"
   - page_number: 2
     content: "<p>So let's get started. We've created a small database, with a single table : <strong>cities</strong></p><p>Your first task is just to pull the list of cities from the database<p><p>You'll do that with a <strong>SELECT</strong> query. Here's what the syntax for a select query looks like:</p><p><span class='green'>SELECT [column] FROM [table];</span></p>"
   - page_number: 3
