@@ -1,0 +1,30 @@
+SELECT * from cities;
+
+"[{\"id\"=>\"1\", \"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"id\"=>\"2\", \"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"id\"=>\"3\", \"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"id\"=>\"4\", \"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"id\"=>\"5\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"id\"=>\"6\", \"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"id\"=>\"7\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+
+SELECT name from cities;
+
+"[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
+
+
+select population from cities where name='New York';
+
+"[{\"population\"=>\"8337000\"}]"
+
+[1] pry(#<UserDatabase>)> conn.exec("select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities'").to_a.to_s
+=> "[{\"column_name\"=>\"id\"}, {\"column_name\"=>\"name\"}, {\"column_name\"=>\"population\"}]"
+
+
+DETECTING PRESENCE OF ROWS
+"select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities';"
+"[{\"column_name\"=>\"id\"}, {\"column_name\"=>\"name\"}, {\"column_name\"=>\"population\"}]"
+
+"select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='id';"
+"[{\"column_name\"=>\"id\"}]"
+
+"select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='name';"
+"[{\"column_name\"=>\"name\"}]"
+
+"select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='population';"
+"[{\"column_name\"=>\"population\"}]"
+

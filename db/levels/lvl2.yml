@@ -8,4 +8,4 @@ level:
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<h2>Select all the things!</h2><p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <strong>*</strong> character.</p><p><strong>*</strong> acts like a wildcard character, it matches every column in the table. Telling a table to <em>select *</em> is telling it to get all the things! Every column and every row! Give it a try!</p><p>Try using a select query with * instead of 'name'. This should return the entire cities table.</p>"
+    content: "<h2>Select all the things!</h2><p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <strong>*</strong> character.</p><p><strong>*</strong> is a wildcard character, it matches every column in the table. Telling a table to <em>select *</em> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with * instead of 'name'. This should return the entire cities table.</p>"
