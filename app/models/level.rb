@@ -15,9 +15,6 @@ class Level < ActiveRecord::Base
   end
 
   def self.load_from_yaml(path)
-    #config = YAML.load_file("./db/levels/lvl1.yml")
-    # config = YAML.load_file(path)
-    # binding.pry
     config = YAML.load_file(path)
     new_level = Level.create(config["level"])
 
