@@ -102,18 +102,38 @@ toggleModal = function(selector){
 
 showMessages = function(response){
   var message = ""
-  if(response.correct){
-    message = "Good job, you can go on now."
-  }
-  else if(response.errors.length > 0){
-    for(err in response.errors){
-      message+=response.errors[err]+"\n";
+  if(!response.correct){
+    if(response.errors.length > 0){
+      for(err in response.errors){
+        message+=response.errors[err]+"\n";
+      }
     }
-  }
+  } 
   if(message.length>0){
     var container = $('div#output pre');
     container.append($('<span class="message">'+message+'</span>\n'));
   }
+}
+
+swapPage = function($arrowEl){
+  var curPage = $("article.level-page.active"),
+      count = $("article.level-page").length,
+      curNum = curPage.data('page-number'),
+      nextNum = 0,
+      nextPage = {};
+  if($arrowEl.hasClass('left')){
+    nextNum = (curNum - 1 < 0) ? count - 1 : curNum - 1;
+  } else{
+    nextNum = (curNum + 1 > count - 1) ? 0 : curNum + 1;
+  }
+    nextPage = $("article.level-page[data-page-number='"+ nextNum +"']");
+    curPage.toggleClass("active"); 
+    nextPage.toggleClass("active");
+    return updatePageNumber(nextNum + 1)
+}
+updatePageNumber = function(number){
+  var pagenumber = $("span#page-number");
+  return pagenumber.html(number)
 }
 
 $(document).ready(function() {
@@ -122,6 +142,14 @@ $(document).ready(function() {
       var text = $('#sql-command').val();
       return submitQuery(text);
     });
+
+  $('#pages-nav').on("click", function(e){
+    e.preventDefault()
+    var target = $(e.target);
+    if (target.hasClass('arrow')){
+    return swapPage(target);
+    }
+  });
 
   $(document).keypress(13,function(e) {
   if(e.ctrlKey)

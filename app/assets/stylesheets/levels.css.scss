@@ -5,20 +5,89 @@
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-
 #left-pane{
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 350px;
 	height: 100%;
-	padding: 40px .5em .5em .5em;
+	padding: 40px 0 1em 0;
 	background-color: black;
 	z-index: 3;
 	@include border-box;
 	color: white;
 
+}
+#left-pane #hed{
+	padding: 1em;
+}
+#left-pane #level-pages{
+	@include border-box;
+	padding: 1em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	min-height: 200px;
+	max-height: 500px;
+	padding-bottom: 75px;
+}
+
+#level-pages h4{
+	margin-top: 0;
+}
+
+#level-pages article.level-page{
+	display: none;
+}
+
+#level-pages article.level-page.active{
+	display: block;
+	overflow-y: scroll;
+	height: auto;
+	@include border-box;
+	padding: .5em 0;
+	margin: 0;
+}
+#level-pages #pages-nav{
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	@include border-box;
+	padding: 0 1em 0 1em;
+	bottom: 5px;
+	left: 0;
+	height: 50px;
+	margin: 0;
+}
+span#page-number, span#number-of-pages{
+	position: relative;
+	top: .8em;
+}
+#pages-nav span.arrow{
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	width: 73px;
+	height: 50px;
+	cursor: pointer;
+	background-image: url(/assets/arrow-sprite.png);
+}
+#pages-nav span.arrow.left{
+	float: left;
+	background-position: left bottom;
+}
+
+#pages-nav span.arrow.left:hover{
+	background-position: left top;
+}
+
+#pages-nav span.arrow.right{
+	float: right;
+	background-position: right bottom;
+}
+#pages-nav span.arrow.right:hover{
+	background-position: right top;
 }
 #repl{
 	position: absolute;
@@ -105,7 +174,7 @@ div#repl div#output{
 	line-height: 1;
 	padding: .75em;
 	border: 0px solid transparent;
-	background-color: black;
+	background-color: #004000;
 	border-radius: 2px;
 	color: #66ff33;
 }

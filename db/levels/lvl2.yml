@@ -1,21 +1,11 @@
+# Answer : SELECT * FROM cities
 level: 
   stage_number: 2
-  title: "Save the city by weakening the missile!"
-  prompt: "Alter the strength of Tsar Bomba so it is 1 megaton"
-  database_path: "db/dumps/lvl2.sql"
-  answer: ""
-  level_type: "write"
-level_tests:
-  - test_query: "SELECT megatons from missiles where name ='Tsar Bomba';"
-    expected_output: "[{\"megatons\"=>\"1\"}]"
-    error_message: "Tsar Bomba is not the right strength. Try again."
-  - test_query: "SELECT megatons from missiles where name ='Tsar Bomba';"
-    expected_output: "[{\"megatons\"=>\"1\"}]"
-    error_message: "This is a second test just to see if we show both."
+  title: "Select all the things!"
+  prompt: "Selecting all the cities"
+  database_path: "db/dumps/lvl1.sql"
+  answer: "[{\"id\"=>\"1\", \"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"id\"=>\"2\", \"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"id\"=>\"3\", \"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"id\"=>\"4\", \"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"id\"=>\"5\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"id\"=>\"6\", \"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"id\"=>\"7\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+  level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Level 2 buddy. Yes it is.</p>"
-  - page_number: 2
-    content: "<p>Alter Tsar Bomba so it is 0 megatons</p>"
-  - page_number: 3
-    content: "<p>This is page 3</p>"
+    content: "<h2>Select all the things!</h2><p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <strong>*</strong> character.</p><p><strong>*</strong> is a wildcard character, it matches every column in the table. Telling a table to <em>select *</em> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with * instead of 'name'. This should return the entire cities table.</p>"
