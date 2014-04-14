@@ -28,9 +28,31 @@ describe "Session" do
   end
 
   describe "header changes depending on login" do
-    pending
-  end
 
+    before :each do 
+      @user = FactoryGirl.create(:user)
+      @user.save
+    end 
+
+    it "should show the sign up and login links when a user is logged out" do
+      visit '/'
+      expect(page).to have_content("Login")
+      expect(page).to have_content("Sign Up")
+      expect(page).to have_no_content("Logout")      
+    end
+
+    it "should show to logout link when a user is logged in" do
+      visit '/login'
+      fill_in 'Username', :with => @user.user_name
+      fill_in 'Password', :with => @user.password
+      click_button 'Login'
+      visit '/'
+      expect(page).to have_content("Logout")
+      expect(page).to have_no_content("Login")
+      expect(page).to have_no_content("Sign Up")
+    end
+
+  end
 
   describe "creating a new account" do
     before :each do 
@@ -53,6 +75,7 @@ describe "Session" do
       visit '/users/new'
       fill_in 'User name', :with => @user.user_name
       fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => @user.password
       click_button 'Create User'
       expect(page).to have_content("User name has already been taken")
     end
@@ -68,12 +91,22 @@ describe "Session" do
     end
 
     it "should tell you if your email has already been used" do
-      pending
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => @user.password
+      click_button 'Create User'
+      visit '/users/new'
+      fill_in 'User name', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      fill_in 'Password confirmation', :with => @user.password
+      click_button 'Create User'
+      expect(page).to have_content("Email has already been taken")
+      expect(page).to have_content("User name has already been taken")
     end
 
   end
-
-
-
 
 end

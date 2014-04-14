@@ -11,15 +11,9 @@
 <body>
 
 <%= render "layouts/header" %>
-<div id="flash">
-	<div id="notice">
-		<%= flash[:notice] %>
-	</div>
-	<div id="alert">
-		<%= flash[:alert] %>
-	</div>
-</div>
 <main role="main" id="content">
+<span id="flash"><span id="notice"><%= flash[:notice] -%></span>
+<span id="alert"><%= flash[:alert] -%></span></span>
 <%= yield %>
 </main>
 </body>
