@@ -1,0 +1,21 @@
+# Answer : CREATE TABLE cities (id serial PRIMARY KEY, name VARCHAR(255), population INTEGER);
+level: 
+  stage_number: 4
+  title: "Building some cities."
+  prompt: "Let's learn to create"
+  database_path: "db/dumps/lvl4.sql"
+  answer: ""
+  level_type: "write"
+level_pages:
+  - page_number: 1
+    content: "<p>Create a cities table.</p>id serial PRIMARY KEY, name VARCHAR(255), population INTEGER<p>"
+level_tests:
+  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='id';"
+    expected_output: "[{\"column_name\"=>\"id\"}]"
+    error_message: "It looks like you might be missing the id column."
+  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='name';"
+    expected_output: "[{\"column_name\"=>\"name\"}]"
+    error_message: "It looks like you might be missing the name column."
+  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='population';"
+    expected_output: "[{\"column_name\"=>\"population\"}]"
+    error_message: "It looks like you might be missing the population column."
