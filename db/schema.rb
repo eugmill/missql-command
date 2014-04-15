@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413175320) do
+ActiveRecord::Schema.define(version: 20140414214030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20140413175320) do
     t.integer  "level_id"
     t.integer  "page_number"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "level_schemas", force: true do |t|
+    t.integer  "level_id"
+    t.string   "table_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +50,14 @@ ActiveRecord::Schema.define(version: 20140413175320) do
     t.text     "dump"
     t.text     "answer"
     t.string   "level_type"
+  end
+
+  create_table "schema_columns", force: true do |t|
+    t.integer  "level_schema_id"
+    t.string   "column_name"
+    t.string   "column_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_databases", force: true do |t|

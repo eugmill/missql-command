@@ -1,15 +1,33 @@
 # Answer : SELECT name from cities
+--- 
 level: 
-  stage_number: 1
-  title: "Welcome to Missql Command!"
-  prompt: "Welcome to Missql Command! Write your first basic query."
-  database_path: "db/dumps/lvl1.sql"
   answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
-  level_type: "read"
-level_pages:
-  - page_number: 1
-    content: "<h2>Armed and ready!</h2><p>Hello Commander, and welcome to Missql Command! Your job is to defend the worlds cities from a missile attack (and learn some <strong>SQL</strong> along the way!).</p><p><strong>SQL</strong> is a language used to accesss and interact with relational databases.</p><p>So what is a relation database? A relational database is composed of tables, which are similar to spreadsheets.</p>"
-  - page_number: 2
-    content: "<p>So let's get started. We've created a small database, with a single table : <strong>cities</strong></p><p>Your first task is just to pull the list of cities from the database<p><p>You'll do that with a <strong>SELECT</strong> query. Here's what the syntax for a select query looks like:</p><p><span class='green'>SELECT [column] FROM [table];</span></p>"
-  - page_number: 3
-    content: "<p>Here's an example:</p><p><span class=green>SELECT age FROM cats;</span></p><p>That would the <strong>age</strong> column from the cats table. Why don't you give it a try by returning the <strong>name</strong> column from the <strong>cities</strong> table."
+  database_path: db/dumps/lvl1.sql
+  level_type: read
+  prompt: "Armed and ready!"
+  stage_number: 1
+  title: "Welcome to Missql Command"
+level_pages: 
+  - 
+    content: "<p>Hello Commander, and welcome to the MISSQL COMMAND console! Your job is to defend the worlds cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code> is a standarized programming language used to accesss and interact with relational databases.</p><p>So what is a relational database? A relational database is a way of storing data in tables, which have rows and columns. A table is a lot like a spreadsheet. Each row of a table represents a \"record\", which could be an individual item of any kind. Each column in a row represents one property of that record, like its unique identifier, its name, or its megatonnage.</p>"
+    page_number: 1
+  - 
+    content: "<p>Each table generally stores the data for one kind of resource, with its name indicating the kind of resource it stores. Tables can be related to each other by holding information about each other's rows (that's where the \"relational\" part comes in), but more on that later. For now, there's a pressing need. You must use <code>SQL</code> to save the world from nuclear destruction!</p>"
+    page_number: 2
+  - 
+    content: "<p>So let's get started. We have a small database with a single table : <code>`cities`</code></p><p>Your first task is get the full list of city names from the database to send to air defense corps.</p><p>You'll do that by using a SQL <code>SELECT</code> query. A <code>SELECT</code> statment retrieves rows or columns from tables by asking for them by name. Here's what the most select query looks like:</p><p><code>`SELECT \"column_name\" FROM \"table_name\";`</code></p><p>Here's an example of how it would be used:</p><p><code>`SELECT \"age\" FROM \"cats\";`</code></p><p>That would <code>`SELECT`</code> the <code>`age`</code> column from the <code>`cats`</code> table, and give it back to you in a list-like format. Why don't you give it a try by selecting the <code>`name`</code> column from the <code>`cities`</code> table.</p>"
+    page_number: 3
+level_schemas: 
+  - 
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: name
+        column_type: varchar(255)
+      - 
+        column_name: population
+        column_type: integer
+    table_name: cities
+
