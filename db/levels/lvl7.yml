@@ -1,3 +1,4 @@
+correct_query: "CREATE TABLE missiles (id serial, model_name VARCHAR(255), nationality VARCHAR(255));"
 level: 
   stage_number: 7
   title: "Creating tables with ID"

@@ -1,3 +1,4 @@
+correct_query: "INSERT INTO missiles VALUES ('Topol', 'Russia');"
 level: 
   stage_number: 5
   title: "The Topol Returns!"
@@ -15,7 +16,7 @@ level_pages:
 level_tests:
   - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='Russia';"
     expected_output: "[{\"count\"=>\"2\"}]"
-    error_message: "There should two missiles named 'Topol' in the table."
+    error_message: "There should be two missiles named 'Topol' in the table."
   - test_query: "SELECT count(*) FROM missiles;"
     expected_output: "[{\"count\"=>\"9\"}]"
     error_message: "There should only be 9 rows in the table."

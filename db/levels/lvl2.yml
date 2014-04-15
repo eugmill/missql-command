@@ -1,4 +1,4 @@
-answer: "SELECT * FROM cities;"
+correct_query: "SELECT * FROM cities;"
 level: 
   stage_number: 2
   title: "Select all the things!"

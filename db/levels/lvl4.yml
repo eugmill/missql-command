@@ -1,4 +1,4 @@
-answer : "CREATE TABLE cities (name VARCHAR(255), population INTEGER);"
+correct_query: "CREATE TABLE cities (name VARCHAR(255), population INTEGER);"
 level: 
   stage_number: 4
   title: "Building some cities."

@@ -1,3 +1,4 @@
+correct_query: "SELECT * FROM missiles WHERE id=3;"
 level: 
   stage_number: 6
   title: "Will the real Topol please stand up?"

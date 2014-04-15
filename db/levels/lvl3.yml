@@ -1,4 +1,4 @@
-answer: "select * from cities where name='New York' OR population > 10000000;"
+correct_query: "SELECT * FROM cities WHERE name='New York' OR population > 10000000;"
 level: 
   stage_number: 3
   title: "Where were we?"

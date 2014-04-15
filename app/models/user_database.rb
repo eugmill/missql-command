@@ -29,8 +29,7 @@ class UserDatabase < ActiveRecord::Base
        {:correct => correct, :errors => errors, :output => last_result}
   	end
 
-    # elsif ['insert','create',''].include? level.level_type
-    elsif level.level_type == "write"
+    elsif ['insert','create','alter', 'update', 'delete', 'drop'].include? level.level_type
       begin
         connection.transaction do |conn|
         begin
@@ -41,12 +40,16 @@ class UserDatabase < ActiveRecord::Base
                 errors << test.error_message
                 correct = false
               end
-                # run the query
-                # query is "SELECT * from #{level.level_schemas.table_name}"
-                # set last_result equal to the query output
             end
           if correct
-            last_result=conn.exec("SELECT column_name from INFORMATION_SCHEMA.COLUMNS where table_name='#{level.level_schemas.first.table_name}';")
+            case level.level_type
+            when "create"
+              last_result=conn.exec("SELECT column_name, data_type from INFORMATION_SCHEMA.COLUMNS where table_name='#{level.level_schemas.first.table_name}';")
+            when "update", "insert", "alter", "delete"
+              last_result=conn.exec("SELECT * FROM #{level.level_schemas.first.table_name};") 
+            when "drop"
+              last_result = "Successfully dropped #{level.level_schemas.first.table_name}"
+            end             
           end
           rescue
             errors = ["You changed the table in an unexpected way. Try again!"]
