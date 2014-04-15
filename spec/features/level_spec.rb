@@ -16,7 +16,7 @@ describe 'Level' do
       click_button 'Login'
       visit '/levels/1'
 
-      expect(page).to have_content("Hello Commander! Welcome to Missql Command!")
+      expect(page).to have_content("Hello Commander, and welcome to the MISSQL COMMAND console!")
     end
 
     it 'will display a link to the second level if user enters the correct query' do
