@@ -1,0 +1,17 @@
+<div id="schemata">
+	<ul class="schema-tabs">
+		<% @level.level_schemas.each do |schema| %>
+		<li class="tab">
+			<span class="tab-title"><%= schema.table_name %></span>
+			<div class="schema-table">
+				<small>Click to close</small><br /><br />
+				<ul class="schema">
+				<% schema.schema_columns.each do |column| %>
+					<li class="column"><span class="column-name"><%= column.column_name %></span>&nbsp;<span class="column-type"><%= column.column_type.upcase %></span>
+				<% end %>
+				</ul>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</div>
