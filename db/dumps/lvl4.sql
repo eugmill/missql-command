@@ -1,0 +1,2 @@
+-- EMPTY SCHEMA
+-- Intentionally left empty
