@@ -1,12 +1,44 @@
 level: 
   stage_number: 9
-  title: "Title!"
-  prompt: "Prompt!."
-  database_path: "db/dumps/lvl1.sql"
-  answer: "result from db!"
+  title: "JOIN Up!"
+  prompt: "Bring two tables together to save the world"
+  database_path: "db/dumps/lvl9.sql"
+  answer: "[{\"name\"=>\"New York\", \"model_name\"=>\"Topol\"}, {\"name\"=>\"San Francisco\", \"model_name\"=>\"Dongfeng-5\"}, {\"name\"=>\"London\", \"model_name\"=>\"Yars\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Jericho III\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Minuteman\"}, {\"name\"=>\"Tokyo\", \"model_name\"=>\"Dongfeng-31\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Agni-V\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Peacekeeper\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Page 1!</p>"
+    content: "<p>Now that you've seen how to get the foreign keys out of a table, it's time to use them to collect data from another table using a <code>JOIN</code> statement.</p><p>This stage has two tables, <code>cities</code> and <code>missiles</code>. Just like last time, the missiles table holds foreign keys in its <code>target_city_id</code> column.</p><p>These keys can be used to find all of the cities currently being targeted by ICBMs. There are several types of <code>JOIN</code> in SQL, but the first one we'll be dealing with is an <code>INNER JOIN</code>, which takes two tables and returns results from all rows from both tables that match the joining condition.</p>"
   - page_number: 2
-    content: "<p>Page 2!</p>"
+    content: "<p>An inner join statement uses the following syntax:</p><p><pre><code>SELECT * FROM cats\n JOIN owners\n ON cats.owner_id = owners.id;</code></pre></p><p>Let's break that down. The first part of a <code>JOIN</code> is just a plain old SELECT, telling the database what columns you want to retrieve from the rows matched by the join. The second part of the statement is the <code>JOIN</code> itself, which is immediately followed by the name of the second table. The <code>ON</code> statement provides the matching condition on which to join, here we're matching cats to owners where the cat's <code>owner_id</code> column is equal to an owner's <code>id</code>. They primary key of a table is typically named 'id'. All together, this statment will collate the rows of <code>cats</code> that have an <code>owner_id</code> with any rows of <code>owners</code> that have a matching id, and then return all columns from both rows.</p>"
+  - page_number: 3
+    content: "<p>To select a particular column or set of columns in a join, you would use the 'dot' notation to indicate which table the columns should be taken from. Dot notation looks like this: <code>table_name.column_name</code>.</p><p>To get just the name of each cat with the name of its owner, you'd execute something like:</p><p><pre><code>SELECT cats.name, owners.name\n FROM cats \nJOIN owners \nON cats.owner_id = owners.id;</code></pre></p>"
+  - page_number: 4
+    content: "<p>Now take a look at the schema for this mission's tables, and see if you can craft a <code>JOIN</code> that will grab the <code>name</code> of every <code>city</code> that is targeted by a missile, and the <code>model_name</code> of the missile that is targeting it.</p>"
+level_schemas: 
+  - 
+    table_name: cities
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: name
+        column_type: varchar(255)
+      - 
+        column_name: population
+        column_type: integer
+  - 
+    table_name: missiles
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: model_name
+        column_type: varchar(255)
+      - 
+        column_name: nationality
+        column_type: varchar(255)
+      - 
+        column_name: target_city_id
+        column_type: integer

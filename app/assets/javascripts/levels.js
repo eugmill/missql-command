@@ -183,8 +183,10 @@ $(document).ready(function() {
   });
 
   $(document).keypress(13,function(e) {
-  if(e.ctrlKey)
+  if(e.ctrlKey){
+      e.preventDefault();
      $('#execute').click()
+   }
   });
 
   
