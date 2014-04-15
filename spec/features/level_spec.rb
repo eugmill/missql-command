@@ -16,7 +16,7 @@ describe 'Level' do
       click_button 'Login'
       visit '/levels/1'
 
-      expect(page).to have_content("Hello Commander! Welcome to Missql Command!")
+      expect(page).to have_content("Welcome to Missql Command! Write your first basic query.")
     end
 
     it 'will display a link to the second level if user enters the correct query' do
@@ -39,15 +39,12 @@ describe 'Level' do
       click_button 'Login'
       visit '/levels/1'
 
-      fill_in 'sql-command', :with => "SELECT * FROM cities"
+      fill_in 'sql-command', :with => "SELECT name FROM cities"
       click_button 'EXECUTE'
-      expect(page).to have_content("Congratulations, you passed this challenge!")
-      expect(page).to have_content("Move on to the next level >")
+      expect(page).to have_no_content("Congratulations, you passed this challenge!")
+      expect(page).to have_no_content("Move on to the next level >")
     end
 
   end
 
 end
-
-
-
