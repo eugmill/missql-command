@@ -1,6 +1,6 @@
 level: 
   stage_number: 5
-  title: "The Topol returns!"
+  title: "The Topol Returns!"
   prompt: "Adding data to a table"
   database_path: "db/dumps/lvl5.sql"
   answer: ""
