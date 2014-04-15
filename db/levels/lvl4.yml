@@ -5,7 +5,7 @@ level:
   prompt: "Scheming to create"
   database_path: "db/dumps/lvl4.sql"
   answer: ""
-  level_type: "write"
+  level_type: "create"
 level_pages:
   - page_number: 1
     content: "<p>We've figured out how to pull data out from tables, but where did the tables come from? To make sense of table creation, we'll first take a step back. SQL statements can be put into two categories, the Data Definition Language(DDL) and the Data Manipulation Language(DML).<p><p>DDL statements change the <em>structure</em> of the data, while DML statements work with the data itself.</p><p>For instance, creating, deleting and altering a tables columns fall under DDL because they change the structure of our tables. Selecting, inserting, and updating data falls under DDL.</p>"

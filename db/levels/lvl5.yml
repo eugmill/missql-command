@@ -4,7 +4,7 @@ level:
   prompt: "Adding data to a table"
   database_path: "db/dumps/lvl5.sql"
   answer: ""
-  level_type: "write"
+  level_type: "insert"
 level_pages:
   - page_number: 1
     content: "<p>The Russians have designed a new missile type, but for some reason they decided to still call it 'Topol'. Woops! Still, we want to record this new missile type in our database. </p>"

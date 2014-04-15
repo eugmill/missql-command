@@ -29,6 +29,7 @@ class UserDatabase < ActiveRecord::Base
        {:correct => correct, :errors => errors, :output => last_result}
   	end
 
+    # elsif ['insert','create',''].include? level.level_type
     elsif level.level_type == "write"
       begin
         connection.transaction do |conn|
@@ -40,7 +41,13 @@ class UserDatabase < ActiveRecord::Base
                 errors << test.error_message
                 correct = false
               end
+                # run the query
+                # query is "SELECT * from #{level.level_schemas.table_name}"
+                # set last_result equal to the query output
             end
+          if correct
+            last_result=conn.exec("SELECT column_name from INFORMATION_SCHEMA.COLUMNS where table_name='#{level.level_schemas.first.table_name}';")
+          end
           rescue
             errors = ["You changed the table in an unexpected way. Try again!"]
             correct = false
@@ -52,6 +59,7 @@ class UserDatabase < ActiveRecord::Base
           raise RollbackFlag
         end
       rescue RollbackFlag
+
          {:correct => correct, :errors => errors, :output => last_result}
       end
     end

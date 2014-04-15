@@ -4,7 +4,7 @@ level:
   prompt: "Creating tables with ID"
   database_path: "db/dumps/lvl7.sql"
   answer: ""
-  level_type: "write"
+  level_type: "create"
 level_pages:
   - page_number: 1
     content: "<p> Now that we've seen the power of using ID's to identify our data, we can start to create tables using ID as well. We learned in Level 4 how to create a table using the <code>CREATE TABLE</code> command. Now, we're going to build on that by learning how to create tables with ID's. </p>"
