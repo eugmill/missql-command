@@ -1,5 +1,4 @@
-# Answer : SELECT name from cities
---- 
+answer : "SELECT name from cities"
 level: 
   answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
   database_path: db/dumps/lvl1.sql
