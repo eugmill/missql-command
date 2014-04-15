@@ -260,12 +260,14 @@ span.message{
 	width: auto;
 	height: 35px;
 	float: right;
-	border-right: 1px solid black;
+	margin-right: 2px;
+	border: 0px solid transparent;
+	border-radius: 5px 5px 0 0;
 	background-color: #333333;
 	cursor: pointer;
 }
 #schemata ul.schema-tabs li.tab:first-child{
-	border: none;
+	margin-right: 0;
 }
 #schemata ul.schema-tabs li.tab div.schema-table{
 	display: none;

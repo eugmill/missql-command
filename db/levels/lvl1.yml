@@ -29,4 +29,3 @@ level_schemas:
         column_name: population
         column_type: integer
     table_name: cities
-
