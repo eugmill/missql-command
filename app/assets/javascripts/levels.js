@@ -133,18 +133,38 @@ swapPage = function($arrowEl){
 }
 updatePageNumber = function(number){
   var pagenumber = $("span#page-number");
-  return pagenumber.html(number)
+  pagenumber.html(number);
+  return $('#pages-nav').one("click", function(e){
+    e.preventDefault();
+    clearSelection();
+    var target = $(e.target);
+    if (target.hasClass('arrow')){
+    return swapPage(target);
+    }
+  });
+}
+clearSelection = function(){
+  if (window.getSelection) {
+  if (window.getSelection().empty) {  // Chrome
+    window.getSelection().empty();
+  } else if (window.getSelection().removeAllRanges) {  // Firefox
+    window.getSelection().removeAllRanges();
+  }
+} else if (document.selection) {  // IE?
+  document.selection.empty();
+}
 }
 
-$(document).ready(function() {
 
+$(document).ready(function() {
   $('#execute').on("click",function(){
       var text = $('#sql-command').val();
       return submitQuery(text);
     });
 
-  $('#pages-nav').on("click", function(e){
-    e.preventDefault()
+  $('#pages-nav').one("click", function(e){
+    e.preventDefault();
+    clearSelection();
     var target = $(e.target);
     if (target.hasClass('arrow')){
     return swapPage(target);

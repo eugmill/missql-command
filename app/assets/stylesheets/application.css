@@ -32,6 +32,17 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Quantico', sans-serif;
   font-weight: 400;
 }
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.selectable-text {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
 body a {
   color: white;
 }
