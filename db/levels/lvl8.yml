@@ -1,12 +1,27 @@
 level: 
   stage_number: 8
-  title: "Title!"
-  prompt: "Prompt!."
-  database_path: "db/dumps/lvl1.sql"
-  answer: "result from db!"
+  title: "Incoming Missiles!"
+  prompt: "What cities are they headed for?"
+  database_path: "db/dumps/lvl8.sql"
+  answer: "[{\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"1\"}, {\"target_city_id\"=>\"4\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"3\"}, {\"target_city_id\"=>\"6\"}]"
   level_type: "read"
 level_pages:
-  - page_number: 1
-    content: "<p>Page 1!</p>"
-  - page_number: 2
-    content: "<p>Page 2!</p>"
+  - 
+    page_number: 1
+    content: "<p>Missiles are flying towards your city! You've found the database that keeps track of them, and need to find out where they're going. Each missile has a column called <code>`target_city_id`</code>. This is known as a \"foreign key\".</p><p>Foreign keys are what make relational databases relational. A foreign key is a piece of data from one table stored in another table. They are used to relate rows of different tables to one another so that their data can be selected together. Typically, the primary key of one row is stored in a column of another row in order to link them.</p><p>Select all the <code>`target_city_id`</code> column from the <code>`missiles`</code> table.</p>"
+level_schemas: 
+  - 
+    table_name: missiles
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: model_name
+        column_type: varchar(255)
+      - 
+        column_name: nationality
+        column_type: varchar(255)
+      - 
+        column_name: target_city_id
+        column_type: integer
