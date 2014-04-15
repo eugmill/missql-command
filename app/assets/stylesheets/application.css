@@ -14,16 +14,6 @@
  *= require_tree .
  *= require_self
  */
- @font-face {
-    font-family: 'minecraftiaregular';
-    src: url('minecraftia-webfont.eot');
-    src: url('minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
-         url('minecraftia-webfont.woff') format('woff'),
-         url('minecraftia-webfont.ttf') format('truetype'),
-         url('minecraftia-webfont.svg#minecraftiaregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
  body{
   position: absolute;
   top: 0px;
@@ -34,14 +24,13 @@
   min-height: 600px;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
-  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Glegoo', serif;
 }
 h1, h2, h3, h4, h5, h6{
-  font-family: 'minecraftiaregular', sans-serif;
-  -webkit-font-smoothing: none;
-  font-smooth: never;
+  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
 }
 body a {
   color: white;
