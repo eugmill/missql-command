@@ -2,7 +2,7 @@ level:
   stage_number: 5
   title: "Title!"
   prompt: "Prompt!."
-  database_path: "db/dumps/lvl1.sql"
+  database_path: "db/dumps/lvl5.sql"
   answer: "result from db!"
   level_type: "read"
 level_pages:
