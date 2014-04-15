@@ -1,12 +1,27 @@
 level: 
   stage_number: 6
-  title: "Title!"
-  prompt: "Prompt!."
-  database_path: "db/dumps/lvl1.sql"
-  answer: "result from db!"
+  title: "Will the real Topol please stand up?"
+  prompt: "Using ID to select data"
+  database_path: "db/dumps/lvl6.sql"
+  answer: "[{\"id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Page 1!</p>"
+    content: "<p>Great job! We now have two 'Topol' missiles in our table. But now we want to select all of the data about the first Topol. How would we do this?</p>"
   - page_number: 2
-    content: "<p>Page 2!</p>"
+    content: "<p>If you try <code>SELECT * FROM missiles WHERE name = 'Topol';</code>, you will see that you actually return two missiles! Uh oh! This is why we use ID's.</p>"
+  - page_number: 3
+    content: "<p>ID's are a way to uniquely identify data. Using ID we can select ONLY the data we want. For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1. Try using ID to select all of the info about the first 'Topol' missile. </p>"
+level_schemas: 
+  - 
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: model_name
+        column_type: varchar(255)
+      - 
+        column_name: nationality
+        column_type: varchar(255)
+    table_name: missiles

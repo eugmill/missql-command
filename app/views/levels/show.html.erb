@@ -22,6 +22,9 @@
 	</div>
 </section>
 <section id="repl">
+	<% if !@level.level_schemas.empty? %>
+			<%= render partial:"schema_tabs.html" %>
+	<% end %>
 	<div id="output">
 		<pre id="output-text"></pre>
 	</div>

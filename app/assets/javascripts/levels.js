@@ -171,6 +171,17 @@ $(document).ready(function() {
     }
   });
 
+  $('li.tab').on("click", function(e){
+    var $target = $(this);
+    console.log($target.attr("class"));
+    if($target.hasClass('active')){
+      return $target.removeClass('active')
+    } else{
+      $("li.tab.active").removeClass('active')
+      return $target.addClass('active')
+    }
+  });
+
   $(document).keypress(13,function(e) {
   if(e.ctrlKey)
      $('#execute').click()

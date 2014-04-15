@@ -1,12 +1,31 @@
 level: 
   stage_number: 5
-  title: "Title!"
-  prompt: "Prompt!."
+  title: "The Topol Returns!"
+  prompt: "Adding data to a table"
   database_path: "db/dumps/lvl5.sql"
-  answer: "result from db!"
-  level_type: "read"
+  answer: ""
+  level_type: "write"
 level_pages:
   - page_number: 1
-    content: "<p>Page 1!</p>"
+    content: "<p>The Russians have designed a new missile type, but for some reason they decided to still call it 'Topol'. Woops! Still, we want to record this new missile type in our database. </p>"
   - page_number: 2
-    content: "<p>Page 2!</p>"
+    content: "<p>Let's add a new row to our database with this data. The way we add rows to a SQL table is via <code>INSERT</code> statements. The syntax for <code>INSERT</code> statements is as follows: <code>INSERT INTO table_name VALUES (value1,value2,value3,...);</code></p> \n Each insert statement will add a single row to the table specified by table_name. Let's look at a simple example. "
+  - page_number: 3
+    content: "<p>Say we have a <code>cats</code> table. \n {INSERT EXAMPLE OF CATS TABLE HERE} \n The way we would insert a new cat with its name and hair color would be <code>INSERT INTO cats VALUES ('Polly', 'red'). </code> \n Now, try adding a new row to the missiles table for our new Topol missile!"
+level_tests:
+  - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='Russia';"
+    expected_output: "[{\"count\"=>\"2\"}]"
+    error_message: "There should two missiles named 'Topol' in the table."
+  - test_query: "SELECT count(*) FROM missiles;"
+    expected_output: "[{\"count\"=>\"9\"}]"
+    error_message: "There should only be 9 rows in the table."
+level_schemas: 
+  - 
+    schema_columns: 
+      - 
+        column_name: model_name
+        column_type: varchar(255)
+      - 
+        column_name: nationality
+        column_type: varchar(255)
+    table_name: missiles
