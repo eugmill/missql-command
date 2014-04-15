@@ -29,8 +29,8 @@
 	width: 100%;
 	height: auto;
 	min-height: 200px;
-	max-height: 431px;
-	padding-bottom: 75px;
+	max-height: 410px;
+	padding-bottom: 100px;
 }
 
 #level-pages h4{
@@ -50,12 +50,14 @@
 
 #level-pages article.level-page.active{
 	display: block;
+	position: relative;
+	top: 0;
 	overflow-y: scroll;
 	height: auto;
-	max-height: 344px;
+	max-height: 324px;
 	@include border-box;
 	padding: .5em 0;
-	margin: 0;
+	margin: 0 0 .5em 0;
 }
 #level-pages #pages-nav{
 	text-align: center;
