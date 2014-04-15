@@ -4,7 +4,7 @@
 		<%= link_to "Move on to the next level >","/levels/#{@level.next_level.stage_number}" if @level.next_level %>
 	</div>
 </div>
-<section id="left-pane" class="pane">
+<section id="left-pane" class="pane unselectable">
 	<aside id="portrait">
 	</aside>
 	<div id="hed">
@@ -14,7 +14,7 @@
 	<div id="level-pages">
 	<h4>LEVEL INSTRUCTIONS:</h4>
 		<% @level_pages.each_with_index do |page, i| %>
-		<article data-page-number="<%= i %>" class="level-page <% if i == 0  %>active<% end %>"><%= page.content.html_safe %></article>
+		<article data-page-number="<%= i %>" class="selectable-text level-page <% if i == 0  %>active<% end %>"><%= page.content.html_safe %></article>
 		<% end %>
 		<% if @level_pages.length > 1 %>
 			<%= render partial:"pages_nav.html" %>
