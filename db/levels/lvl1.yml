@@ -4,12 +4,12 @@ level:
   answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
   database_path: db/dumps/lvl1.sql
   level_type: read
-  prompt: "Armed and read!"
+  prompt: "Armed and ready!"
   stage_number: 1
   title: "Welcome to Missql Command"
 level_pages: 
   - 
-    content: "<p>Hello Commander, and welcome to the MISSQL COMMAND console! Your job is to defend the worlds cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code> is a standarized programming language used to accesss and interact with relational databases.</p><p>So what is a relation database? A relational database is a way of storing data in tables, which have rows and columns. A table is a lot like a spreadsheet. Each row of a table represents a \"record\", which could be an individual item of any kind. Each column in a row represents one property of that record, like its unique identifier, its name, or its megatonnage.</p>"
+    content: "<p>Hello Commander, and welcome to the MISSQL COMMAND console! Your job is to defend the worlds cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code> is a standarized programming language used to accesss and interact with relational databases.</p><p>So what is a relational database? A relational database is a way of storing data in tables, which have rows and columns. A table is a lot like a spreadsheet. Each row of a table represents a \"record\", which could be an individual item of any kind. Each column in a row represents one property of that record, like its unique identifier, its name, or its megatonnage.</p>"
     page_number: 1
   - 
     content: "<p>Each table generally stores the data for one kind of resource, with its name indicating the kind of resource it stores. Tables can be related to each other by holding information about each other's rows (that's where the \"relational\" part comes in), but more on that later. For now, there's a pressing need. You must use <code>SQL</code> to save the world from nuclear destruction!</p>"
