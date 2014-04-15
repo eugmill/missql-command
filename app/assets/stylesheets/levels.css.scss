@@ -47,9 +47,15 @@
 
 #level-pages article.level-page code{
 	display: inline-block;
-	background-color: #333333;
 	font-family: Consolas, monaco, monotype;
 	color: #00ff00;
+}
+
+
+#level-pages article.level-page pre{
+	display: block;
+	width: 95%;
+	margin: 0 auto 0 auto;
 }
 
 #level-pages article.level-page.active{
