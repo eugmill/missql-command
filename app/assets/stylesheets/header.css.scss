@@ -98,6 +98,11 @@ nav:hover ul.nav-links li {
   @include border-box;
 }
 
+nav:hover ul.nav-links li.completed a{
+  color: #00ff00;
+  text-decoration: none;
+}
+
 nav:hover ul.nav-links li.completed::after{
   display: block;
   position: absolute;
