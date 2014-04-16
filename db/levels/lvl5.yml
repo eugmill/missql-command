@@ -1,7 +1,7 @@
 correct_query: "INSERT INTO missiles VALUES ('Topol', 'Russia');"
 level: 
   stage_number: 5
-  title: "Instertopol"
+  title: "Insertopol"
   prompt: "Use <code>INSERT</code> to add a record with <code>name</code> 'Topol' and <code>nationality</code> 'Russia' to the <code>missiles</code> table."
   database_path: "db/dumps/lvl5.sql"
   answer: ""
