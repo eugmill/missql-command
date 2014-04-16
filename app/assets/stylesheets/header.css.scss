@@ -61,6 +61,7 @@ nav {
   position: relative;
   border: 1px solid #666666;
   padding: 5px 1em;
+  text-align: right;
   @include border-box;
 }
 
@@ -88,6 +89,8 @@ nav:hover ul.nav-links {
 
 nav:hover ul.nav-links li {
   display: block;
+  position: relative;
+  text-align: left;
   width: 100%;
   height: auto;
   padding: .5em 1em;
@@ -95,8 +98,15 @@ nav:hover ul.nav-links li {
   @include border-box;
 }
 
-nav:hover ul.nav-links li.completed {
-  
+nav:hover ul.nav-links li.completed::after{
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: .5em;
+  width: auto;
+  height: auto;
+  color: #00ff00;
+  content: "✓";
 }
 
 .pane{
