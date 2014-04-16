@@ -1,3 +1,5 @@
+require 'pry'
+
 class GameplayController < ApplicationController
 
   def execute

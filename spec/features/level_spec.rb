@@ -1,6 +1,6 @@
-require_relative '../spec_helper'
+require_relative '../feature_helper'
 
-describe 'Level: ' do
+describe 'Level: ', :js => true do
 
     before :all do     
       @user = FactoryGirl.create(:user)
@@ -20,93 +20,33 @@ describe 'Level: ' do
               it "Level #{stage_number+1} should have a Title on its page" do
                 @level = Level.find_by(:stage_number => stage_number+1)
                 visit "/levels/#{@level.stage_number}"
-                expect(page).to have_content(@level.title)
+                expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(@level.title))
               end
 
               it "Level #{stage_number+1} should have a Prompt on its page" do
                 @level = Level.find_by(:stage_number => stage_number+1)
                 visit "/levels/#{@level.stage_number}"
-                expect(page).to have_content(@level.prompt)
+                expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(@level.prompt))
+                page.should have_no_css("div#next-level-modal.active")
               end
 
-              # it "Level #{stage_number+1} should have the first Level Page on its page" do
-              #   @level = Level.find_by(:stage_number => stage_number+1)
-              #   visit "/levels/#{@level.stage_number}"
-              #   expect(page).to have_content(@level.level_pages.first.content)
-              # end
+              it "Level #{stage_number+1} should move you to the next level if you enter the correct query" do
+                @level = Level.find_by(:stage_number => stage_number+1)
+                visit "/levels/#{@level.stage_number}"
+
+                # the title of the level YAML file MUST depend on stage number, not ID
+                level_data = YAML.load_file("db/levels/lvl#{stage_number+1}.yml")
+
+                fill_in 'sql-command', :with => level_data["correct_query"]
+
+                click_button 'execute'                
+
+                wait_for_ajax
+
+                page.should have_css("div#next-level-modal.active")
+              end
 
           }
      end
-
-      # it 'should show the title, prompt and first level page for each level' do
-      #   visit '/login'
-      #   fill_in 'Username', :with => @user.user_name
-      #   fill_in 'Password', :with => @user.password
-      #   click_button 'Login'
-      #   Level.order(:stage_number).each_with_index do |level, index|
-      #     visit "/levels/#{level.stage_number}"
-      #     binding.pry
-      #     expect(page).to have_content(level.level_pages.first.content)
-      #     binding.pry
-      #     expect(page).to have_content(level.title)
-      #     expect(page).to have_content(level.prompt)
-      #  end
-
-    # Level.order(:stage_number).each_with_index do |level, index|
-    #   it "should show the title, prompt and first level page for level #{level.stage_number}" do
-    #     visit '/login'
-    #     fill_in 'Username', :with => @user.user_name
-    #     fill_in 'Password', :with => @user.password
-    #     click_button 'Login'
-    #     visit "/levels/#{level.stage_number}"
-    #     # binding.pry
-    #     # expect(page).to have_content(level.level_pages.first.content)
-    #     # binding.pry
-    #     expect(page).to have_content(level.title)
-    #     # expect(page).to have_content(level.prompt)
-    #   end
-    # end  
-
-    # @levels.each do |level|
-
-      # check for level prompt on page
-      # check for level title on page
-      # check for level page 1 on page
-      # fill in "correct query"; check that the page has congrats
-
-    # it 'should show the instructions for the level' do
-    #   visit '/login'
-    #   fill_in 'Username', :with => @user.user_name
-    #   fill_in 'Password', :with => @user.password
-    #   click_button 'Login'
-    #   visit '/levels/1'
-
-    #   expect(page).to have_content("Hello Commander, and welcome to the MISSQL COMMAND console!")
-    # end
-
-    # it 'will display a link to the second level if user enters the correct query' do
-    #   visit '/login'
-    #   fill_in 'Username', :with => @user.user_name
-    #   fill_in 'Password', :with => @user.password
-    #   click_button 'Login'
-    #   visit '/levels/1'
-
-    #   fill_in 'sql-command', :with => "SELECT name FROM cities"
-    #   click_button 'EXECUTE'
-    #   expect(page).to have_content("Congratulations, you passed this challenge!")
-    # end
-
-    # it 'will display an error if user enters the wrong query' do
-    #   visit '/login'
-    #   fill_in 'Username', :with => @user.user_name
-    #   fill_in 'Password', :with => @user.password
-    #   click_button 'Login'
-    #   visit '/levels/1'
-
-    #   fill_in 'sql-command', :with => "SELECT * FROM cities"
-    #   click_button 'EXECUTE'
-    #   expect(page).to have_no_content("Congratulations, you passed this challenge!")
-    #   expect(page).to have_no_content("Move on to the next level >")
-    # end
 
 end

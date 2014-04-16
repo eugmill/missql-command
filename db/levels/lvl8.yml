@@ -1,3 +1,4 @@
+correct_query: "select missiles.target_city_id from missiles;"
 level: 
   stage_number: 8
   title: "Incoming Missiles!"

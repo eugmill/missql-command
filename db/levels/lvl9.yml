@@ -1,3 +1,4 @@
+correct_query: "SELECT cities.name, missiles.model_name FROM cities JOIN missiles on missiles.target_city_id = cities.id;"
 level: 
   stage_number: 9
   title: "JOIN Up!"

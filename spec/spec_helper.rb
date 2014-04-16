@@ -11,6 +11,8 @@ SimpleCov.start
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+require_relative 'support/wait_for_ajax.rb'
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -28,18 +30,16 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
+  config.include WaitForAjax, type: :feature
 
   # Database cleaner
   config.before(:suite) do
-    # puts " I AM HAPPENING BEFORE SUITE "
-    User.destroy_all
-    Level.destroy_all
     DatabaseCleaner.clean_with(:truncation)
-    `RAILS_ENV=test rake missql:reload_all`
+    `RAILS_ENV=test rake missql:reset`    
+    @level_count = Level.count
   end
 
   config.after(:suite) do
-    # puts " I AM HAPPENING AFTER SUITE "
     `RAILS_ENV=test rake missql:clean`
     DatabaseCleaner.clean_with(:truncation)
     ActiveRecord::Base.remove_connection    

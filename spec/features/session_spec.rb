@@ -3,12 +3,13 @@ require_relative '../spec_helper'
 describe "Session" do  
 
   describe "login" do
-  
-    before :each do 
+
+    before :all do 
+      User.destroy_all
       @user = FactoryGirl.create(:user)
       @user.save
-    end       
-
+    end 
+  
     it "should redirect to user's profile upon successful login" do
       visit '/login'
       fill_in 'Username', :with => @user.user_name
@@ -29,7 +30,8 @@ describe "Session" do
 
   describe "header changes depending on login" do
 
-    before :each do 
+    before :all do 
+      User.destroy_all
       @user = FactoryGirl.create(:user)
       @user.save
     end 
@@ -56,6 +58,7 @@ describe "Session" do
 
   describe "creating a new account" do
     before :each do 
+      User.destroy_all
       @user = FactoryGirl.build(:user)
     end 
 
@@ -97,6 +100,9 @@ describe "Session" do
       fill_in 'Password', :with => @user.password
       fill_in 'Password confirmation', :with => @user.password
       click_button 'Create User'
+
+      save_and_open_page
+
       click_link('Logout')
       visit '/users/new'
       fill_in 'User name', :with => @user.user_name
