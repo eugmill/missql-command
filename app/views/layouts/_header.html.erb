@@ -1,12 +1,23 @@
 <header>
-
 	<a href="/"><img src="/assets/missql-logo-8.png" alt="MISSQL COMMAND" class="header-logo" /></a>
+	<span class="level-ctrls">
+	<% if @level %>
+		<% if @level.prev_level %>
+			<a href="/levels/<%= @level.prev_level.stage_number %>" class="level-arrow left">↼ Prev</a>
+		<% end %>
+			<h4><%= "Level #{@level.stage_number}" %></h4>
+		<% if @level.next_level %>
+			<a href="/levels/<%= @level.next_level.stage_number %>" class="level-arrow right">Next ⇀</a>
+		<% end %>			
+	<% end %>
+	</span>	
+
 	<% if current_user -%>
 	<nav>
 		<span>Levels ▾</span>
 		<ul class="nav-links">
 			<% @levels.each do |level| %>
-			<li><%= link_to "##{level.stage_number.to_s} #{level.title}", "/levels/#{level.stage_number}" %> </li>
+			<li <%= "class = completed" if current_user.has_completed?(level) %>><%= link_to "##{level.stage_number.to_s} #{level.title}", "/levels/#{level.stage_number}" %> </li>
 			<% end %>
 		</ul>
 	</nav>
