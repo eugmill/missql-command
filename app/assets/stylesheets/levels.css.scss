@@ -90,7 +90,7 @@
 	@include border-box;
 	padding: 0;
 	border: 1px solid white;
-	padding: .25em;
+	padding: .75em;
 }
 #level-pages #pages-nav{
 	text-align: center;
@@ -225,8 +225,8 @@ div#repl div#output{
 span.error, span.message{
 	position: relative;
 	margin-bottom: .5em;
-	width: 100%;
-	max-width: 400px;
+	width: auto;
+	max-width: 100%;
 	border-width: 1px;
 	border-style: solid;
 	display: block;

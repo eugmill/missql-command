@@ -101,17 +101,14 @@ toggleModal = function(selector){
 }
 
 showMessages = function(response){
-  var message = ""
+  var container = $("div#output pre");
+
   if(!response.correct){
     if(response.errors.length > 0){
       for(err in response.errors){
-        message+=response.errors[err]+"\n";
+        container.append($('<span class="message">'+response.errors[err]+'</span>\n'));
       }
     }
-  } 
-  if(message.length>0){
-    var container = $('div#output pre');
-    container.append($('<span class="message">'+message+'</span>\n'));
   }
 }
 
