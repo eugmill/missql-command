@@ -3,25 +3,22 @@ level:
   answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
   database_path: db/dumps/lvl1.sql
   level_type: read
-  prompt: "Armed and ready!"
+  prompt: "Select the name column from the cities table."
   stage_number: 1
-  title: "Welcome to Missql Command"
+  title: "Welcome to Missql Command!"
 level_pages: 
   - 
     content: "<p>Hello Commander, and welcome to the MISSQL COMMAND console! Your job is to defend the worlds cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code>, or <a href='http://en.wikipedia.org/wiki/Sql' target='_blank'>'Structured Query Language'</a> is a standarized programming language used to accesss and interact with <a href='http://en.wikipedia.org/wiki/Relational_database' target='_blank'>relational databases</a>.</p><p>So what is a relational database? A relational database is a method of storing data in tables, which have rows and columns. </p>"
     page_number: 1
   - 
-    content: "<p>A table is a lot like a spreadsheet. Each row of a table represents a 'record', which could be an individual item of any kind. Each column in a row represents one property of that record, like its unique identifier, its name, or its megatonnage.</p><p>Each table generally stores the data for one kind of resource, with its name indicating the kind of resource it stores. Tables can be related to each other by holding information about each other's rows (that's where the 'relational' part comes in), but more on that later. For now, there's a pressing need. You must use <code>SQL</code> to save the world from nuclear destruction!</p>"
+    content: "<p>A <em>table</em> is a lot like a spreadsheet. Each <em>row</em> of a table represents a <em>record</em>, which could be an individual item of any kind. Each column in a <em>row</em> represents one property of that record, like its unique identifier, its name, or its megatonnage.</p><p>Each <em>table</em> generally stores the data for one kind of resource, with its name indicating the kind of resource it stores. Tables can be related to each other by holding information about each other's <em>row</em>s (that's where the 'relational' part comes in), but more on that later. For now, there's a pressing need. You must use <code>SQL</code> to save the world from nuclear destruction!</p>"
     page_number: 2
   - 
-    content: "<p>So let's get started. We have a small database with a single table : <code>cities</code></p><p>Your first task is get the full list of city names from the database to send to air defense corps.</p><p>You'll do that by using a SQL <code>SELECT</code> query. A <code>SELECT</code> statment retrieves rows or columns from tables by asking for them by name. Here's what the most select query looks like:</p><p><code>SELECT 'column_name' FROM 'table_name';</code></p><p>Here's an example of how it would be used:</p><p><code>SELECT age FROM cats;</code></p><p>That would <code>SELECT</code> the <code>age</code> column from the <code>cats</code> table, and give it back to you in a list-like format. Why don't you give it a try by selecting the <code>name</code> column from the <code>cities</code> table.</p>"
+    content: "<p>So let's get started. We have a small database with a single table : <code>cities</code></p><p>Your first task is get the full list of city names from the database to send to air defense corps.</p><p>You'll do that by using a SQL <code>SELECT</code> query. A <code>SELECT</code> statment retrieves data from tables by specifying which columns and rows to pull out. Here's what a basic select query looks like:</p><p><code>SELECT <em>column_name</em> FROM <em>table_name</em>;</code></p><p>Here's an example of how it would be used:</p><p><code>SELECT age FROM cats;</code></p><p>That would <code>SELECT</code> the <code>age</code> column from the <code>cats</code> table, and returns a result table with a list of cat names. Why don't you give it a try by selecting the <code>name</code> column from the <code>cities</code> table.</p>"
     page_number: 3
 level_schemas: 
   - 
     schema_columns: 
-      - 
-        column_name: id
-        column_type: serial
       - 
         column_name: name
         column_type: varchar(255)

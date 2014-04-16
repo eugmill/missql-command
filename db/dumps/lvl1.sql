@@ -1,4 +1,4 @@
-CREATE TABLE cities (id serial PRIMARY KEY,name VARCHAR(255), population INTEGER);
+CREATE TABLE cities (name VARCHAR(255), population INTEGER);
 
 INSERT INTO cities (name,population) VALUES ('New York', 8337000);
 INSERT INTO cities (name,population) VALUES ('Paris', 2211000);

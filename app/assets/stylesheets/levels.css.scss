@@ -5,6 +5,13 @@
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
+@mixin transition-all{
+	-webkit-transition: all, .5s;
+	-moz-transition: all, .5s;
+	-o-transition: all, .5s;
+	-ms-transition: all, .5s;
+	transition: all, .5s;
+}
 #left-pane{
 	position: absolute;
 	top: 0px;
@@ -21,9 +28,14 @@
 #left-pane #hed{
 	padding: .5em 1em;
 }
-#left-pane #hed h1, #left-pane #head h3{
+#left-pane #hed h2, #left-pane #hed h3{
 	padding-top: 0;
-	margin-top: 0;
+	margin: 0;
+}
+#left-pane p.prompt {
+	padding-top: 0.5em;
+	margin: 0;
+	color:#00FF00;
 }
 #left-pane #level-pages{
 	@include border-box;
@@ -36,7 +48,15 @@
 	position: absolute;
 	bottom: 0;
 }
-
+#left-pane #level-pages.scrolling::after{
+	display: block;
+	position: absolute;
+	width: 89.8%;
+	text-align: right;
+	z-index: 3;
+	font-size: .75em;
+	content:"▾ SCROLL FOR MORE";
+}
 #level-pages h4{
 	margin: 0;
 }
@@ -208,29 +228,32 @@ span.message{
 }
 
 #next-level-modal{
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
 	@include border-box;
-	width: 100%;
-	height: 100%;
+	display: block;
+	position: absolute;
+	bottom: -79px;
+	left: 347px;
+	width: 300px;
 	background-color: rgba(0,0,0,.5);
 	z-index: 10;
+	padding: 1em;
+	background-color: #333333;
+	border: 4px solid #444444;
+	cursor: pointer;
+	@include transition-all;
 }
 #next-level-modal.active{
-	display: block;
+	bottom: 0;
+	height: auto;
 }
 #next-level-modal div.modal-content{
 	position: relative;
-	width: 500px;
+	width: 100%;
 	height: auto;
-	top: 50%;
-	margin: -250px auto auto auto;
-	background-color: #333333;
-	border: 4px solid #444444;
-	padding: 2em;
 	@include border-box;
+}
+#next-level-modal div.modal-content h4{
+	margin: 0;
 }
 
 #schemata{
