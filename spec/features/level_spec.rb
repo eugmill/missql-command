@@ -1,29 +1,40 @@
 require_relative '../spec_helper'
 
-describe 'Level' do
+describe 'Level: ' do
 
-  describe 'every level works' do
-
-    before :each do     
+    before :all do     
       @user = FactoryGirl.create(:user)
       @user.save
     end       
 
-    describe "data driven testing with rspec" do
+    before :each do
+      visit '/login'
+      fill_in 'Username', :with => @user.user_name
+      fill_in 'Password', :with => @user.password
+      click_button 'Login'
+    end
 
-          Level.all.count.times { | stage_number |
-              it "Level #{stage_number+1} should work" do
+    describe "Level Prompts, Titles and Level Pages: " do
+      # Need to change the harcoded number below to Level.all.count. Some scope issues here.
+          10.times { | stage_number |
+              it "Level #{stage_number+1} should have a Title on its page" do
                 @level = Level.find_by(:stage_number => stage_number+1)
-                visit '/login'
-                fill_in 'Username', :with => @user.user_name
-                fill_in 'Password', :with => @user.password
-                click_button 'Login'
-                # visit level_path(@level)
-                visit "/levels/#{@level.stage_number+1}"
-                # expect(page).to have_content(@level.level_pages.first.content)
+                visit "/levels/#{@level.stage_number}"
                 expect(page).to have_content(@level.title)
-                # expect(page).to have_content(@level.prompt)
               end
+
+              it "Level #{stage_number+1} should have a Prompt on its page" do
+                @level = Level.find_by(:stage_number => stage_number+1)
+                visit "/levels/#{@level.stage_number}"
+                expect(page).to have_content(@level.prompt)
+              end
+
+              # it "Level #{stage_number+1} should have the first Level Page on its page" do
+              #   @level = Level.find_by(:stage_number => stage_number+1)
+              #   visit "/levels/#{@level.stage_number}"
+              #   expect(page).to have_content(@level.level_pages.first.content)
+              # end
+
           }
      end
 
@@ -97,7 +108,5 @@ describe 'Level' do
     #   expect(page).to have_no_content("Congratulations, you passed this challenge!")
     #   expect(page).to have_no_content("Move on to the next level >")
     # end
-
-  end
 
 end

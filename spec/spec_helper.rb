@@ -31,6 +31,7 @@ RSpec.configure do |config|
 
   # Database cleaner
   config.before(:suite) do
+    # puts " I AM HAPPENING BEFORE SUITE "
     User.destroy_all
     Level.destroy_all
     DatabaseCleaner.clean_with(:truncation)
@@ -38,13 +39,14 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
+    # puts " I AM HAPPENING AFTER SUITE "
     `RAILS_ENV=test rake missql:clean`
     DatabaseCleaner.clean_with(:truncation)
     ActiveRecord::Base.remove_connection    
   end
 
   config.after(:each) do
-    User.destroy_all
+    # User.destroy_all
     # DatabaseCleaner.clean_with(:truncation)
   end  
 
