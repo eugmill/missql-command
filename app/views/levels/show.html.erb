@@ -8,8 +8,8 @@
 	<aside id="portrait">
 	</aside>
 	<div id="hed">
-	<h1><%= @level.title %></h1>
-	<h3><%= @level.prompt %></h3>
+	<h2><%= @level.title %></h2>
+	<p class="prompt"><%= @level.prompt.html_safe %></p class="prompt">
 	</div>
 	<div id="level-pages">
 	<h4>LEVEL INSTRUCTIONS:</h4>

@@ -21,9 +21,14 @@
 #left-pane #hed{
 	padding: .5em 1em;
 }
-#left-pane #hed h1, #left-pane #head h3{
+#left-pane #hed h2, #left-pane #hed h3{
 	padding-top: 0;
-	margin-top: 0;
+	margin: 0;
+}
+#left-pane p.prompt {
+	padding-top: 0.5em;
+	margin: 0;
+	color:#00FF00;
 }
 #left-pane #level-pages{
 	@include border-box;
