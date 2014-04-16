@@ -37,6 +37,9 @@
 	margin: 0;
 	color:#00FF00;
 }
+#left-pane p.prompt {
+	color:#99FF99;
+}
 #left-pane #level-pages{
 	@include border-box;
 	padding: 1em;
