@@ -34,9 +34,7 @@ RSpec.configure do |config|
     User.destroy_all
     Level.destroy_all
     DatabaseCleaner.clean_with(:truncation)
-    `RAILS_ENV=test rake missql:kill_postgres_connections`
-    Level.load_from_yaml("./db/levels/lvl1.yml")
-    Level.load_from_yaml("./db/levels/lvl2.yml")
+    `RAILS_ENV=test rake missql:reload_all`
   end
 
   config.after(:suite) do
