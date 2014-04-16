@@ -1,6 +1,12 @@
 <header>
-
 	<a href="/"><img src="/assets/missql-logo-8.png" alt="MISSQL COMMAND" class="header-logo" /></a>
+	
+	<% if @level %>
+		<%= link_to "Previous Level", "/levels/#{@level.prev_level.stage_number}" if @level.prev_level %>
+		<%= @level.stage_number %>
+		<%= link_to "Next Level", "/levels/#{@level.next_level.stage_number}" if @level.next_level %>
+	<% end %>	
+
 	<% if current_user -%>
 	<nav>
 		<span>Levels ▾</span>

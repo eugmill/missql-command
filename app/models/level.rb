@@ -46,6 +46,10 @@ class Level < ActiveRecord::Base
     self.level_pages.order(:page_number)
   end
 
+  def prev_level
+    Level.find_by(:stage_number => (self.stage_number-1))
+  end
+
   def next_level
     Level.find_by(:stage_number => (self.stage_number+1))
   end
