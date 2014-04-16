@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :password, :on => :create
   validates_presence_of :email, :on => :create
-  has_many :user_levels
+  has_many :user_levels, :dependent => :destroy
   has_many :levels, :through => :user_levels
   has_one :user_database, :dependent => :destroy
 
