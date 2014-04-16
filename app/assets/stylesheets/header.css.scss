@@ -17,19 +17,40 @@
   background-color: #333333;
   @include border-box;
   padding: 5px;
+  text-align: center;
  }
 
  header span.session{
   display: inline-block;
   float: right;
   position: relative;
-  top: 6px;
+  top: .5em;
   padding-right: 1em;
  }
 
  header img.header-logo{
   padding: 2px 1em 0 0;
   margin-left: 12px;
+  float: left;
+ }
+
+ header span.level-ctrls{
+  display: inline-block;
+  padding-top: .4em;
+  font-size: 1.12em;
+ }
+
+ header span.level-ctrls h4{
+  display: inline-block;
+  margin: 0;
+ }
+
+ span.level-ctrls a{
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  padding: 0 .5em;
+  font-size: .85em;
  }
 
 nav {
