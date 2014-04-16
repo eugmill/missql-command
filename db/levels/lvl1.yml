@@ -3,9 +3,9 @@ level:
   answer: "[{\"name\"=>\"New York\"}, {\"name\"=>\"Paris\"}, {\"name\"=>\"San Francisco\"}, {\"name\"=>\"London\"}, {\"name\"=>\"Moscow\"}, {\"name\"=>\"Tokyo\"}, {\"name\"=>\"Shanghai\"}]"
   database_path: db/dumps/lvl1.sql
   level_type: read
-  prompt: "Armed and ready!"
+  prompt: "Select the name column from the cities table."
   stage_number: 1
-  title: "Welcome to Missql Command"
+  title: "Welcome to Missql Command!"
 level_pages: 
   - 
     content: "<p>Hello Commander, and welcome to the MISSQL COMMAND console! Your job is to defend the worlds cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code>, or <a href='http://en.wikipedia.org/wiki/Sql' target='_blank'>'Structured Query Language'</a> is a standarized programming language used to accesss and interact with <a href='http://en.wikipedia.org/wiki/Relational_database' target='_blank'>relational databases</a>.</p><p>So what is a relational database? A relational database is a method of storing data in tables, which have rows and columns. </p>"
@@ -19,9 +19,6 @@ level_pages:
 level_schemas: 
   - 
     schema_columns: 
-      - 
-        column_name: id
-        column_type: serial
       - 
         column_name: name
         column_type: varchar(255)

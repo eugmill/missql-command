@@ -4,7 +4,7 @@ level:
   title: "Select all the things!"
   prompt: "Selecting all the cities"
   database_path: "db/dumps/lvl1.sql"
-  answer: "[{\"id\"=>\"1\", \"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"id\"=>\"2\", \"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"id\"=>\"3\", \"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"id\"=>\"4\", \"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"id\"=>\"5\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"id\"=>\"6\", \"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"id\"=>\"7\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+  answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
 level_pages:
   - 
@@ -13,9 +13,6 @@ level_pages:
 level_schemas: 
   - 
     schema_columns: 
-      - 
-        column_name: id
-        column_type: serial
       - 
         column_name: name
         column_type: varchar(255)
