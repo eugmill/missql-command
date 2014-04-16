@@ -95,6 +95,10 @@ nav:hover ul.nav-links li {
   @include border-box;
 }
 
+nav:hover ul.nav-links li.completed {
+  
+}
+
 .pane{
 	border-style: solid;
 	border-color: #333333;

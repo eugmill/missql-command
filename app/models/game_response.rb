@@ -9,9 +9,9 @@ class GameResponse
     @output_hash ||= self.user.user_database.execute(self.query, self.user.current_level)
   end
 
-  # def error?
-  #   output_hash[:output].class != PG::Result
-  # end
+  def correct?
+    output_hash[:correct]
+  end
 
   def type
     if output_hash[:output].class == PG::Result && output_hash[:output].to_a.length > 0
