@@ -2,14 +2,14 @@ correct_query: "SELECT * FROM cities;"
 level: 
   stage_number: 2
   title: "Select all the things!"
-  prompt: "Selecting all the cities"
+  prompt: "Select every row and column from cities by using '*'."
   database_path: "db/dumps/lvl1.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
 level_pages:
   - 
     page_number: 1
-    content: "<h2>Select all the things!</h2><p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <strong>*</strong> character.</p><p><strong>*</strong> is a wildcard character, it matches every column in the table. Telling a table to <em>select *</em> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with * instead of 'name'. This should return the entire cities table.</p>"
+    content: "<h2>Select all the things!</h2><p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <code>*</code> character.</p><p><code>*</code> is a wildcard character, it matches every column in the table. Telling a table to <code>SELECT *</code> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with <code>*</code> instead of <code>name</code>. This should return the entire <code>cities</code> table as the result.</p>"
 level_schemas: 
   - 
     schema_columns: 
