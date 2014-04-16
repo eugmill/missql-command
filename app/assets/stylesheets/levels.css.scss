@@ -219,12 +219,38 @@ div#repl div#output{
 	color: #66ff33;
 }
 
+span.error, span.message{
+	position: relative;
+	margin-bottom: .5em;
+	width: 100%;
+	max-width: 400px;
+	border-width: 1px;
+	border-style: solid;
+	display: block;
+	padding: .3em 3.2em .3em .12em;
+}
+
+span.error::after, span.message::after{
+	@include border-box;
+	font-size: 1.3em;
+	height: 100%;
+	width: auto;
+	top: 0px;
+	display: block;
+	position: absolute;
+	right: 5px;
+	content: "⚠";
+	color: inherit;
+}
+
 span.error{
 	color:red;
+	border-color: red;
 }
 
 span.message{
 	color:orange;
+	border-color: orange;
 }
 
 #next-level-modal{
