@@ -1,18 +1,18 @@
 correct_query: "INSERT INTO missiles VALUES ('Topol', 'Russia');"
 level: 
   stage_number: 5
-  title: "The Topol Returns!"
-  prompt: "Adding data to a table"
+  title: "Return of the Topol!"
+  prompt: "Using INSERT to add data"
   database_path: "db/dumps/lvl5.sql"
   answer: ""
   level_type: "insert"
 level_pages:
   - page_number: 1
-    content: "<p>The Russians have designed a new missile type, but for some reason they decided to still call it 'Topol'. Woops! Still, we want to record this new missile type in our database. </p>"
+    content: "<p>The Russians have built a new type of missile, but for some reason they decided to call this one 'Topol' as well. Whoops! Still, we want to record this new threat in our missiles table.</p>"
   - page_number: 2
-    content: "<p>Let's add a new row to our database with this data. The way we add rows to a SQL table is via <code>INSERT</code> statements. The syntax for <code>INSERT</code> statements is as follows: <code>INSERT INTO table_name VALUES (value1,value2,value3,...);</code></p> \n Each insert statement will add a single row to the table specified by table_name. Let's look at a simple example. "
+    content: "<p>Let's add a new row using the data our intelligence service has gathered on the new Topol. SQL adds data to tables using <code>INSERT</code> statements. The format of an <code>INSERT</code> statement is as follows: <pre><code>INSERT INTO table_name VALUES (\n  value_for_col_1,\n  value_for_col2\n);</code></pre></p><p>Each insert statement adss a single row to the table specified by <code>table_name</code>. Let's look at a simple example.</p>"
   - page_number: 3
-    content: "<p>Say we have a <code>cats</code> table. \n {INSERT EXAMPLE OF CATS TABLE HERE} \n The way we would insert a new cat with its name and hair color would be <code>INSERT INTO cats VALUES ('Polly', 'red'). </code> \n Now, try adding a new row to the missiles table for our new Topol missile!"
+    content: "<p>Say we have a table called <code>cats</code> that stores the name and color of each cat. To add a new cat to the table, we would use a statement like the following:</p><p><pre><code>INSERT INTO cats\n  VALUES (\n  'Polly',  'red');</code></pre></p><p>Columns are listed in the order of their definition. To specify the column for each value, or to insert a row without a value for every column, we would use a query like the following:</p><p><pre><code>INSERT INTO cats (color, name)\n  VALUES ('red, 'Polly');</code></pre><br /> Notice how we were able to swap the order of the columns by explicitly specifying their name and order after the table's name.</p><p>Now, try adding a new row to the missiles table for our new Topol missile!"
 level_tests:
   - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='Russia';"
     expected_output: "[{\"count\"=>\"2\"}]"

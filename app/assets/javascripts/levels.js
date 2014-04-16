@@ -139,7 +139,8 @@ updatePageNumber = function(number){
     clearSelection();
     var target = $(e.target);
     if (target.hasClass('arrow')){
-    return swapPage(target);
+      swapPage(target);
+      return pageScrollCheck();
     }
   });
 }
@@ -155,6 +156,24 @@ clearSelection = function(){
 }
 }
 
+hasScroll = function(el){
+  var domEl = $(el)[0];
+  if(domEl.scrollHeight > domEl.clientHeight){
+    return true;
+  }
+  return false;
+}
+
+pageScrollCheck = function(){
+  if(hasScroll('.level-page.active')){
+    if(!$('#level-pages').hasClass("scrolling")){
+      return $('#level-pages').addClass('scrolling');
+    }
+  } else if($('#level-pages').hasClass("scrolling")){
+      return $('#level-pages').removeClass('scrolling');
+  }
+}
+
 
 $(document).ready(function() {
   $('#execute').on("click",function(){
@@ -167,7 +186,8 @@ $(document).ready(function() {
     clearSelection();
     var target = $(e.target);
     if (target.hasClass('arrow')){
-    return swapPage(target);
+      swapPage(target);
+      return pageScrollCheck();
     }
   });
 
@@ -188,6 +208,8 @@ $(document).ready(function() {
      $('#execute').click()
    }
   });
+
+  $(window).on('resize', pageScrollCheck);
 
   
 })

@@ -36,7 +36,15 @@
 	position: absolute;
 	bottom: 0;
 }
-
+#left-pane #level-pages.scrolling::after{
+	display: block;
+	position: absolute;
+	width: 89.8%;
+	text-align: right;
+	z-index: 3;
+	font-size: .75em;
+	content:"▾ SCROLL FOR MORE";
+}
 #level-pages h4{
 	margin: 0;
 }
