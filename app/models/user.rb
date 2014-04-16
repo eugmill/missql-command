@@ -13,11 +13,35 @@ class User < ActiveRecord::Base
   	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")
   end
 
+  def load_level(level)
+    self.user_database.load_level(level)
+    unless self.levels.include?(level)
+      self.levels << level
+    end
+  end
+
   def current_level
     self.user_database.level
   end
 
   def display_name
     user_name || email
+  end
+
+  def current_user_level
+    self.user_levels.where(:level_id => current_level.id).first
+  end
+
+  def mark_current_complete
+    current_user_level.update(:completed => true)
+  end
+
+  def has_completed?(level)
+    return false unless has_started?(level)
+    user_levels.where(:level_id => level.id).first.completed? 
+  end
+
+  def has_started?(level)
+    self.levels.include?(level)
   end
 end
