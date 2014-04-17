@@ -1,5 +1,3 @@
-require 'pry'
-
 class GameplayController < ApplicationController
   def execute
     @response = GameResponse.new(current_user, params[:sql_command])
