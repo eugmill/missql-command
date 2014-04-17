@@ -2,7 +2,7 @@ correct_query: "SELECT * FROM cities WHERE name='New York' OR population > 10000
 level: 
   stage_number: 3
   title: "Where were we?"
-  prompt: "Getting specific with <code>where</code> clauses."
+  prompt: "Select the cities that are either New York or have a population greater than 10,000,000. Return all the columns."
   database_path: "db/dumps/lvl3.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
@@ -10,9 +10,9 @@ level_pages:
   - page_number: 1
     content: "<p>So we know how to return a single column, and we know how to return all the columns. But so far our queries have been returning every single row.</p><p>Instead, let's try getting specific and returning only the particular rows we want. For instance, what if I just want to pull out the population of New York or Paris?</p><p>One way to do that is with the <code>WHERE</code> clause. The <code>WHERE</code> clause lets you filter the results based on certain criteria."
   - page_number: 2
-    content: "<p>So how do we use it? The general syntax is:</p><p><code>SELECT [columns] FROM [table] WHERE [condition];</code></p><p>While it seems pretty basic, you can make the condition as complex as you need it to be. For example, you can combine conditions using boolean operators such as <code>AND</code> , <code>NOT</code> , and <code>OR</code>.</p>"
+    content: "<p>So how do we use it? The general syntax is:</p><p><code>SELECT <em>columns</em> FROM <em>table</em> WHERE <em>condition</em>;</code></p><p>While it seems pretty basic, you can make the condition as complex as you need it to be. For example, you can combine conditions using boolean operators such as <code>AND</code> , <code>NOT</code> , and <code>OR</code>. For number columns you can also filter by using the <code><</code>,<code>></code>,<code>=</code>,<code><=</code>,<code>>=</code> operators.<p><p>Here is an example:</p><p><code>SELECT * FROM cities WHERE population >8000000;</code></p>"
   - page_number: 3
-    content: "<p>The Following are all valid queries:</p><p><code>SELECT name FROM cities WHERE name='New York' OR name='Paris';</code></p><p><code>SELECT * FROM cities WHERE NOT name='New York'</code></p><p>Now you give it a try. Go ahead and get the list of cities whose name is New York or whose population is over 10,000,000. We'll want all the columns.</p><p>Feel free to break up your query into multiple lines to make it easier.<p><p>Tip: <code>SQL</code> strings (like the varchar datatype) are specified with 'single quotes' rather than \"double quotes\". We'll dive deeper into varchar and other datatypes in the next level. </p>"
+    content: "<p>The Following are all valid queries:</p><p><code>SELECT name FROM cities WHERE name='New York' OR name='Paris';</code></p><p><code>SELECT * FROM cities WHERE NOT name='New York'</code></p><p>Now you give it a try. Go ahead and get the list of cities whose name is New York or whose population is over 10,000,000. We'll want all the columns.</p><p>Feel free to break up your query into multiple lines to make it easier.<p><p>Tip: <code>SQL</code> strings (like the <code>VARCHAR</code> datatype) are specified with 'single quotes' rather than \"double quotes\". We'll dive deeper into varchar and other datatypes in the next level. </p>"
 level_schemas: 
   - 
     schema_columns: 
