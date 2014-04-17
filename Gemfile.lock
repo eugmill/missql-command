@@ -90,6 +90,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.3)
     minitest (5.3.3)
+    mousetrap-rails (1.4.6)
     multi_json (1.9.2)
     net-scp (1.2.0)
       net-ssh (>= 2.6.5)
@@ -212,6 +213,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mousetrap-rails
   net-ssh (~> 2.7.0)
   normalize-rails
   pg
