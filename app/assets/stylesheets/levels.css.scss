@@ -114,7 +114,7 @@ span#page-number, span#number-of-pages{
 	width: 73px;
 	height: 50px;
 	cursor: pointer;
-	background-image: url(/assets/arrow-sprite.png);
+	background-image: image-url("arrow-sprite.png");
 }
 #pages-nav span.arrow.left{
 	float: left;
