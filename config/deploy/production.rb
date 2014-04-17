@@ -25,9 +25,10 @@ server '107.170.102.25',
   ssh_options: {
     user: 'deploy', # overrides user setting above
     # keys: %w(/home/user_name/.ssh/id_rsa),
+    keys: %w(~/.ssh/missqlcommand1),
     forward_agent: false,
-    auth_methods: %w(password),
-    password: "mishka"
+    auth_methods: %w(publickey),
+    # password:
   }
 
 
