@@ -5,13 +5,21 @@
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-div.form-container{
+div.text-container{
 	@include border-box;
+	display: inline-block;
+	width: auto;
+	max-width: 330px;
+	height: auto;
+	padding: 0 4em 0 0;	
+	text-align: left;
+}
+div.form-container{
 	position: relative;
 	height: 100%;
 	display: block;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 10px;
 	background-image: image-url("night-sky.gif");
 	background-position: center center;
 	background-size: auto auto;
