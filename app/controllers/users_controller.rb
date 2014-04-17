@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(new_user_params)
     if @user.save
       session[:user_id]=@user.id
-      redirect_to @user
+      redirect_to "/levels/1"
     else
       flash[:alert] = @user.errors.full_messages.join('. ')
       render :new

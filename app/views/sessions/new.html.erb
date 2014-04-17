@@ -1,16 +1,17 @@
-<h1 class="login">Login</h1>
+<div class="form-container">
+<%= form_tag(sessions_path, {:class => 'form login-form'}) do %>
+	<h2>Login</h2>
+  <fieldset>
+    <%= label_tag "user_name","Email:" %>
+    <input id="user_name" name="user[email]" type="text" />
+  </fieldset>
 
-<%= form_tag(sessions_path, {:class => 'login_form'}) do %>
-  <p>  
-    <%= label_tag "user_name","Username:" %>
-    <input id="user_name" name="user[user_name]" type="text" />
-  </p>
-
-  <p>  
+  <fieldset>  
     <%= label_tag "password" %>
     <input id="password" name="user[password]" type="password" />
-  </p>
-
-  <%= submit_tag "Login" %>
-
+  </fieldset>
+  <fieldset>
+ 	 <%= submit_tag "Login" %>
+  </fieldset>
 <% end %>
+</div>
