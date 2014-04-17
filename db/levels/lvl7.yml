@@ -2,17 +2,17 @@ correct_query: "CREATE TABLE missiles (id serial, model_name VARCHAR(255), natio
 level: 
   stage_number: 7
   title: "Creating tables with ID"
-  prompt: "Creating tables with ID"
+  prompt: "Recreate our <code>missiles</code> using the provided schema, including an <code> ID </code> column."
   database_path: "db/dumps/lvl7.sql"
   answer: ""
   level_type: "create"
 level_pages:
   - page_number: 1
-    content: "<p> Now that we've seen the power of using ID's to identify our data, we can start to create tables using ID as well. We learned in Level 4 how to create a table using the <code>CREATE TABLE</code> command. Now, we're going to build on that by learning how to create tables with ID's. </p>"
+    content: "<p> In the last level, we saw the power of using ID's to select specifically the data we need. </p> <p> Intelligence Services has called upon you to recreate the <code>missiles</code> table from scratch, using ID's this time, so that we'll always be able to pass to Intelligence Services precise missile data. </p> <p> We learned in Level 4 how to create a table using the <code>CREATE TABLE</code> command. Now, we're going to build on that by learning how to create tables with ID's. </p>"
   - page_number: 2
-    content: "<p> We've started you off with an empty database. Your job is to create a missiles table that has ID's in it. The convention for ID's is that they are <code> PRIMARY KEY, AUTOINCREMENT </code>. <code> PRIMARY KEY </code> simply means that the column is UNIQUE and NOT NULL. AUTOINCREMENT means that this column's values will increment by 1 every time a new row is added.</p>"
+    content: "<p> We've started you off with an empty database and no tables. Your job is to create a missiles table that has ID's in it. The convention for ID's is that they are <code> INTERGER PRIMARY KEY AUTOINCREMENT </code>. </p> <p> <code> PRIMARY KEY </code> simply means that the column is UNIQUE and NOT NULL. UNIQUE is essential so that two row's never have the same ID, and NOT NULL is important so you never have a row without an ID. </p> <p> <code> AUTOINCREMENT </code> means that this column's values will increment by 1 every time a new row is added. </p>"
   - page_number: 3
-    content: "<p> Here's an example of how to create a table with ID's. <code> CREATE TABLE cats (id serial PRIMARY KEY, name VARCHAR(255), hair_color VARCHAR(255)) </code> Now, can you recreate our missile table with ID's? Take a look at the grey 'missiles' tab to the right to inspect the schema you need to create.</p>"
+    content: "<p> Here's an example of how to create a table with ID's. <pre><code>CREATE TABLE cats (\n id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name VARCHAR(64),\n hair_color VARCHAR(64),\n);</code></pre> </p> <p> Now, can you recreate our missile table with ID's? Take a look at the grey 'missiles' tab to the right to inspect the schema you need to create.</p>"
 level_tests:
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='id';"
     expected_output: "[{\"column_name\"=>\"id\"}]"
@@ -28,7 +28,7 @@ level_schemas:
     schema_columns: 
       - 
         column_name: id
-        column_type: serial
+        column_type: INTEGER PRIMARY KEY AUTOINCREMENT
       - 
         column_name: model_name
         column_type: varchar(255)

@@ -2,7 +2,7 @@ correct_query: "SELECT * FROM cities;"
 level: 
   stage_number: 2
   title: "Select all the things!"
-  prompt: "Select every row and column from cities by using '*'."
+  prompt: "Select every row and column from <code>cities</code> by using <code>*</code>."
   database_path: "db/dumps/lvl1.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"

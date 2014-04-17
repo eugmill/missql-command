@@ -1,20 +1,20 @@
-correct_query: "INSERT INTO missiles VALUES ('Topol', 'Russia');"
+correct_query: "INSERT INTO missiles VALUES ('Topol', 'USSR');"
 level: 
   stage_number: 5
   title: "Insertopol"
-  prompt: "Use <code>INSERT</code> to add a record with <code>name</code> 'Topol' and <code>nationality</code> 'Russia' to the <code>missiles</code> table."
+  prompt: "Use <code>INSERT</code> to add a record with <code>name</code> 'Topol' and <code>nationality</code> 'USSR' to the <code>missiles</code> table."
   database_path: "db/dumps/lvl5.sql"
   answer: ""
   level_type: "insert"
 level_pages:
   - page_number: 1
-    content: "<p>So we have our cities, time to track some missiles. We've created a <code>missiles</code> table for you. You can check out the <em>schema</em> to the right</p><p>Our intelligence services have just discovered another Russian 'Topol ' model missile.</p><p>We'll want to record this new threat in our missiles table right away!.</p>"
+    content: "<p>So we have our cities, time to track some missiles. We've created a <code>missiles</code> table for you. You can check out the <em>schema</em> to the right</p><p>Our intelligence services have just discovered another Soviet 'Topol' model missile.</p><p>We'll want to record this new threat in our missiles table right away!.</p>"
   - page_number: 2
     content: "<p>SQL uses <code>INSERT</code> statements to add data to tables. The basic format of an <code>INSERT</code> statement is: <pre><code>INSERT INTO <em>table_name</em> VALUES (\n  <em>value_for_col_1</em>,\n  <em>value_for_col2</em>\n);</code></pre></p><p>Each insert statement adds a single row to the table specified by <code><em>table_name</em></code>. Let's look at a simple example.</p>"
   - page_number: 3
     content: "<p>Say we have a table called <code>cats</code> that stores the name and color of each cat. To add a new cat to the table, we would use a statement like the following:</p><p><pre><code>INSERT INTO cats\n  VALUES ('Polly','red');</code></pre></p><p>Columns are listed in the order of their definition. To specify the column for each value, or to insert a row without a value for every column, we would use a query like the following:</p><p><pre><code>INSERT INTO cats (color, name)\n  VALUES ('red, 'Polly');</code></pre><br /> Notice how we were able to swap the order of the columns by explicitly specifying their name and order after the table's name.</p><p>Now, try adding a new row to the missiles table for our new Topol missile!"
 level_tests:
-  - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='Russia';"
+  - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='USSR';"
     expected_output: "[{\"count\"=>\"2\"}]"
     error_message: "There should be two missiles named 'Topol' in the table."
   - test_query: "SELECT count(*) FROM missiles;"

@@ -2,15 +2,15 @@ correct_query: "CREATE TABLE cities (name VARCHAR(255), population INTEGER);"
 level: 
   stage_number: 4
   title: "Scheming to create"
-  prompt: "Create a cities table that matches the provided schema."
+  prompt: "Create a <code>cities</code> table that matches the provided schema."
   database_path: "db/dumps/lvl4.sql"
   answer: ""
   level_type: "create"
 level_pages:
   - page_number: 1
-    content: "<p>We've figured out how to pull data out from tables, but where did the tables come from? To make sense of table creation, we'll first take a step back. SQL statements can be put into two categories, the Data Definition Language(DDL) and the Data Manipulation Language(DML).<p><p>DDL statements change the <em>structure</em> of the data, while DML statements work with the data itself.</p><p>For instance, creating, deleting and altering a tables columns fall under DDL because they change the structure of our tables. Selecting, inserting, and updating data falls under DDL.</p>"
+    content: "<p>We've figured out how to pull data out from tables, but where did the tables come from? To make sense of table creation, we'll first take a step back. SQL statements can be put into two categories, the Data Definition Language(DDL) and the Data Manipulation Language(DML).<p><p>DDL statements change the <em>structure</em> of the data, while DML statements work with the data itself.</p><p>For instance, creating, deleting and altering a tables columns fall under DDL because they change the structure of our tables. Selecting, inserting, and updating data falls under DML.</p>"
   - page_number: 2
-    content: "<p>With that out of the way, let's learn our first DDL command: <code>CREATE</code>!</p><p>So how do we create a table? Well, we have to define which columns that table will have, and what kind of data they will store.</p><p>The description of a database's tables, columns and relations is called the database <em>schema</em>. You can see a pretty basic sample schema by clicking on the grey button that says <code>cities</code>.</p><p>If you take a look you'll see two columns and their datatypes</p>"
+    content: "<p>With that out of the way, let's learn our first DDL command: <code>CREATE</code>!</p><p>So how do we create a table? Well, we have to define which columns that table will have, and what kind of data they will store.</p><p>The description of a database's tables, columns and relations is called the database <em>schema</em>. You can see a pretty basic sample schema by clicking on the grey button to the right that says <code>cities</code>.</p><p>If you take a look you'll see two columns and their datatypes. </p>"
   - page_number: 3
     content: "<p>The first column is 'name' and its datatype is <code>varchar(255)</code>. This is just SQL's way of storing a bit of text with a maximum of 255 characters. So a <code>varchar(140)</code> column would be able to store exactly a single tweet but no more.</p><p>The second column 'population' is an integer datatype, which stores a number.</p><p>So let's put this all together and create our cities table!The basic syntax for a CREATE statement is:</p><p><pre><code>CREATE TABLE <em>tablename</em> (\n  <em>column1 TYPE1,\n  column2 TYPE2</em>\n);</code></pre></p>"
   - page_number: 4
