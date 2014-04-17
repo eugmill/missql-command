@@ -173,6 +173,19 @@ pageScrollCheck = function(){
 
 
 $(document).ready(function() {
+  if($('#execute').length> 0){
+
+  $('li.tab').on("click", function(e){
+    var $target = $(this);
+    console.log($target.attr("class"));
+    if($target.hasClass('active')){
+      return $target.removeClass('active')
+    } else{
+      $("li.tab.active").removeClass('active')
+      return $target.addClass('active')
+    }
+  });
+    
   $('#execute').on("click",function(){
       var text = $('#sql-command').val();
       return submitQuery(text);
@@ -187,26 +200,13 @@ $(document).ready(function() {
       return pageScrollCheck();
     }
   });
-
-  $('li.tab').on("click", function(e){
-    var $target = $(this);
-    console.log($target.attr("class"));
-    if($target.hasClass('active')){
-      return $target.removeClass('active')
-    } else{
-      $("li.tab.active").removeClass('active')
-      return $target.addClass('active')
-    }
-  });
-
-  $(document).keypress(13,function(e) {
-  if(e.ctrlKey){
+    Mousetrap.bindGlobal(['ctrl+enter','ctrl+return','command+return'], function(e){
+      console.log('butt')
       e.preventDefault();
-     $('#execute').click()
-   }
-  });
-  if($("#levle-pages").length > 0){
-  $(window).on('resize', pageScrollCheck);
+      $('#execute').click();
+    });
+
+    $(window).on('resize', pageScrollCheck);
   }
   
 })
