@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       if user.current_level
         return redirect_to "/levels/#{user.current_level.stage_number}"
+      else
+        return redirect_to "/levels/1"
       end
     else
       flash[:notice] = "Email or password is incorrect"
