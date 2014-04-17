@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+gem "net-ssh", "~> 2.7.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -56,6 +57,11 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'capistrano', '~> 3.1.0'
+# gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-bundler'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

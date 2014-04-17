@@ -72,5 +72,3 @@ production:
   host: localhost
   username: postgres
   password: temp
-  
-
