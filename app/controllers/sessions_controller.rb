@@ -7,10 +7,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(:user_name => params[:user][:user_name])
+    user = User.find_by(:email => params[:user][:email])
     if user
       session[:user_id] = user.id
-      redirect_to user
+      if user.current_level
+        return redirect_to "/levels/#{user.current_level.stage_number}"
+      end
     else
       flash[:notice] = "Email or password is incorrect"
       render :new

@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def current_level
+    return nil if !user_database
     self.user_database.level
   end
 
