@@ -8,7 +8,7 @@ level:
   level_type: "insert"
 level_pages:
   - page_number: 1
-    content: "<p>So we have our cities, time to track some missiles. We've created a <code>missiles</code> table for you. You can check out the <em>schema</em> to the right</p><p>Our intelligence services have just discovered another Soviet 'Topol' model missile.</p><p>We'll want to record this new threat in our missiles table right away!.</p>"
+    content: "<p>So now that we have our cities, it's time to track some missiles. We've created a <code>missiles</code> table for you. You can check out the <em>schema</em> to the right</p><p>Our Intelligence Services have just discovered another Soviet 'Topol' model missile.</p><p>We'll want to record this new threat in our missiles table right away!</p>"
   - page_number: 2
     content: "<p>SQL uses <code>INSERT</code> statements to add data to tables. The basic format of an <code>INSERT</code> statement is: <pre><code>INSERT INTO <em>table_name</em> VALUES (\n  <em>value_for_col_1</em>,\n  <em>value_for_col2</em>\n);</code></pre></p><p>Each insert statement adds a single row to the table specified by <code><em>table_name</em></code>. Let's look at a simple example.</p>"
   - page_number: 3

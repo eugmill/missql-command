@@ -8,7 +8,7 @@ level:
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Great job Commander! The security records are updated, and we now have two 'Topol' missiles in our table. Our intelligence services are satisfied. But now we want to select all of the data about the first 'Topol' missile. How would we do this?</p>"
+    content: "<p>Great job Commander! The security records are updated, and we now have two 'Topol' missiles in our table. Intelligence Services is satisfied. But now we want to select all of the data about the first 'Topol' missile. How would we do this?</p>"
   - page_number: 2
     content: "<p>If you try <code>SELECT * FROM missiles WHERE name = 'Topol';</code> you will see that you actually return two missiles! Uh oh! How do get data on just the first?</p> <p>Enter <code> ID. </code> </p>"
   - page_number: 3
