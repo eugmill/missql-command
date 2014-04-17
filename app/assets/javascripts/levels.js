@@ -94,10 +94,11 @@ correctAnswer = function(){
 
 toggleModal = function(selector){
   var $modal = $(selector);
+  if(!$modal.hasClass("active")){
   $modal.toggleClass("active");
   return $modal.on('click', function(){
-   toggleModal(selector)
-  })
+    $modal.removeClass("active");
+  })}
 }
 
 showMessages = function(response){
