@@ -201,7 +201,6 @@ $(document).ready(function() {
     }
   });
     Mousetrap.bindGlobal(['ctrl+enter','ctrl+return','command+return'], function(e){
-      console.log('butt')
       e.preventDefault();
       $('#execute').click();
     });
