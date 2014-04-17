@@ -25,7 +25,9 @@ div.form-container{
 	background-size: auto auto;
 	background-repeat: repeat;
 }
-
+div.form-container > *{
+	margin-top: 2em;
+}
 form.form {
 	@include border-box;
 	display: inline-block;
