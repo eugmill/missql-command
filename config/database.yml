@@ -66,4 +66,11 @@ test:
 #   postgres://myuser:mypass@localhost/somedatabase
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  encoding: utf8
+  database: missql-command_production
+  host: localhost
+  username: postgres
+  password: <%= ENV["DATABASE_URL"] %>
+  
+
