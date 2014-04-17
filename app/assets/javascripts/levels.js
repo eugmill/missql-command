@@ -200,7 +200,7 @@ $(document).ready(function() {
       return pageScrollCheck();
     }
   });
-    Mousetrap.bindGlobal(['ctrl+enter','ctrl+return','command+return'], function(e){
+    Mousetrap.bindGlobal(['ctrl+enter','command+return'], function(e){
       e.preventDefault();
       $('#execute').click();
     });
