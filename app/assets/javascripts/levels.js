@@ -205,8 +205,8 @@ $(document).ready(function() {
      $('#execute').click()
    }
   });
-
+  if($("#levle-pages").length > 0){
   $(window).on('resize', pageScrollCheck);
-
+  }
   
 })
