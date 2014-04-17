@@ -71,6 +71,6 @@ production:
   database: missql-command_production
   host: localhost
   username: postgres
-  password: <%= ENV["DATABASE_PWD"] %>
+  password: temp
   
 
