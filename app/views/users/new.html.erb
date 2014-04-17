@@ -1,11 +1,25 @@
-<%= form_for @user, :html => {:class => 'sign_up_form'} do |f|%>
-<p>  <%= f.label :user_name %> </p>
-<p>  <%= f.text_field :user_name %> </p>
-<p>  <%= f.label :email %> </p>
-<p>  <%= f.text_field :email %> </p>
-<p>  <%= f.label :password %> </p>
-<p>  <%= f.password_field :password %> </p>
-<p>  <%= f.label :password_confirmation %> </p>
-<p>  <%= f.password_field :password_confirmation %> </p>
-<p>  <%= f.submit %> </p>
+<div class="form-container">
+
+<%= form_for @user, :html => {:class => 'form sign-up-form'} do |f|%>
+<h2>Sign Up</h2>
+<fieldset>
+	<%= f.label :email, "Email Address*:" %>
+ 	<%= f.text_field :email %>
+</fieldset>
+<fieldset>
+	<%= f.label :user_name, "Username:" %> 
+	<%= f.text_field :user_name %> 
+</fieldset>
+<fieldset>
+	<%= f.label :password, "Password:" %> 
+	<%= f.password_field :password %> 
+</fieldset>
+<fieldset>
+	<%= f.label :password_confirmation, "Confirm password:" %> 
+	<%= f.password_field :password_confirmation %>  
+</fieldset>
+<fieldset>
+	<%= f.submit %>
+</fieldset>
 <% end %>
+</div>

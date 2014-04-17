@@ -80,11 +80,3 @@ div#alert{
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-input{
-  background-color: black;
-  color: #00ff00;
-  outline: none;
-  padding: .25em;
-  border: 1px solid #00ff00;
-}

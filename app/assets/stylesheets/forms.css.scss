@@ -1,0 +1,70 @@
+@mixin border-box{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+div.form-container{
+	@include border-box;
+	position: relative;
+	height: 100%;
+	display: block;
+	text-align: center;
+	padding-top: 100px;
+	background-image: image-url("night-sky.gif");
+	background-position: center center;
+	background-size: auto auto;
+	background-repeat: repeat;
+
+}
+
+form.form {
+	@include border-box;
+	display: inline-block;
+	width: auto;
+	max-width: 400px;
+	height: auto;
+	padding: 2em;
+	border-radius: .5em;
+	border: 1px solid #00ff00;
+	text-align: center;
+	background-color: rgba(0,0,0,.5);
+}
+
+form.form h2{
+	margin: -.5em 0 .5em .5em;
+	text-align: left;
+}
+
+form.form fieldset{
+	display: block;
+	width: auto;
+	height: auto;
+	border: 0;
+	margin-bottom: 1em;
+}
+
+form.form fieldset:last-of-type{
+	margin-bottom: 0;
+}
+
+form.form label{
+	text-transform: uppercase;
+	display: block;
+	text-align: left;
+	font-family: 'Quantico';
+}
+
+form.form input[type='text'], form.form input[type='password'], form.form input[type='submit']{
+	background-color: black;
+	color: #00ff00;
+	outline: none;
+	border: 1px solid #00ff00;
+}
+
+form.form input[type='submit']{
+	@include border-box;
+	border-radius: 4px;
+}
