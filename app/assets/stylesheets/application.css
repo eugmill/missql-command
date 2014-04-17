@@ -35,6 +35,9 @@ h1, h2, h3, h4, h5, h6{
   font-weight: 400;
 }
 
+span.code{
+  color: #00ff00;
+}
 .unselectable {
   -moz-user-select: none;
   -webkit-user-select: none;
