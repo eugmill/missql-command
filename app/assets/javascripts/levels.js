@@ -119,6 +119,7 @@ swapPage = function($arrowEl){
       curNum = curPage.data('page-number'),
       nextNum = 0,
       nextPage = {};
+
   if($arrowEl.hasClass('left')){
     nextNum = (curNum - 1 < 0) ? count - 1 : curNum - 1;
   } else{
@@ -129,18 +130,10 @@ swapPage = function($arrowEl){
     nextPage.toggleClass("active");
     return updatePageNumber(nextNum + 1)
 }
+
 updatePageNumber = function(number){
   var pagenumber = $("span#page-number");
-  pagenumber.html(number);
-  return $('#pages-nav').one("click", function(e){
-    e.preventDefault();
-    clearSelection();
-    var target = $(e.target);
-    if (target.hasClass('arrow')){
-      swapPage(target);
-      return pageScrollCheck();
-    }
-  });
+  return pagenumber.html(number);
 }
 clearSelection = function(){
   if (window.getSelection) {
@@ -192,7 +185,7 @@ $(document).ready(function() {
       return submitQuery(text);
     });
 
-  $('#pages-nav').one("click", function(e){
+  $('#pages-nav .arrow').on("click", function(e){
     e.preventDefault();
     clearSelection();
     var target = $(e.target);
@@ -201,6 +194,7 @@ $(document).ready(function() {
       return pageScrollCheck();
     }
   });
+
     Mousetrap.bindGlobal(['ctrl+enter','command+return'], function(e){
       e.preventDefault();
       $('#execute').click();

@@ -7,7 +7,7 @@
 				<small>Click to close</small><br /><br />
 				<ul class="schema">
 				<% schema.schema_columns.each do |column| %>
-					<li class="column"><span class="column-name"><%= column.column_name %></span>&nbsp;<span class="column-type"><%= column.column_type.upcase %></span>
+					<li class="column"><span class="column-name"><%= column.column_name %><span class="column-type"><%= column.column_type.upcase %></span></span>&nbsp;</li>
 				<% end %>
 				</ul>
 			</div>
