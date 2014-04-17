@@ -2,12 +2,12 @@
 	<ul class="schema-tabs">
 		<% @level.level_schemas.each_with_index do |schema, i| %>
 		<li class="tab <%= "active" if i == 0 %>">
-			<span class="tab-title"><%= schema.table_name %></span>
+			<span class="tab-title">Schema for <span class="code"><%= schema.table_name %></span></span>
 			<div class="schema-table">
 				<small>Click to close</small><br /><br />
 				<ul class="schema">
 				<% schema.schema_columns.each do |column| %>
-					<li class="column"><span class="column-name">Schema for <span class="code"><%= column.column_name %></span><span class="column-type"><%= column.column_type.upcase %></span></span>&nbsp;</li>
+					<li class="column"><span class="column-name"><%= column.column_name %></span>&nbsp;<span class="column-type"><%= column.column_type.upcase %></span></li>
 				<% end %>
 				</ul>
 			</div>
