@@ -31,3 +31,9 @@ set :rails_env, "production"
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+
+task :symlink_config, roles: :app do
+  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
+end
+after "deploy:finalize_update", "deploy:symlink_config"
