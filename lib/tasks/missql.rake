@@ -8,6 +8,13 @@ namespace :missql do
 		Rake::Task["db:seed"].invoke
 	end
 
+  desc "Updates all the levels from yaml files"
+  task :update_all => :environment do
+    Dir.glob('db/levels/*.yml') do |yml_file|
+      Level.update_from_yaml(yml_file)
+    end
+  end
+
   desc "Reloads all the levels from their yaml files"
   task :reload_all => :environment do
     Level.destroy_all
