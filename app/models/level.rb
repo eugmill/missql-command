@@ -22,6 +22,9 @@ class Level < ActiveRecord::Base
     config["level_pages"].each do |page|
       new_level.level_pages << LevelPage.new(page)
     end
+    
+    new_level.default_text = config["default_text"]
+    new_level.save
 
     if config["level_tests"]
       config["level_tests"].each do |test|
