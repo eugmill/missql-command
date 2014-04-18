@@ -1,6 +1,6 @@
-# Missql Command!
+![missql logo](http://missqlcommand.com/assets/missql-logo-8-bf814420f5b89d3568ed38afa0c18748.png "missql logo")
 
-Missql Command is a an interactive game and tutorial meant to teach basic SQL in an engaging way. The player plays a game inspired by [Missile Command](http://en.wikipedia.org/wiki/Missile_Command) with SQL queries, defending a city from incoming missiles. 
+MISSQL Command is a an interactive game and tutorial meant to teach basic SQL in an engaging way. The player plays a game inspired by [Missile Command](http://en.wikipedia.org/wiki/Missile_Command) with SQL queries, defending a city from incoming missiles.
 
 #Creating a MISSQL Command Level
 Levels are generated using YAML files that describe the level's attributes in a nested data structure, and SQL files that contain the commands necessary to generate the level's database. The YAML file also contains attributes for nested resources like level_pages, level_tests, and level_schemas, which are described below. There are also several rake tasks that assist in level creation and editing: 
