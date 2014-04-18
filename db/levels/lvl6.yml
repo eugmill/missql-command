@@ -13,6 +13,7 @@ level_pages:
     content: "<p>If you try <code>SELECT * FROM missiles WHERE name = 'Topol';</code> you will see that you actually return two missiles! Uh oh! How do get data on just the first?</p> <p>Enter <code> ID. </code> </p>"
   - page_number: 3
     content: "<p>ID's are a way to uniquely identify data. Using ID, we can select <strong>only</strong> the data we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1. </p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile. </p>"
+default_text: "id    | model_name      | nationality     |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1     | Peacekeeper     | USA             |\n2     | Minuteman       | USA             |\n3     | Topol           | Russia          |\n4     | Yars            | Russia          |\n5     | Jericho III     | Israel          |\n6     | Agni-V          | India           |\n7     | East Wind 5     | China           |\n8     | East Wind 31    | China           |\n9     | Topol           | Russia          |\n"
 level_schemas: 
   - 
     schema_columns: 
