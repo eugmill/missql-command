@@ -77,7 +77,10 @@ submitQuery = function(text) {
 
 updateView = function(data){
   clearOutput();
-  showMessages(data.response)
+  if(!data.response.correct && data.query.match(/"/g)){
+    data.response.errors.push("Make sure you're using single quotes for your strings.\n")
+  }
+  showMessages(data.response);
   if (data.response.display_type == "string"){
     appendToOutput(data.response.result)
   } else if (data.response.display_type == "table"){

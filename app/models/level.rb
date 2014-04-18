@@ -18,27 +18,43 @@ class Level < ActiveRecord::Base
   def self.load_from_yaml(path)
     config = YAML.load_file(path)
     new_level = Level.create(config["level"])
+    new_level.load_yaml(path)
+  end
+
+  def self.update_from_yaml(path)
+    config = YAML.load_file(path)
+    level = find_by(:stage_number => config["level"]["stage_number"])
+    level.load_yaml(path) if level
+  end
+
+  def load_yaml(path)
+    config = YAML.load_file(path)
+    level_pages.destroy_all
 
     config["level_pages"].each do |page|
-      new_level.level_pages << LevelPage.new(page)
+      level_pages << LevelPage.new(page)
     end
-    
-    new_level.default_text = config["default_text"]
-    new_level.save
+
+    self.default_text = config["default_text"]
 
     if config["level_tests"]
+      level_tests.destroy_all
       config["level_tests"].each do |test|
-        new_level.level_tests << LevelTest.new(test)
+        level_tests << LevelTest.new(test)
       end
     end
+
     if config["level_schemas"]
+      level_schemas.destroy_all
       config["level_schemas"].each do |schema|
-        new_schema = new_level.level_schemas.create(:table_name=> schema["table_name"])
+        new_schema = level_schemas.create(:table_name=> schema["table_name"])
           schema["schema_columns"].each do |column|
             new_schema.schema_columns << SchemaColumn.new(column)
           end
       end
     end
+
+    save
   end
 
   def correct_answer?(result)

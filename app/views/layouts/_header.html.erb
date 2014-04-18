@@ -17,7 +17,7 @@
 		<span>Levels ▾</span>
 		<ul class="nav-links">
 			<% @levels.each do |level| %>
-			<li <%= "class = completed" if current_user.has_completed?(level) %>><%= link_to "##{level.stage_number.to_s} #{level.title}", "/levels/#{level.stage_number}" %> </li>
+			<li <%= "class = completed" if current_user.has_completed?(level) %>><%= link_to "##{level.stage_number.to_s} #{strip_tags level.title}", "/levels/#{level.stage_number}" %> </li>
 			<% end %>
 		</ul>
 	</nav>
