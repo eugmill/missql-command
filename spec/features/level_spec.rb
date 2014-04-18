@@ -9,7 +9,7 @@ describe 'Level: ', :js => true do
 
     before :each do
       visit '/login'
-      fill_in 'Username', :with => @user.user_name
+      fill_in 'Email', :with => @user.email
       fill_in 'Password', :with => @user.password
       click_button 'Login'
     end
