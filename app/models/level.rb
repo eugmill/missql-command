@@ -19,27 +19,6 @@ class Level < ActiveRecord::Base
     config = YAML.load_file(path)
     new_level = Level.create(config["level"])
     new_level.load_yaml(path)
-
-    # config["level_pages"].each do |page|
-    #   new_level.level_pages << LevelPage.new(page)
-    # end
-    
-    # new_level.default_text = config["default_text"]
-    # new_level.save
-
-    # if config["level_tests"]
-    #   config["level_tests"].each do |test|
-    #     new_level.level_tests << LevelTest.new(test)
-    #   end
-    # end
-    # if config["level_schemas"]
-    #   config["level_schemas"].each do |schema|
-    #     new_schema = new_level.level_schemas.create(:table_name=> schema["table_name"])
-    #       schema["schema_columns"].each do |column|
-    #         new_schema.schema_columns << SchemaColumn.new(column)
-    #       end
-    #   end
-    # end
   end
 
   def self.update_from_yaml(path)
