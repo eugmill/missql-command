@@ -20,7 +20,7 @@ class UserDatabase < ActiveRecord::Base
             correct = (level.correct_answer?(last_result)) 
             if !correct && last_result.class == PG::Result
               level.level_tests.each do |test|
-                if !test.test_pg(last_result)
+                if !test.pg_correct?(last_result)
                   errors << test.error_message
                 end
               end
