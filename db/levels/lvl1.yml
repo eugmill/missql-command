@@ -23,3 +23,10 @@ level_schemas:
         column_name: population
         column_type: integer
     table_name: cities
+level_tests:
+  - test_query: "has_col"
+    expected_output: "name"
+    error_message: "Your results should include the name column from the cities table."
+  - test_query: "has_enough_rows"
+    expected_output: 7
+    error_message: "Your results aren't returning enough rows. You should be getting every row from the cities table."
