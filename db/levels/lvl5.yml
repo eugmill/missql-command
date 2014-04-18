@@ -20,6 +20,7 @@ level_tests:
   - test_query: "SELECT count(*) FROM missiles;"
     expected_output: "[{\"count\"=>\"9\"}]"
     error_message: "There should only be 9 rows in the table."
+default_text: "model_name      | nationality     |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nPeacekeeper     | USA             |\nMinuteman       | USA             |\nTopol           | USSR            |\nYars            | USSR            |\nJericho III     | Israel          |\nAgni-V          | India           |\nEast Wind 5     | China           |\nEast Wind 31    | China           |\n"
 level_schemas: 
   - 
     schema_columns: 

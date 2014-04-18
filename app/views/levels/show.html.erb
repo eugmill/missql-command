@@ -21,7 +21,7 @@
 			<%= render partial:"schema_tabs.html" %>
 	<% end %>
 	<div id="output">
-		<pre id="output-text"></pre>
+		<pre id="output-text"><%= @level.default_text %></pre>
 	</div>
 	<div id="command-input" class="pane">
 		<textarea id="sql-command" autofocus></textarea>
