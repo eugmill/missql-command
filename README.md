@@ -5,9 +5,10 @@ Missql Command is a an interactive game and tutorial meant to teach basic SQL in
 #Creating a MISSQL Command Level
 Levels are generated using YAML files that describe the level's attributes in a nested data structure, and SQL files that contain the commands necessary to generate the level's database. The YAML file also contains attributes for nested resources like level_pages, level_tests, and level_schemas, which are described below. There are also several rake tasks that assist in level creation and editing: 
 
- - `missql:reload[n]` takes a stage number as an argument and reloads that level from the yaml file
- - `missql:reload_all` drops all levels and reloads them from yaml
- - `missql:reset` resets the entire missql database (for use in development only) and rebuilds it from the seeds file
+ - `missql:update_all` Updates existing levels from their yaml files. 
+ - `missql:reload[n]` takes a stage number as an argument and reloads that level from the yaml file. Destroys the original level. 
+ - `missql:reload_all` drops all levels and reloads them from yaml.
+ - `missql:reset` resets the entire missql database (for use in development only) and rebuilds it from the seeds file.
 
 ##Attributes Of A Level:
  - stage_number (integer): The ordinal number of the level, independent from its id. Used for ordering/labelling levels in the interface.
