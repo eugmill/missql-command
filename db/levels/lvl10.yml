@@ -1,0 +1,41 @@
+correct_query: "SELECT cities.name, missiles.model_name, missiles.nationality FROM cities JOIN missiles on missiles.target_city_id = cities.id;"
+level: 
+  stage_number: 10
+  title: "Target Acquisition"
+  prompt: "Select a list of city names, the missile models targeting them, and the nationility of those missiles by using a <code>JOIN</code>."
+  database_path: "db/dumps/lvl10.sql"
+  answer: "[{\"name\"=>\"New York\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}, {\"name\"=>\"San Francisco\", \"model_name\"=>\"Dongfeng-5\", \"nationality\"=>\"China\"}, {\"name\"=>\"London\", \"model_name\"=>\"Yars\", \"nationality\"=>\"Russia\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Jericho III\", \"nationality\"=>\"Israel\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Minuteman\", \"nationality\"=>\"USA\"}, {\"name\"=>\"Tokyo\", \"model_name\"=>\"Dongfeng-31\", \"nationality\"=>\"China\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Agni-V\", \"nationality\"=>\"India\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Peacekeeper\", \"nationality\"=>\"USA\"}]"
+  level_type: "read"
+level_pages:
+  - page_number: 1
+    content: "<p>Civil defense is scrambling jets to intercept the missiles you found in the last stage. They need you to generate a list of the cities being targeted, paired with the model and nation of the missile targeting them. They don't have time to look through all the data in both tables, so you'll need to get just the <code>name</code> column from the <code>cities</code> table, and the <code>model_name</code> and <code>nationality</code> from each matching missile row.</p><p>To do this, you'll use an inner JOIN, just as in the last stage, but this time using the syntax to select specific columns.</p>"
+  - page_number: 2
+    content: "<p>To select only specific columns, you'll use the 'dot' notation in the <code>SELECT</code> portion of your JOIN query. Dot notation takes the following format <code><em>table_name.column_name</em></code>. In a JOIN where you want to get the name of a cat and the name of its owner from related tables, you'd write something like this:</p><p><pre><code>SELECT cats.name, owners.name\nFROM cats\nJOIN owners\nON cats.owner_id = owner.id;</code></pre></p><p>Take a look at the schema for the missiles and cities tables on the right, and see if you can select the <code>names</code> of cities and the <code>model_name</code> and <code>nationality</code> of the missile targeting each one."
+level_schemas: 
+  - 
+    table_name: cities
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: name
+        column_type: varchar(255)
+      - 
+        column_name: population
+        column_type: integer
+  - 
+    table_name: missiles
+    schema_columns: 
+      - 
+        column_name: id
+        column_type: serial
+      - 
+        column_name: model_name
+        column_type: varchar(255)
+      - 
+        column_name: nationality
+        column_type: varchar(255)
+      - 
+        column_name: target_city_id
+        column_type: integer
