@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414214030) do
+ActiveRecord::Schema.define(version: 20140418134917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140414214030) do
     t.text     "dump"
     t.text     "answer"
     t.string   "level_type"
+    t.text     "default_text"
   end
 
   create_table "schema_columns", force: true do |t|
