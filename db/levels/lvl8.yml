@@ -2,7 +2,7 @@ correct_query: "select missiles.target_city_id from missiles;"
 level: 
   stage_number: 8
   title: "Incoming Missiles!"
-  prompt: "Select the <code>target_city_id</code> column from the <code>missiles</code> table."
+  prompt: "Get a list of the <code>ids</code> of the targeted <code>cities</code>. Check the schema to see how!"
   database_path: "db/dumps/lvl8.sql"
   answer: "[{\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"1\"}, {\"target_city_id\"=>\"4\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"3\"}, {\"target_city_id\"=>\"6\"}]"
   level_type: "read"

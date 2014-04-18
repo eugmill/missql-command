@@ -2,7 +2,7 @@ correct_query: "SELECT cities.name, missiles.model_name FROM cities JOIN missile
 level: 
   stage_number: 9
   title: "JOIN Up!"
-  prompt: "Bring two tables together to save the world"
+  prompt: "Select a list of city names and the missile models targeting them by using a <code>join</code>."
   database_path: "db/dumps/lvl9.sql"
   answer: "[{\"name\"=>\"New York\", \"model_name\"=>\"Topol\"}, {\"name\"=>\"San Francisco\", \"model_name\"=>\"Dongfeng-5\"}, {\"name\"=>\"London\", \"model_name\"=>\"Yars\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Jericho III\"}, {\"name\"=>\"Moscow\", \"model_name\"=>\"Minuteman\"}, {\"name\"=>\"Tokyo\", \"model_name\"=>\"Dongfeng-31\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Agni-V\"}, {\"name\"=>\"Shanghai\", \"model_name\"=>\"Peacekeeper\"}]"
   level_type: "read"
@@ -14,7 +14,7 @@ level_pages:
   - page_number: 3
     content: "<p>To select a particular column or set of columns in a join, you would use the 'dot' notation to indicate which table the columns should be taken from. Dot notation looks like this: <code>table_name.column_name</code>.</p><p>To get just the name of each cat with the name of its owner, you'd execute something like:</p><p><pre><code>SELECT cats.name, owners.name\n FROM cats \nJOIN owners \nON cats.owner_id = owners.id;</code></pre></p>"
   - page_number: 4
-    content: "<p>Now take a look at the schema for this mission's tables, and see if you can craft a <code>JOIN</code> that will grab the <code>name</code> of every <code>city</code> that is targeted by a missile, and the <code>model_name</code> of the missile that is targeting it.</p>"
+    content: "<p>Now take a look at the schema for this mission's tables, and see if you can craft a <code>JOIN</code> that will grab the <code>name</code> of every <code>city</code> that is targeted by a missile, and the <code>model_name</code> of the missile that is targeting it.</p><p>Get just these two columns. Check the <em>schema</em>!</p>"
 level_schemas: 
   - 
     table_name: cities

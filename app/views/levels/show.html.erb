@@ -3,7 +3,7 @@
 	<aside id="portrait">
 	</aside>
 	<div id="hed">
-	<h2><%= @level.title %></h2>
+	<h2><%= @level.title.html_safe %></h2>
 	<p class="prompt"><%= @level.prompt.html_safe %></p class="prompt">
 	</div>
 	<div id="level-pages">
