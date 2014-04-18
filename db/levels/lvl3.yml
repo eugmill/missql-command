@@ -2,13 +2,13 @@ correct_query: "SELECT * FROM cities WHERE name='New York' OR population > 10000
 level: 
   stage_number: 3
   title: "Where were we?"
-  prompt: "Select the cities that are either New York or have a population greater than 10,000,000. Return all the columns."
+  prompt: "Select all data from all rows where the city is named New York, or the population is greater than ten million."
   database_path: "db/dumps/lvl3.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>So we know how to return a single column, and we know how to return all the columns. But so far our queries have been returning every single row.</p><p>Instead, let's try getting specific and returning only the particular rows we want. For instance, what if I just want to pull out the population of New York or Paris?</p><p>One way to do that is with the <code>WHERE</code> clause. The <code>WHERE</code> clause lets you filter the results based on certain criteria."
+    content: "<p>So now we know how to return a single column, and we know how to return all the columns. But so far our queries have been returning data for every single row in the table.</p><p>This time, let's try getting more specific and returning only the particular rows where certain conditions are met. For instance, what if I just want to get populations, but only for New York or Paris?</p><p>One way to do that is with a <code>WHERE</code> clause. A <code>WHERE</code> clause filters the results based on certain criteria."
   - page_number: 2
     content: "<p>So how do we use it? The general syntax is:</p><p><code>SELECT <em>columns</em> FROM <em>table</em> WHERE <em>condition</em>;</code></p><p>While it seems pretty basic, you can make the condition as complex as you need it to be. For example, you can combine conditions using boolean operators such as <code>AND</code> , <code>NOT</code> , and <code>OR</code>. For number columns you can also filter by using the <code><</code>,<code>></code>,<code>=</code>,<code><=</code>,<code>>=</code> operators.<p><p>Here is an example:</p><p><code>SELECT * FROM cities WHERE population >8000000;</code></p>"
   - page_number: 3

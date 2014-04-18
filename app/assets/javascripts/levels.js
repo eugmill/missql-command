@@ -181,7 +181,7 @@ $(document).ready(function() {
   });
     
   $('#execute').on("click",function(){
-      var text = $('#sql-command').val();
+      var text = $('#sql-command').val().replace(/"/g,"'");
       return submitQuery(text);
     });
 
