@@ -9,7 +9,7 @@ level:
 level_pages:
   - 
     page_number: 1
-    content: "<p>Missiles are flying towards your city! You've found the database that keeps track of them, and need to find out where they're going, so the Civil Defence Agency can intercept the missiles. </p> <p> Each missile has a column called <code>target_city_id`</code>. This is known as a \"foreign key\".</p><p>Foreign keys are what make relational databases relational. A foreign key is a piece of data from one table stored in another table. They are used to relate rows of different tables to one another so that their data can be selected together. Typically, the primary key of one row is stored in a column of another table in order to link the two tables together.</p><p> Now, prevent a disastrous attack by fetching the <code>target_city_id</code> column from the <code>missiles</code> table. </p>"
+    content: "<p>Missiles are flying towards your city! You've found the database that keeps track of them, and need to find out where they're going, so the Civil Defence Agency can intercept the missiles. </p> <p> Each missile has a column called <code>target_city_id`</code>. This is known as a \"foreign key\".</p><p><em>Foreign keys</em> are what make relational databases relational. A foreign key is a piece of data from one table stored in another table. They are used to relate rows of different tables to one another so that their data can be selected together. Typically, the primary key of one row is stored in a column of another table in order to link the two tables together.</p><p> Now, prevent a disastrous attack by fetching the <code>target_city_id</code> column from the <code>missiles</code> table. </p>"
 level_schemas: 
   - 
     table_name: missiles
