@@ -24,6 +24,7 @@ class Level < ActiveRecord::Base
   def self.update_from_yaml(path)
     config = YAML.load_file(path)
     level = find_by(:stage_number => config["level"]["stage_number"])
+    level.update(config["level"])
     level.load_yaml(path) if level
   end
 
