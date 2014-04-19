@@ -1,6 +1,7 @@
 <div class="form-container">
 <div class="text-container">
 <h2>What is MISSQL Command?</h2>
+
 <p>MISSQL command is a web application designed to help you learn SQL, 
 the language of <del>love</del> databases.</p>
 <p>When you sign up to become a MISSQL commander, you'll work your way 
@@ -15,26 +16,4 @@ for you.</p>
 <p>Find anything weird, out of place, or broken? This app is still in alpha, please report bugs <a class="code" href="https://github.com/eugmill/missql-command/issues" target="_blank">here</a> and we will endeavor to fix them as quickly as possible.</p>
 <p></p>
 </div>
-<%= form_for @user, :html => {:class => 'form sign-up-form'} do |f|%>
-<h2>Sign Up</h2>
-<fieldset>
-	<%= f.label :email, "Email Address*:" %>
- 	<%= f.text_field :email %>
-</fieldset>
-<fieldset>
-	<%= f.label :user_name, "Username:" %> 
-	<%= f.text_field :user_name %> 
-</fieldset>
-<fieldset>
-	<%= f.label :password, "Password:" %> 
-	<%= f.password_field :password %> 
-</fieldset>
-<fieldset>
-	<%= f.label :password_confirmation, "Confirm password:" %> 
-	<%= f.password_field :password_confirmation %>  
-</fieldset>
-<fieldset>
-	<%= f.submit %>
-</fieldset>
-<% end %>
 </div>

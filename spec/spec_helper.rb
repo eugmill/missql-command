@@ -40,14 +40,14 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    `RAILS_ENV=test rake missql:clean`
     DatabaseCleaner.clean_with(:truncation)
     ActiveRecord::Base.remove_connection    
+    `RAILS_ENV=test rake missql:clean`
   end
 
   config.after(:each) do
     # User.destroy_all
-    # DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation)
   end  
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
