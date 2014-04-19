@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation
   has_secure_password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email, :on => :create
+  validates_presence_of :password, :on => :create, :unless => :guest?
+  validates_presence_of :email, :on => :create, :unless => :guest?
   has_many :user_levels, :dependent => :destroy
   has_many :levels, :through => :user_levels
   has_one :user_database, :dependent => :destroy
 
-  validates_uniqueness_of :email, :user_name
+  validates_uniqueness_of :email, :user_name, :unless => :guest?
+
+  def guest?
+    self.guest
+  end
 
   after_create do 
   	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")

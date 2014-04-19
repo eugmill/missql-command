@@ -37,4 +37,8 @@ for you.</p>
 	<%= f.submit %>
 </fieldset>
 <% end %>
+<%= form_tag("/users", method:"post") do %>
+  <%= hidden_field_tag("user[guest]", "true") %>
+  <%= submit_tag("Try it out!") %>
+<% end %>
 </div>
