@@ -27,3 +27,22 @@ level_schemas:
         column_name: nationality
         column_type: varchar(255)
     table_name: missiles
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "id"
+    error_message: "Your results should include the id column"
+  - test_query: "has_col?"
+    expected_output: "model_name"
+    error_message: "Your results should include the model_name column"
+  - test_query: "has_col?"
+    expected_output: "nationality"
+    error_message: "Your results should include the nationality column"
+  - test_query: "has_row_count?"
+    expected_output: 1
+    error_message: "Your results should only include 1 row of data"
+  - test_query: "has_col_count?"
+    expected_output: 3
+    error_message: "Your results should contain data from 3 columns"
+  - test_query: "has_row?"
+    expected_output: "{\"id\"=> 3, \"model_name\" => \"Topol\", \"nationality\" => \"Russia\"}"
+    error_message: "Your results should contain the first record for the Topol missile"

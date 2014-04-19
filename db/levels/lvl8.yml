@@ -1,4 +1,4 @@
-correct_query: "select missiles.target_city_id from missiles;"
+correct_query: "SELECT missiles.target_city_id FROM missiles;"
 level: 
   stage_number: 8
   title: "Incoming Missiles!"
@@ -26,3 +26,13 @@ level_schemas:
       - 
         column_name: target_city_id
         column_type: integer
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "target_city_id"
+    error_message: "Your results should include data from the target_city_id column"
+  - test_query: "has_col_count?"
+    expected_output: 1
+    error_message: "Your results should include data from the target_city_id column"
+  - test_query: "has_row_count?"
+    expected_output: 8
+    error_message: "Your results should include 8 rows of data"
