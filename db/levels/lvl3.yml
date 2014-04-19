@@ -2,7 +2,7 @@ correct_query: "SELECT * FROM cities WHERE name='New York' OR population > 10000
 level: 
   stage_number: 3
   title: "Where were we?"
-  prompt: "Select all data from all rows where the city is named New York, or the population is greater than ten million."
+  prompt: "Select all data from all rows where the city is named New York, or the population is greater than ten million. Use <code>WHERE</code> and <code>OR</code>."
   database_path: "db/dumps/lvl3.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
@@ -24,3 +24,19 @@ level_schemas:
         column_name: population
         column_type: integer
     table_name: cities
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "name"
+    error_message: "Your result should have the name column."
+  - test_query: "has_col?"
+    expected_output: "population"
+    error_message: "Your result should have the population column."    
+  - test_query: "has_col_count?"
+    expected_output: "2"
+    error_message: "Your result should have exactly 2 columns."
+  - test_query: "has_row_count?"
+    expected_output: 4
+    error_message: "Your result should return exactly 4 rows from the cities table."
+  - test_query: "has_row?"
+    expected_output: "{\"name\"=>\"New York\", \"population\"=>\"8337000\"}"
+    error_message: "Your result should include 'New York'."

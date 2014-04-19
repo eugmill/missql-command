@@ -24,9 +24,12 @@ level_schemas:
         column_type: integer
     table_name: cities
 level_tests:
-  - test_query: "has_only_col?"
+  - test_query: "has_col?"
     expected_output: "name"
-    error_message: "Your results should only include data from the name column from the cities table."
-  - test_query: "has_enough_rows?"
+    error_message: "Your results should have the name column."
+  - test_query: "has_col_count?"
+    expected_output: "1"
+    error_message: "Your results should only have exactly 1 column."
+  - test_query: "has_row_count?"
     expected_output: 7
-    error_message: "Your results aren't returning enough rows. You should be getting every row from the cities table."
+    error_message: "Your result should return all 7 rows from the cities table."

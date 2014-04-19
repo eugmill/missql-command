@@ -6,7 +6,7 @@ level:
   database_path: "db/dumps/lvl1.sql"
   answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
-default_text: "name            |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        |\nParis           |\nSan Francisco   |\nLondon          |\nMoscow          |\nTokyo           |\nShanghai        |\n"
+default_text: "\n\nname            |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        |\nParis           |\nSan Francisco   |\nLondon          |\nMoscow          |\nTokyo           |\nShanghai        |\n"
 level_pages:
   - 
     page_number: 1
@@ -21,3 +21,16 @@ level_schemas:
         column_name: population
         column_type: integer
     table_name: cities
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "name"
+    error_message: "Your results should have the name column."
+  - test_query: "has_col?"
+    expected_output: "population"
+    error_message: "Your results should have the population column."    
+  - test_query: "has_col_count?"
+    expected_output: "2"
+    error_message: "Your results should have exactly 2 columns."
+  - test_query: "has_row_count?"
+    expected_output: 7
+    error_message: "Your result should return all 7 rows from the cities table."
