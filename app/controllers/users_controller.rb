@@ -10,7 +10,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(new_user_params)
+    if(new_user_params["guest"])
+      @user = User.new(:guest => true)
+      @user.password = "guest"
+      @user.password_confirmation = "guest"
+      @user.update(new_user_params)
+    else
+      @user = User.new(new_user_params)
+    end
+
     if @user.save
       session[:user_id]=@user.id
       redirect_to "/levels/1"
@@ -29,7 +37,7 @@ class UsersController < ApplicationController
 
   private
   def new_user_params
-    params.require(:user).permit(:user_name,:email,:password,:password_confirmation) 
+    params.require(:user).permit(:user_name,:email,:password,:password_confirmation,:guest) 
   end
 
 end
