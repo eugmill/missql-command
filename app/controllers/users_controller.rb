@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_levels
 
   def new
-    if current_user
+    if current_user && !current_user.guest?
       redirect_to '/'
     end
     @user = User.new

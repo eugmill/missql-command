@@ -9,12 +9,14 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :email, :user_name, :unless => :guest?
 
-  def guest?
-    self.guest
-  end
-
   after_create do 
   	self.user_database = UserDatabase.create(:name => "user_database_#{Rails.env}_#{self.id}")
+  end
+
+  
+
+  def guest?
+    self.guest
   end
 
   def load_level(level)

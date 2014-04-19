@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: "Not authorized" if current_user.nil?
   end
 
+  def record_logged_in
+    current_user.update(:last_logged_in => Time.now) if current_user
+  end
+
   def set_levels
     @levels = Level.order(:stage_number)
   end
