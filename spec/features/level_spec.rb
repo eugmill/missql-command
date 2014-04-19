@@ -2,7 +2,7 @@ require_relative '../feature_helper'
 
 describe 'Level: ', :js => true do
 
-    before :all do     
+    before :each do     
       @user = FactoryGirl.create(:user)
       @user.save
     end       

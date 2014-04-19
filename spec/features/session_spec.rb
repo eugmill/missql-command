@@ -31,7 +31,6 @@ describe "Session" do
   describe "header changes depending on login" do
 
     before :all do 
-      User.destroy_all
       @user = FactoryGirl.create(:user)
       @user.save
     end 
