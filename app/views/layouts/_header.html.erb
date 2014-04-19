@@ -24,6 +24,8 @@
 	<% end %>
 
 		<span class="session"><% if current_user -%>
+		<%= link_to("About", about_path) -%> 			
+		<%= " |    " %>
 		<%= "#{current_user.display_name} | " -%>
 		<%= link_to("Logout", logout_path) -%>
 	<% else -%>

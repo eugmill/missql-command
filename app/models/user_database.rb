@@ -24,7 +24,6 @@ class UserDatabase < ActiveRecord::Base
                   errors << test.error_message
                 end
               end
-              errors << "You selected the wrong rows. Take a closer look!" 
             end
           rescue PG::Error => e
             last_result = e.to_s

@@ -35,4 +35,4 @@ level_schemas:
       - 
         column_name: nationality
         column_type: varchar(255)
-    table_name: missiles
+    table_name: missiles"

@@ -39,3 +39,28 @@ level_schemas:
       - 
         column_name: target_city_id
         column_type: integer
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "id"
+    error_message: "Your results should include the id column"
+  - test_query: "has_col?"
+    expected_output: "name"
+    error_message: "Your results should include the name column from the cities table"
+  - test_query: "has_col?"
+    expected_output: "population"
+    error_message: "Your results should include the population column from the cities table"
+  - test_query: "has_col?"
+    expected_output: "model_name"
+    error_message: "Your results should include the model_name column from the missiles table"
+  - test_query: "has_col?"
+    expected_output: "nationality"
+    error_message: "Your results should include the nationality column from the missiles table"
+  - test_query: "has_col?"
+    expected_output: "target_city_id"
+    error_message: "Your results should include the target_city_id column from the missiles table"
+  - test_query: "has_col_count?"
+    expected_output: 7
+    error_message: "Your results should have 7 different columns"
+  - test_query: "has_row_count?"
+    expected_output: 8
+    error_message: "Your results should contain 8 rows"

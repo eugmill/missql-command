@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
   get 'users/:id' => 'users#show', as: :user
 
+  get '/about' => 'users#about', as: :about
+
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
   post 'sessions' => 'sessions#create'
