@@ -39,3 +39,19 @@ level_schemas:
       - 
         column_name: target_city_id
         column_type: integer
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "name"
+    error_message: "Your results should include data from cities.name"
+  - test_query: "has_col?"
+    expected_output: "model_name"
+    error_message: "Your results should include data from missiles.model_name" 
+  - test_query: "has_col?"
+    expected_output: "nationality"
+    error_message: "Your results should include data from missiles.nationality" 
+  - test_query: "has_col_count?"
+    expected_output: 3
+    error_message: "Your results should have data from 3 columns"
+  - test_query: "has_row_count?"
+    expected_output: 8
+    error_message: "Your results should include 8 rows of data"
