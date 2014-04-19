@@ -2,17 +2,19 @@ correct_query: "SELECT * FROM missiles WHERE id=3;"
 level: 
   stage_number: 6
   title: "Will the real Topol<br> please stand up?"
-  prompt: "Select the first 'Topol' missile from the <code>missiles</code> table by specifying the missile's <code>ID</code>"
+  prompt: "Select all the data for the first 'Topol' missile that appears in the <code>missiles</code> table by specifying the missile's <code>ID</code>"
   database_path: "db/dumps/lvl6.sql"
   answer: "[{\"id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Great job Commander! The security records are updated, and we now have two 'Topol' missiles in our table. Intelligence Services is satisfied. But now we want to select all of the data about the first 'Topol' missile. How would we do this?</p>"
+    content: "<p>Great job Commander! The security records are updated, and we now have two 'Topol' missiles in our database. Intelligence Services is satisfied. But now we want to select all of the data about the first 'Topol' missile. How would we do this?</p>"
   - page_number: 2
-    content: "<p>If you try <code>SELECT * FROM missiles WHERE name = 'Topol';</code> you will see that you actually return two missiles! Uh oh! How do get data on just the first?</p> <p>Enter <code> ID. </code> </p>"
+    content: "<p>If you try <code>SELECT * FROM missiles WHERE name = 'Topol';</code> you will see that you actually return two missiles! Uh oh! How do get data on just the first?</p> <p>Enter <em>primary keys</em>.</p>"
   - page_number: 3
-    content: "<p>ID's are a way to uniquely identify data. Using ID, we can select <strong>only</strong> the data we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1. </p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile. </p>"
+    content: "<p>Primary keys are a way to uniquely identify a row of data in a table. In a typical database, each time a record is added the primary key column is automatically incremented, so that each row has a single unique identifier.</p>"
+  - page_number: 4  
+    content: "<p>Using the primary key, which is usually named something like 'id' or <em>'table_name_id'</em>, we can select just the single row we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1.</p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile listed in the table. </p>"
 default_text: "id    | model_name      | nationality     |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1     | Peacekeeper     | USA             |\n2     | Minuteman       | USA             |\n3     | Topol           | Russia          |\n4     | Yars            | Russia          |\n5     | Jericho III     | Israel          |\n6     | Agni-V          | India           |\n7     | East Wind 5     | China           |\n8     | East Wind 31    | China           |\n9     | Topol           | Russia          |\n"
 level_schemas: 
   - 
