@@ -22,10 +22,11 @@
 		</ul>
 	</nav>
 	<% end %>
+		<span class="session">
+		<%= link_to("About", about_path) -%>
+		</span>
 
 		<span class="session"><% if current_user -%>
-		<%= link_to("About", about_path) -%> 			
-		<%= " |    " %>
 		<%= "#{current_user.display_name} | " -%>
 		<%= link_to("Logout", logout_path) -%>
 	<% else -%>
