@@ -1,7 +1,7 @@
 class LevelsController < ApplicationController
-
-  before_filter :authorize
+  before_action :authorize
   before_action :set_levels
+  before_action :record_logged_in
 
   def show
     @level = Level.find_by(:stage_number => params[:stage_number])
