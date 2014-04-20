@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140419215128) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "guest"
+    t.boolean  "guest",           default: false
     t.datetime "last_logged_in"
   end
 
