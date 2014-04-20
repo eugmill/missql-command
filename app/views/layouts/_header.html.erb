@@ -1,5 +1,5 @@
 <header>
-	<a href="/"><%= image_tag "missql-logo-8.png", :alt=>"MISSQL COMMAND", :class=>"header-logo" %></a>
+	<a href="/about"><%= image_tag "missql-logo-8.png", :alt=>"MISSQL COMMAND", :class=>"header-logo" %></a>
 	<span class="level-ctrls">
 	<% if @level %>
 		<% if @level.prev_level %>
@@ -22,9 +22,6 @@
 		</ul>
 	</nav>
 	<% end %>
-		<span class="session">
-		<%= link_to("About", about_path) -%>
-		</span>
 
 		<span class="session"><% if current_user -%>
 		<%= "#{current_user.display_name} | " -%>
