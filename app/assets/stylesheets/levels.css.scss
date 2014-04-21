@@ -186,6 +186,7 @@ div#repl div#output{
 	z-index: 2;
 	@include border-box;
 	background-color: black;
+	overflow: hidden;
 }
 #command-input #sql-command{
 	display: block;

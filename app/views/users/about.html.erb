@@ -1,19 +1,111 @@
-<div class="form-container">
-<div class="text-container">
-<h2>What is MISSQL Command?</h2>
+<div class="parallax-container" data-stellar-background-ratio="0.15">
+<div class="parallax-section" data-stellar-ratio="2" data-stellar-vertical-offset="50">
+	<div class="parallax-content">
+	<h1>What is MISSQL Command?</h1>
+		<p class="pull">MISSQL command is a web application designed to help you learn <span class="code">SQL</span>, the language of <del>love</del> databases.</p>
 
-<p>MISSQL command is a web application designed to help you learn SQL, 
-the language of <del>love</del> databases.</p>
-<p>When you sign up to become a MISSQL commander, you'll work your way 
-through ten levels that teach you SQL from the ground up and test your knowledge along the way—all while you 
-save the world from nuclear annihilation.</p>
-<p>You'll learn everything from how to get data out of a database, 
-to how to create and drop tables and and perform complex operations 
-like JOINS.</p>
-<p>No idea what any of that means? Then MISSQL command is definitely 
-for you.</p>
-<p>Built by <a class="code" href="http://github.com/ErikPeterson">Erik Peterson</a>, <a class="code" href="http://github.com/eugmill">Eugene Millerman</a>, and <a class="code" href="http://github.com/bhaskaraspb">Sushanth Bhaskarabhatla</a>.</p>
-<p>Find anything weird, out of place, or broken? This app is still in alpha, please report bugs <a class="code" href="https://github.com/eugmill/missql-command/issues" target="_blank">here</a> and we will endeavor to fix them as quickly as possible.</p>
-<p></p>
+		<p class="pull"><a href="/levels/1" class="display-link">Get Started!</a></p>
+	</div>
 </div>
+<div class="parallax-section" data-stellar-vertical-offset="50">
+	<div class="parallax-content">
+	<h1>How Do I Play?</h1>
+		<p class="content">Become a Missql Commander and you'll work your way through <%= @levels.count %> levels. In each level you'll save the world from nuclear annihilation using SQL queries.</p>
+
+		<p class="content">Get the correct results and you'll be a hero (and move on to the next level).</p>
+		
+		<p class="content">No idea what SQL is or why you'd want to use it? Then MISSQL Command is definitely for you.</p>
+	</div>
 </div>
+
+<div class="parallax-section" data-stellar-vertical-offset="50">
+	<div class="parallax-content">
+		<h1>How Do I Get in Touch?</h1>
+		<p class="pull">MISSQL command is an open source project hosted on <a href="http://www.github.com" target="_blank">Github.</a> If you have a question, see a bug, or just want to get in touch, open an issue on the <a href="http://www.github.com/eugmill/missql-command" target="_blank">MISSQL Command repository.</a></p>
+		
+		<p class="content">Guest accounts are deleted on a nightly basis. To preserve your progress, <a href="/users/new">sign up for a permanent account</a>.</p>
+	</div>
+</div>
+
+<div class="parallax-section" data-stellar-vertical-offset="50">
+	<div class="parallax-content">
+		<h1>How Does it Work?</h1>
+		<p class="pull">MISSQL Command is built in a way that is modular and extensible. Levels are loaded from YAML files which are easy to create and update.</p>
+
+		<h3>Users and Databases</h3>
+		<p class="content">Each user on MISSQL Command gets their own sandboxed Postgres database where their queries are run and then rolled back within a transaction. When a user visits a level, the data for that level is loaded into the user's database. When a visitor comes to the site without an account, a guest account is created for them and tied to their session. If that visitor should decide to sign up for a full account, their progress will be saved and transferred to the new permanent account.</p>
+
+		<h3>The SQL REPL</h3>
+
+		<p class="content">MISSQL Command uses AJAX to create a REPL (Read-Evaluate-Print Loop) for SQL queries. When a user enters a query, it gets sent back to the MISSQL Command server where it gets run against the user's database. The results of the query are evaluated for correctness, and analysed for common errors and mistakes. The results and hints are packaged into a JSON response object and sent back to the user's browser and rendered into the output log of the REPL.</p>
+
+	</div>
+</div>
+
+
+<div class="parallax-section" data-stellar-ratio="2" data-stellar-vertical-offset="25">
+	<div class="parallax-content">
+	<h1>Who is MISSQL Command?</h1>
+	<p class="pull">MISSQL Command was built at <a href="http://www.flatironschool.com" target="_blank">Flatiron School</a> by:</p>
+
+	<ul class="card-gallery">
+		<li class="circle-card">
+			<h2 class="card-title">Erik Sälgström<br /> Peterson</h2>
+			<%= image_tag "erik-portrait.gif", :class=>"card-image" %>
+			<p class="card-quote">
+			Erik is a beer and wine enthusiast, and is a notable contributor to "Beer and Wine Enthusiast".
+			</p>
+			<ul class="card-links">
+				<a href="http://www.github.com/ErikPeterson">
+				<li class="card-link github">
+				</li>
+				</a>
+				<a href="http://www.twitter.com/eeesspee">
+				<li class="card-link twitter">
+				</li>
+				</a>
+			</ul>
+		</li>
+		<li class="circle-card">
+			<h2 class="card-title">Eugene<br />Millerman</h2>
+			<%= image_tag "eugene-portrait.gif", :class=>"card-image" %>
+			<p class="card-quote">Eugene is a wine and cheese enthusiast, and is a notable contributor to "Wine and Cheese Enthusiast".</p>
+			<ul class="card-links">
+				<a href="http://www.github.com/eugmill">
+				<li class="card-link github">
+				</li>
+				</a>
+				<a href="https://twitter.com/eugmill">
+				<li class="card-link twitter">
+				</li>
+				</a>
+			</ul>
+		</li>
+		<li class="circle-card">
+			<h2 class="card-title">Sushanth Bhaskarabhatla</h2>
+			<%= image_tag "sush-portrait.gif", :class=>"card-image" %>
+			<p class="card-quote">
+			Sushanth is a cheese and crackers enthusiast, and is a notable contributor to "Cheese and Crackers Enthusiast".
+			</p>
+			<ul class="card-links">
+				<a href="https://github.com/bhaskaraspb">
+				<li class="card-link github">
+				</li>
+				</a>
+				<a href="https://twitter.com/bhaskaraspb">
+				<li class="card-link twitter">
+				</li>
+				</a>
+			</ul>
+		</li>
+	</ul>
+	</div>
+</div>
+
+</div>
+<%= javascript_include_tag "jquery.stellar.min" %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#content').stellar({responsive: true, hideDistantElements: false});
+	});
+</script>

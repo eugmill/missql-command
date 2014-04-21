@@ -14,20 +14,27 @@
  *= require_tree .
  *= require_self
  */
- body{
+body{
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%;
-  min-width: 933px;
+  width: 320px;
   height: 100%;
-  min-height: 600px;
   padding: 0;
   margin: 0;
   font-size: 14px;
   color: white;
+
   font-family: 'Glegoo', serif;
   background-color: black;
+ }
+
+ @media (min-width: 321px){
+ body{
+  width: 100%;
+  min-width: 832px;
+  min-height: 600px;
+}
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -82,7 +89,8 @@ div#alert{
   background-color: black;
   margin: 0;
   padding: 50px 0 0 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;

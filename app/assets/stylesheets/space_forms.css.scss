@@ -16,7 +16,9 @@ div.text-container{
 }
 div.form-container{
 	position: relative;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
+	top: -10px;
 	display: block;
 	text-align: center;
 	padding-top: 10px;
@@ -24,6 +26,7 @@ div.form-container{
 	background-position: center center;
 	background-size: auto auto;
 	background-repeat: repeat;
+	overflow-y: scroll;
 }
 div.form-container > *{
 	margin-top: 2em;
