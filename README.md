@@ -2,6 +2,20 @@
 
 MISSQL Command is a an interactive game and tutorial meant to teach basic SQL in an engaging way. The player plays a game inspired by [Missile Command](http://en.wikipedia.org/wiki/Missile_Command) with SQL queries, defending a city from incoming missiles.
 
+#What and why?
+>SQL is an incredibly successful and solid technology. The problem with SQL is it seems everyone hates its guts. It is a weird obtuse kind of "non-language" that most programmers can't stand. -Zed Shaw, [Learn SQL The Hard Way](http://sql.learncodethehardway.org/book/introduction.html)
+
+As Zed Shaw goes on to explain, SQL is everywhere and it is important. Yet, while there are plenty of interactive online resources for learning Ruby, Python and Javascript, boring old SQL is neglected. No more! While Missql Command will not make you a database administrator, it will introduce you to the basic concepts in relational databases in a way that is engaging, friendly and dare we say fun? 
+
+#How it works
+Missql Command is built in a way that is modular and extensible. Levels are loaded from yaml files and are easy to create and update. 
+
+###Users and Databases
+Each user has their own sandboxed Postgres database with which queries are run and then rolled back. Whenever a level is loaded their database is populated with the tables and data for that particular level. If a user is not logged in, a guest user is created and stored for the session. 
+
+###The REPL
+The Missql Command REPL sends an ajax request with the user query directly to the user's database, and returns either a result or an error. To prevent the user from corrupting the level, all transactions are rolled back after being checked for correctness. In cases where there is no return value (such as table creation), the table columns are rendered. 
+
 #Creating & Editing a MISSQL Command Level
 Levels are generated using YAML files that describe the level's attributes in a nested data structure, and SQL files that contain the commands necessary to generate the level's database. The YAML file also contains attributes for nested resources like level_pages, level_tests, and level_schemas, which are described below. The `db:seed`, `missql:reset` and `missql:reload_all` tasks will pick up any new yml files in the levels directory. There are also several rake tasks that assist in level creation and editing: 
 
