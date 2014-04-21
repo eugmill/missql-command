@@ -68,7 +68,7 @@ class UserDatabase < ActiveRecord::Base
           raise RollbackFlag
         end
       rescue RollbackFlag
-
+          
          {:correct => correct, :errors => errors, :output => last_result}
       end
     end
