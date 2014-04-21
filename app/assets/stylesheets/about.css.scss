@@ -1,0 +1,224 @@
+@mixin border-box{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div.parallax-container{
+	position: relative;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	height: auto;
+	background-image: image-url("night-sky.gif");
+	background-position: center center;
+	background-size: auto auto;
+	background-repeat: repeat;
+	padding: 10px 0 100px 0;
+	margin: 0;
+	font-size: 1em;
+}
+
+.parallax-section{
+	position: relative;
+	width: 100%;
+	height: auto;
+	min-height: 900px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 100px;
+	left: 0;
+	text-align: center;
+}
+
+.parallax-section:first-child{
+	padding-top: 30%;	
+}
+
+.parallax-content{
+	@include border-box;
+	text-align: left;
+	display: inline-block;
+	position: relative;
+	width: 320px;
+	height: auto;
+	padding: 2em 1em;
+	margin: auto 0 auto 0;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.parallax-content::after{
+	position: absolute;
+	bottom: -2em;
+	right: 1em;
+	color: #00ff00;
+	content: "Scroll ↓";
+}
+.parallax-content h1{
+	text-align: center;
+	color: #00ff00;
+}
+.parallax-content p{
+	position: relative;
+	top: 0;
+	text-align: justify;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+}
+.parallax-content p:nth-of-type(3){
+	clear: left;
+}
+
+.parallax-content h3 + p{
+	margin-top: 0;
+}
+.parallax-content h3{
+	text-align: center;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
+}
+.parallax-content a.display-link{
+	@include border-box;
+	margin: 0 .25em;
+	min-width: 105px;
+	display: inline-block;
+	padding: .5em;
+	border: 1px dashed #00ff00;
+	border-radius: 5px;
+	color: #00ff00;
+	font-family: 'Quantico';
+	text-decoration: none;
+}
+.parallax-content p.pull{
+	text-align: center;
+	font-size: 1.25em;
+	clear: both;
+	width: 100%;
+}
+.parallax-content ul.card-gallery{
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 1em 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+ul.card-gallery li.circle-card{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	height: auto;
+	position: relative;
+}
+
+li.circle-card img.card-image{
+	position: relative;
+	width: 40%;
+	height: auto;
+	border: 0px solid transparent;
+	border-radius: 50%;
+}
+
+li.circle-card p.card-quote{
+	text-align: center;
+	font-style: italic;
+}
+
+li.circle-card ul.card-links{
+	display: block;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+}
+ul.card-links a{
+	text-decoration: none;
+}
+ul.card-links li.card-link{
+	position: relative;
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	background-image: image-url("social-sprite.gif");
+	background-repeat: no-repeat;
+}
+
+ul.card-links li.card-link:hover::after{
+	position: absolute;
+	bottom: -1.25em;
+	margin-left: -50%;
+	font-size: .75em;
+}
+
+ul.card-links li.card-link.github{
+	background-position: right top;
+}	
+
+
+ul.card-links li.card-link.github:hover{
+	background-position: left top;
+}
+
+
+ul.card-links li.card-link.github:hover::after{
+content: 'Github';
+}
+
+ul.card-links li.card-link.twitter{
+	background-position: right bottom;
+}
+
+
+ul.card-links li.card-link.twitter:hover{
+	background-position: left bottom;
+}
+
+ul.card-links li.card-link.twitter:hover::after{
+	content: "Twitter"
+}
+
+@media (min-width: 640px){
+
+
+}
+@media (min-width: 831px){
+	
+	.parallax-content h3{
+		font-size: 2em;
+	}
+
+	ul.card-gallery li.circle-card{
+		width: 33%;
+	}
+
+	.parallax-content{
+		width: 100%;
+	}
+	.parallax-section:first-child{
+	padding-top: 15%;	
+}
+	.parallax-content{
+		width: 100%;
+		text-align: center;
+	}
+	.parallax-content p.content{
+		font-size: 1.25em;
+		@include border-box;
+		display: block;
+		padding: 1em 30% 1em 30%;
+	}
+	.parallax-content p.pull{
+		@include border-box;
+		display: block;
+		width: 100%;
+		padding: 2em 15% 2em 15%;
+		font-size: 1.5em;
+	}
+}
