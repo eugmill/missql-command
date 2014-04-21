@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to login_path, alert: "Not authorized" if current_user.nil?
+    # redirect_to login_path, alert: "Not authorized" if current_user.nil?
+    if current_user.nil?
+      guest = User.new(:guest => true, :password => "guest", :password_confirmation => "guest")
+      guest.save
+      session[:user_id] = guest.id
+    end
   end
 
   def record_logged_in
