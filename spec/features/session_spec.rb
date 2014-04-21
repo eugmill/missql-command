@@ -47,7 +47,6 @@ describe "Session" do
       fill_in 'Email', :with => @user.email
       fill_in 'Password', :with => @user.password
       click_button 'Login'
-      visit '/'
       expect(page).to have_content("Logout")
       expect(page).to have_no_content("Login")
       expect(page).to have_no_content("Sign Up")

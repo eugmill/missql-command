@@ -36,6 +36,11 @@ namespace :missql do
     end
   end
 
+  desc "Delete all guest users who have not logged in during the past 24 hours"
+  task :scrub_guests => :environment do
+    User.all.where(:guest => true).where("last_logged_in > ?", 1.day.ago).destroy_all
+  end
+
   task :kill_postgres_connections => :environment do
     20.times do |i|
       db_name = "user_database_#{Rails.env}_#{i}"

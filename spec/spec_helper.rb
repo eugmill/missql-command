@@ -44,6 +44,7 @@ RSpec.configure do |config|
     ActiveRecord::Base.remove_connection    
     `RAILS_ENV=test rake missql:clean`
   end
+  
   config.before(:each) do
     `RAILS_ENV=test rake missql:reload_all`
   end
