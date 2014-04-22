@@ -19,17 +19,7 @@ class GameResponse
     else 
       "string"
     end
-    # we have an edge case here. if a user does a write statement on a read level, and does not throw 
-    # an exception, this method will break. we want to return a string, but the method will return "table".
   end
-
-  # def result_array
-  #   if type == "error"
-  #     [output_hash.to_s]
-  #   elsif type == "table"
-  #     output_hash.to_a
-  #   end
-  # end
 
   def json    
     {
