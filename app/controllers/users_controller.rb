@@ -10,14 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if(new_user_params["guest"])
-      @user = User.new(:guest => true)
-      @user.password = "guest"
-      @user.password_confirmation = "guest"
-      @user.update(new_user_params)
-    else
-      @user = User.new(new_user_params)
-    end
+    @user = User.new(new_user_params)
 
     if @user.save
       session[:user_id]=@user.id
