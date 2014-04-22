@@ -59,7 +59,7 @@ level_tests:
     expected_output: "target_city_id"
     error_message: "Your results should include the target_city_id column from the missiles table"
   - test_query: "has_col_count?"
-    expected_output: 7
+    expected_output: 6
     error_message: "Your results should have 7 different columns"
   - test_query: "has_row_count?"
     expected_output: 8

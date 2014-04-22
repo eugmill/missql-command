@@ -14,7 +14,7 @@ level_pages:
   - page_number: 3
     content: "<p>Primary keys are a way to uniquely identify a row of data in a table. In a typical database, each time a record is added the primary key column is automatically incremented, so that each row has a single unique identifier.</p>"
   - page_number: 4  
-    content: "<p>Using the primary key, which is usually named something like 'id' or <em>'table_name_id'</em>, we can select just the single row we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1.</p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile listed in the table. </p>"
+    content: "<p>Using the primary key, which is usually named something like 'id' or <em>'table_name_id'</em>, we can select just the single row we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1.</p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile listed in the table. </p> <p> <em> Hint: First take a look at the table to the right, to determine the ID of the first 'Topol' missile. </em> </p>"
 default_text: "id    | model_name      | nationality     |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1     | Peacekeeper     | USA             |\n2     | Minuteman       | USA             |\n3     | Topol           | Russia          |\n4     | Yars            | Russia          |\n5     | Jericho III     | Israel          |\n6     | Agni-V          | India           |\n7     | East Wind 5     | China           |\n8     | East Wind 31    | China           |\n9     | Topol           | Russia          |\n"
 level_schemas: 
   - 
