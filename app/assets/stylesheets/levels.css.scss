@@ -33,6 +33,7 @@
 	margin: 0;
 }
 #left-pane p.prompt {
+	line-height: 1.3;
 	padding-top: 0.5em;
 	margin: 0;
 	color:#99FF99;
@@ -41,6 +42,7 @@
 	color:#00FF00;
 }
 #left-pane #level-pages{
+	line-height: 1.4;
 	@include border-box;
 	padding: 1em;
 	bottom: 0;
