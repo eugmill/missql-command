@@ -140,9 +140,10 @@ ul.card-links li.card-link{
 }
 
 ul.card-links li.card-link:hover::after{
+	width: 200%;
 	position: absolute;
 	bottom: -1.25em;
-	margin-left: -50%;
+	margin-left: -100%;
 	font-size: .75em;
 }
 
@@ -161,16 +162,29 @@ content: 'Github';
 }
 
 ul.card-links li.card-link.twitter{
-	background-position: right bottom;
+	background-position: right -34px;
 }
 
 
 ul.card-links li.card-link.twitter:hover{
-	background-position: left bottom;
+	background-position: left -34px;
 }
 
 ul.card-links li.card-link.twitter:hover::after{
 	content: "Twitter"
+}
+
+ul.card-links li.card-link.linkedin{
+	background-position: right bottom;
+}
+
+
+ul.card-links li.card-link.linkedin:hover{
+	background-position: left bottom;
+}
+
+ul.card-links li.card-link.linkedin:hover::after{
+	content: "LinkedIn"
 }
 
 @media (min-width: 720px){
