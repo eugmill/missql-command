@@ -1,5 +1,8 @@
 <div class="form-container">
+  <br/><span id="flash"> <span id="alert"> <%= flash[:alert] %> </span> <span id="notice"> <%= flash[:notice] %> </span> </span><br/>
+
 <%= form_for @user, :html => {:class => 'form sign-up-form'} do |f|%>
+
 <h2>Sign Up</h2>
 <fieldset>
 	<%= f.label :email, "Email Address*:" %>

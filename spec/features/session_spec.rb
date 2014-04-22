@@ -12,7 +12,7 @@ describe "Session" do
   
     it "should redirect to first level upon successful login" do
       visit '/login'
-      fill_in 'Email', :with => @user.email
+      fill_in 'email', :with => @user.email
       fill_in 'Password', :with => @user.password
       click_button 'Login'
       expect(current_path).to eq("/levels/1")
@@ -20,17 +20,18 @@ describe "Session" do
 
     it "should flash an error if email or password is incorrect" do
       visit '/login'
-      fill_in 'Email', :with => "gargdfsdfsadf"
+      fill_in 'email', :with => "gargdfsdfsadf"
       fill_in 'Password', :with => @user.password
       click_button 'Login'
       expect(page).to have_content("Email or password is incorrect")
     end
 
-  end
+  end 
 
   describe "header changes depending on login" do
 
-    before :all do 
+    before :each do
+      User.destroy_all
       @user = FactoryGirl.create(:user)
       @user.save
     end 
@@ -43,8 +44,9 @@ describe "Session" do
     end
 
     it "should show to logout link when a user is logged in" do
+      visit '/'
       visit '/login'
-      fill_in 'Email', :with => @user.email
+      fill_in 'email', :with => @user.email
       fill_in 'Password', :with => @user.password
       click_button 'Login'
       expect(page).to have_content("Logout")
@@ -63,7 +65,7 @@ describe "Session" do
     it "should log you in if you make a new account" do
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name
-      fill_in 'Email', :with => @user.email
+      fill_in 'user_email', :with => @user.email
       fill_in 'Password', :with => @user.password
       fill_in 'user_password_confirmation', :with => @user.password
       click_button 'Create User'
@@ -75,6 +77,7 @@ describe "Session" do
       @user.save
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name
+      fill_in 'user_email', :with => @user.email
       fill_in 'Password', :with => @user.password
       fill_in 'user_password_confirmation', :with => @user.password
       click_button 'Create User'
@@ -84,7 +87,7 @@ describe "Session" do
     it "should tell you if your password doesn't match the confirmation" do
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name
-      fill_in 'Email', :with => @user.email
+      fill_in 'user_email', :with => @user.email
       fill_in 'Password', :with => @user.password
       fill_in 'user_password_confirmation', :with => "lolllll"
       click_button 'Create User'
@@ -94,7 +97,7 @@ describe "Session" do
     it "should tell you if your email has already been used" do
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name
-      fill_in 'Email', :with => @user.email
+      fill_in 'user_email', :with => @user.email
       fill_in 'Password', :with => @user.password
       fill_in 'user_password_confirmation', :with => @user.password
       click_button 'Create User'
@@ -102,7 +105,7 @@ describe "Session" do
       click_link('Logout')
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name
-      fill_in 'Email', :with => @user.email
+      fill_in 'user_email', :with => @user.email
       fill_in 'Password', :with => @user.password
       fill_in 'user_password_confirmation', :with => @user.password
       click_button 'Create User'

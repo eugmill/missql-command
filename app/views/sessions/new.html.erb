@@ -1,5 +1,8 @@
 <div class="form-container">
+  <br/><span id="flash"> <span id="alert"> <%= flash[:alert] %> </span> <span id="notice"> <%= flash[:notice] %> </span> </span><br/>
+
 <%= form_tag(sessions_path, {:class => 'form login-form'}) do %>
+
 	<h2>Login</h2>
   <fieldset>
     <%= label_tag "email","Email:" %>
