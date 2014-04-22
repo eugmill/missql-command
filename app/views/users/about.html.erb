@@ -1,16 +1,18 @@
-<div class="parallax-container" data-stellar-background-ratio="0.15">
-<div class="parallax-section" data-stellar-ratio="2" data-stellar-vertical-offset="50">
+<div class="parallax-container">
+<div class="parallax-section">
 	<div class="parallax-content">
 	<h1>What is MISSQL Command?</h1>
-		<p class="pull">MISSQL command is a web application designed to help you learn <span class="code">SQL</span>, the language of <del>love</del> databases.</p>
+		<p class="pull">MISSQL Command is a web application designed to help you learn <span class="code">SQL</span>, the language of <del>love</del> databases.</p>
 
 		<p class="pull"><a href="/levels/1" class="display-link">Get Started!</a></p>
+
+		<p class="pull">You can also <a href="/users/new">sign up for an account</a> to save your progress.</p>
 	</div>
 </div>
-<div class="parallax-section" data-stellar-vertical-offset="50">
+<div class="parallax-section">
 	<div class="parallax-content">
 	<h1>How Do I Play?</h1>
-		<p class="content">Become a Missql Commander and you'll work your way through <%= @levels.count %> levels. In each level you'll save the world from nuclear annihilation using SQL queries.</p>
+		<p class="content">Become a MISSQL Commander and you'll work your way through <%= @levels.count %> levels. In each level you'll save the world from nuclear annihilation using SQL queries.</p>
 
 		<p class="content">Get the correct results and you'll be a hero (and move on to the next level).</p>
 		
@@ -18,16 +20,16 @@
 	</div>
 </div>
 
-<div class="parallax-section" data-stellar-vertical-offset="50">
+<div class="parallax-section">
 	<div class="parallax-content">
 		<h1>How Do I Get in Touch?</h1>
-		<p class="pull">MISSQL command is an open source project hosted on <a href="http://www.github.com" target="_blank">Github.</a> If you have a question, see a bug, or just want to get in touch, open an issue on the <a href="http://www.github.com/eugmill/missql-command" target="_blank">MISSQL Command repository.</a></p>
+		<p class="pull">MISSQL Command is an open source project hosted on <a href="http://www.github.com" target="_blank">Github.</a> If you have a question, see a bug, or just want to get in touch, open an issue on the <a href="http://www.github.com/eugmill/missql-command" target="_blank">MISSQL Command repository.</a></p>
 		
 		<p class="content">Guest accounts are deleted on a nightly basis. To preserve your progress, <a href="/users/new">sign up for a permanent account</a>.</p>
 	</div>
 </div>
 
-<div class="parallax-section" data-stellar-vertical-offset="50">
+<div class="parallax-section">
 	<div class="parallax-content">
 		<h1>How Does it Work?</h1>
 		<p class="pull">MISSQL Command is built in a way that is modular and extensible. Levels are loaded from YAML files which are easy to create and update.</p>
@@ -43,7 +45,7 @@
 </div>
 
 
-<div class="parallax-section" data-stellar-ratio="2" data-stellar-vertical-offset="25">
+<div class="parallax-section">
 	<div class="parallax-content">
 	<h1>Who is MISSQL Command?</h1>
 	<p class="pull">MISSQL Command was built at <a href="http://www.flatironschool.com" target="_blank">Flatiron School</a> by:</p>
@@ -82,7 +84,7 @@
 			</ul>
 		</li>
 		<li class="circle-card">
-			<h2 class="card-title">Sushanth Bhaskarabhatla</h2>
+			<h2 class="card-title">Sushanth<br /> Bhaskarabhatla</h2>
 			<%= image_tag "sush-portrait.gif", :class=>"card-image" %>
 			<p class="card-quote">
 			Sushanth is a cheese and crackers enthusiast, and is a notable contributor to "Cheese and Crackers Enthusiast".
@@ -103,7 +105,6 @@
 </div>
 
 </div>
-<%= javascript_include_tag "jquery.stellar.min" %>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#content').stellar({responsive: true, hideDistantElements: false});

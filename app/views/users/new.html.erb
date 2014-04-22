@@ -1,20 +1,4 @@
 <div class="form-container">
-<div class="text-container">
-<h2>What is MISSQL Command?</h2>
-<p>MISSQL command is a web application designed to help you learn SQL, 
-the language of <del>love</del> databases.</p>
-<p>When you sign up to become a MISSQL commander, you'll work your way 
-through ten levels that teach you SQL from the ground up and test your knowledge along the way—all while you 
-save the world from nuclear annihilation.</p>
-<p>You'll learn everything from how to get data out of a database, 
-to how to create and drop tables and and perform complex operations 
-like JOINS.</p>
-<p>No idea what any of that means? Then MISSQL command is definitely 
-for you.</p>
-<p>Built by <a class="code" href="http://github.com/ErikPeterson">Erik Peterson</a>, <a class="code" href="http://github.com/eugmill">Eugene Millerman</a>, and <a class="code" href="http://github.com/bhaskaraspb">Sushanth Bhaskarabhatla</a>.</p>
-<p>Find anything weird, out of place, or broken? This app is still in alpha, please report bugs <a class="code" href="https://github.com/eugmill/missql-command/issues" target="_blank">here</a> and we will endeavor to fix them as quickly as possible.</p>
-<p></p>
-</div>
 <%= form_for @user, :html => {:class => 'form sign-up-form'} do |f|%>
 <h2>Sign Up</h2>
 <fieldset>
@@ -36,9 +20,5 @@ for you.</p>
 <fieldset>
 	<%= f.submit %>
 </fieldset>
-<% end %>
-<%= form_tag("/users", method:"post") do %>
-  <%= hidden_field_tag("user[guest]", "true") %>
-  <%= submit_tag("Try it out!") %>
 <% end %>
 </div>

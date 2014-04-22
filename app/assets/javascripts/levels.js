@@ -171,7 +171,7 @@ pageScrollCheck = function(){
 
 $(document).ready(function() {
   if($('#execute').length> 0){
-
+  $('body').addClass("repl")
   $('li.tab').on("click", function(e){
     var $target = $(this);
     console.log($target.attr("class"));
