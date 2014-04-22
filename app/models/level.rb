@@ -3,6 +3,7 @@ class Level < ActiveRecord::Base
   has_many :level_pages, :dependent => :destroy
   has_many :level_tests, :dependent => :destroy
   has_many :level_schemas, :dependent => :destroy
+  has_many :user_levels
 
   before_create :load_dump
 
