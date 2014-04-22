@@ -1,8 +1,3 @@
-flashNotice = function(text){
-  var container = $('div#flash div#notice');
-  return container.html(text)
-}
-
 appendToOutput = function(text) {
   var container = $('div#output pre');
   return container.html(container.html()+text);
@@ -68,7 +63,8 @@ padString = function(str, length){
 }
 
 submitQuery = function(text) {
-  $.post('/query', 
+  console.log(text);
+  return $.post('/query', 
         {sql_command: text},
         updateView,
         "json"
@@ -76,6 +72,7 @@ submitQuery = function(text) {
 }
 
 updateView = function(data){
+  console.log(data);
   clearOutput();
   if(!data.response.correct && data.query.match(/"/g)){
     data.response.errors.push("Make sure you're using single quotes for your strings.\n")
@@ -138,6 +135,7 @@ updatePageNumber = function(number){
   var pagenumber = $("span#page-number");
   return pagenumber.html(number);
 }
+
 clearSelection = function(){
   if (window.getSelection) {
   if (window.getSelection().empty) {  // Chrome
@@ -171,17 +169,18 @@ pageScrollCheck = function(){
 
 $(document).ready(function() {
   if($('#execute').length> 0){
-  $('body').addClass("repl")
-  $('li.tab').on("click", function(e){
+    $('body').addClass("repl");
+    $('li.tab').on("click", function(e){
+    
     var $target = $(this);
-    console.log($target.attr("class"));
+
     if($target.hasClass('active')){
       return $target.removeClass('active')
     } else{
       $("li.tab.active").removeClass('active')
       return $target.addClass('active')
     }
-  });
+    });
     
   $('#execute').on("click",function(){
       var text = $('#sql-command').val();
