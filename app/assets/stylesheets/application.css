@@ -16,26 +16,23 @@
  */
 body{
   position: absolute;
+  width: 100%;
   top: 0px;
   left: 0px;
-  width: 320px;
   height: 100%;
   padding: 0;
   margin: 0;
   font-size: 14px;
   color: white;
-
   font-family: 'Glegoo', serif;
   background-color: black;
  }
 
- @media (min-width: 321px){
- body{
-  width: 100%;
+ body.repl{
   min-width: 832px;
   min-height: 600px;
 }
-}
+
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Quantico', sans-serif;

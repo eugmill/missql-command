@@ -14,9 +14,10 @@ div.parallax-container{
 	height: auto;
 	background-image: image-url("night-sky.gif");
 	background-position: center center;
+	background-attachment: fixed;
 	background-size: auto auto;
 	background-repeat: repeat;
-	padding: 10px 0 100px 0;
+	padding: 5% 0 100px 0;
 	margin: 0;
 	font-size: 1em;
 }
@@ -25,16 +26,10 @@ div.parallax-container{
 	position: relative;
 	width: 100%;
 	height: auto;
-	min-height: 900px;
 	margin: 0;
 	padding: 0;
-	margin-bottom: 100px;
 	left: 0;
 	text-align: center;
-}
-
-.parallax-section:first-child{
-	padding-top: 30%;	
 }
 
 .parallax-content{
@@ -42,21 +37,14 @@ div.parallax-container{
 	text-align: left;
 	display: inline-block;
 	position: relative;
-	width: 320px;
+	width: 100%;
 	height: auto;
 	padding: 2em 1em;
 	margin: auto 0 auto 0;
-	background-color: rgba(0,0,0,0.5);
 }
 
-.parallax-content::after{
-	position: absolute;
-	bottom: -2em;
-	right: 1em;
-	color: #00ff00;
-	content: "Scroll ↓";
-}
 .parallax-content h1{
+	font-size: 3.5em;
 	text-align: center;
 	color: #00ff00;
 }
@@ -97,6 +85,7 @@ div.parallax-container{
 	font-size: 1.25em;
 	clear: both;
 	width: 100%;
+	line-height: 1.75;
 }
 .parallax-content ul.card-gallery{
 	display: block;
@@ -184,11 +173,7 @@ ul.card-links li.card-link.twitter:hover::after{
 	content: "Twitter"
 }
 
-@media (min-width: 640px){
-
-
-}
-@media (min-width: 831px){
+@media (min-width: 720px){
 	
 	.parallax-content h3{
 		font-size: 2em;
@@ -201,9 +186,6 @@ ul.card-links li.card-link.twitter:hover::after{
 	.parallax-content{
 		width: 100%;
 	}
-	.parallax-section:first-child{
-	padding-top: 15%;	
-}
 	.parallax-content{
 		width: 100%;
 		text-align: center;
@@ -218,7 +200,7 @@ ul.card-links li.card-link.twitter:hover::after{
 		@include border-box;
 		display: block;
 		width: 100%;
-		padding: 2em 15% 2em 15%;
+		padding: 2em 29% 2em 29%;
 		font-size: 1.5em;
 	}
 }

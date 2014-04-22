@@ -4,7 +4,7 @@
 		<li class="tab <%= "active" if i == @level.level_schemas.count - 1 %>">
 			<span class="tab-title">Schema for <span class="code"><%= schema.table_name %></span></span>
 			<div class="schema-table">
-				<small>Click to close</small><br /><br />
+				<small>Schema for <span class="code"><%= schema.table_name %></span></small><br /><br />
 				<ul class="schema">
 				<% schema.schema_columns.each do |column| %>
 					<li class="column"><span class="column-name"><%= column.column_name %></span>&nbsp;<span class="column-type"><%= column.column_type.upcase %></span></li>

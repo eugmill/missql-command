@@ -347,6 +347,14 @@ span.message{
 	background-color: #333333;
 	padding: 1em;
 }
+#schemata ul.schema-tabs li.tab.active div.schema-table::after{
+	position: absolute;
+	top: 2px;
+	left: 7px;
+	content: "x";
+	cursor: pointer;
+	color: #00ff00;
+}
 #schemata ul.schema-tabs li.tab.active div.schema-table ul.schema{
 	display: block;
 	margin: 0;
@@ -368,4 +376,8 @@ ul.schema li.column span.column-type{
 	width: auto;
 	float: right;
 	text-align: right;
+}
+.pane{
+	border-color: #333333;
+	border-style: solid;
 }

@@ -1,3 +1,5 @@
+
+
  @mixin border-box{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6,39 +8,6 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 320px){
-  header{
-    width: 320px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 5px;
-    text-align: center;
-  
-  z-index: 4;
-  height: 40px;
-  color: white;
-  background-color: #333333;
-  @include border-box;
-  }
-  header nav, header span.session{
-    display: none;
-  }
-
-  header>a{
-    display: inline-block;
-    width: 95%;
-    height: 100%;
-    overflow: hidden;
-  }
-  header>a>img.header-logo{
-    display: block;
-    width: 320px;
-    float: left;
-    height: auto;
-  }
-}
-@media (min-width: 321px){
  header {
   position: absolute;
   top:0;
@@ -131,8 +100,11 @@ nav:hover ul.nav-links li {
   @include border-box;
 }
 
+nav:hover ul.nav-links li a{
+  text-decoration: none;
+}
 nav:hover ul.nav-links li.completed a{
-  color: #00ff00;
+  color: #666666;
   text-decoration: none;
 }
 
@@ -147,8 +119,9 @@ nav:hover ul.nav-links li.completed::after{
   content: "✓";
 }
 
-.pane{
-	border-style: solid;
-	border-color: #333333;
-}
+
+@media (max-width: 580px){
+  header span, header nav, header span.session{
+    display: none;
+  }
 }
