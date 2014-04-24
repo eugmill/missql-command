@@ -11,5 +11,6 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-readyselector
 //= require jquery_ujs
 //= require_tree .

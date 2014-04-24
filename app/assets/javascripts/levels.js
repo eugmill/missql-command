@@ -167,8 +167,8 @@ pageScrollCheck = function(){
 }
 
 
-$(document).ready(function() {
-  if($('#execute').length> 0){
+$("body.levels").ready(function() {
+  
     $('body').addClass("repl");
     $('li.tab').on("click", function(e){
     
@@ -203,6 +203,6 @@ $(document).ready(function() {
     });
 
     $(window).on('resize', pageScrollCheck);
-  }
+  
   
 })
