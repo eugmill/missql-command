@@ -5,7 +5,7 @@ level:
   level_type: read
   prompt: "Select the <code>name</code> column from the <code>cities</code> table."
   stage_number: 1
-  title: "Welcome to Missql Command!"
+  title: "Would you like to play a game?"
 level_pages: 
   - page_number: 1
     content: "<p>Hello Commander, and welcome to the <code>MISSQL COMMAND</code> console! Your job is to defend the world's cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code>, or <a href='http://en.wikipedia.org/wiki/Sql' target='_blank'>Structured Query Language</a>, is a standarized programming language used to accesss and interact with <a href='http://en.wikipedia.org/wiki/Relational_database' target='_blank'>relational databases</a>.</p><p>So what is a relational database? A relational database is a method of storing data in <em>tables</em>, which have rows and columns. </p>"
