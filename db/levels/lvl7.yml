@@ -1,33 +1,33 @@
-correct_query: "CREATE TABLE missiles (id serial PRIMARY KEY, model_name VARCHAR(255), nationality VARCHAR(255));"
+correct_query: "CREATE TABLE missiles (missile_id serial PRIMARY KEY, model_name VARCHAR(255), nationality VARCHAR(255));"
 level: 
   stage_number: 7
   title: "Creating tables with primary keys."
-  prompt: "Recreate our <code>missiles</code> using the provided schema, including an <code>id</code> column."
+  prompt: "Recreate our <code>missiles</code> using the provided schema, including a <code>missile_id</code> column."
   database_path: "db/dumps/lvl7.sql"
   answer: ""
   level_type: "create"
 level_pages:
   - page_number: 1
-    content: "<p> In the last level, we saw the power of using <em>id</em>s to select specifically the data we need and to tell apart two otherwise identical records.</p><p> Intelligence Services has called upon you to recreate the <code>missiles</code> table from scratch, using <em>id</em>s this time. This way, we'll always be able to pass to Intelligence Services precise missile data.</p><p> We learned in Level 4 how to create a table using the <code>CREATE TABLE</code> command. Now, we're going to build on that by learning how to create tables with <em>id</em>s.</p>"
+    content: "<p> In the last level, we saw the power of using primary keyss to select the specific data we need and to tell apart two otherwise identical records.</p><p> Intelligence Services has called upon you to recreate the <code>missiles</code> table from scratch, using <em>missile_id</em>s this time. That way, we'll always be able to pass precise missile data to Intelligence Services.</p><p> We learned create a table using the <code>CREATE TABLE</code> command how to in Level 4. Now, we're going to build on that by learning how to create tables with primary keys.</p>"
   - page_number: 2
-    content: "<p> We've started you off with an empty database and no tables. Your job is to create a missiles table that has <em>id</em>'s in it. The convention for <em>ids</em> is that they are type:</p><p><code>INTEGER PRIMARY KEY AUTOINCREMENT</code></p><p><code> PRIMARY KEY </code> simply means that the column is UNIQUE and NOT NULL. UNIQUE is essential so that two rows never have the same ID, and NOT NULL is important so you never have a row without an <em>id</em>.</p><p><code>AUTOINCREMENT</code> means that this column's values will increment by 1 every time a new row is added.</p><p><code>SERIAL</code> is just shorthand in some database systems for <code>INTEGER</code><code> AUTOINCREMENT</code>, but note that this varies among different SQL implementations.</p>"
+    content: "<p> We've started you off with an empty database and no tables. Your job is to create a missiles table that has unique <em>missile_id</em>'s in it. In the database of MISSQL Command HQ, the convention for primary keys is to use the data type:</p><p><code>INTEGER serial PRIMARY KEY</code></p><p><code> PRIMARY KEY </code> simply means that the column is UNIQUE and NOT NULL. Being UNIQUE is essential so that two rows never have the same primary key, and NOT NULL is important so you never have a row without an <em>id</em>.</p><p><em>Tip: <code>serial</code> means that this column's values will increment by 1 every time a new row is added.</p><p>Different databases use different <em>functions</em> to automatically increment their primary keys. Many use a syntax like <code>INTEGER PRIMARY KEY AUTOINCREMENT</code></em></p>"
   - page_number: 3
-    content: "<p> Here's an example of how to create a table with <em>id</em>s. <pre><code>CREATE TABLE cats (\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(64),\n  hair_color VARCHAR(64)\n);</code></pre> </p> <p> Now, can you recreate our <code>missile</code> table with <em>id</em>s? Take a look at the grey <code>missiles</code> tab to the right to inspect the schema you need to create.</p>"
+    content: "<p> Here's an example of how to create a table with unique <em>id</em>s. <pre><code>CREATE TABLE cats (\n  cat_id SERIAL PRIMARY KEY,\n  cat_name VARCHAR(64),\n  hair_color VARCHAR(64)\n);</code></pre> </p> <p> Now, can you recreate our <code>missile</code> table with <em>missile_id</em>s? Take a look at the grey <code>missiles</code> tab to the right to inspect the schema you'll need to create.</p>"
 level_tests:
-  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='id';"
-    expected_output: "[{\"column_name\"=>\"id\"}]"
-    error_message: "It looks like you are missing the id column."
+  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='missile_id';"
+    expected_output: "[{\"column_name\"=>\"missile_id\"}]"
+    error_message: "Your table should include a missile_id column"
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='model_name';"
     expected_output: "[{\"column_name\"=>\"model_name\"}]"
-    error_message: "It looks like you are missing the model_name column."
+    error_message: "Your table should include a model_name column"
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='nationality';"
     expected_output: "[{\"column_name\"=>\"nationality\"}]"
-    error_message: "It looks like you are missing the nationality column."
+    error_message: "Your table should include a nationality column"
 level_schemas: 
   - 
     schema_columns: 
       - 
-        column_name: id 
+        column_name: missile_id 
         column_type: serial PRIMARY KEY
       - 
         column_name: model_name
