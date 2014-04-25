@@ -1,4 +1,4 @@
-CREATE TABLE missiles (id serial PRIMARY KEY, model_name VARCHAR(255), nationality VARCHAR(255));
+CREATE TABLE missiles (missile_id serial PRIMARY KEY, model_name VARCHAR(255), nationality VARCHAR(255));
 
 INSERT INTO missiles (model_name, nationality) VALUES ('Peacekeeper','USA');
 INSERT INTO missiles (model_name, nationality) VALUES ('Minuteman','USA');
