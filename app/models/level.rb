@@ -5,14 +5,20 @@ class Level < ActiveRecord::Base
   has_many :level_schemas, :dependent => :destroy
   has_many :user_levels, :dependent => :destroy
 
-  before_create :load_dump
+  before_save :load_dump
 
   def load_dump
-    self.dump = File.open(self.database_path) do |file|
-      file.read
-    end
-    if !self.dump
-      self.errors.add(:dump, "Could not load dump file")
+    if self.database_path
+        begin
+          self.dump = File.open(self.database_path) do |file|
+            file.read
+          end
+        rescue StandardError 
+          self.dump = nil
+        end
+      if !self.dump
+        self.errors.add(:dump, "Could not load dump file")
+      end
     end
   end
 

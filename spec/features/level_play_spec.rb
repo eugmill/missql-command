@@ -1,6 +1,6 @@
 require_relative '../feature_helper'
 
-describe 'Level: ', :js => true do
+describe 'Level play: ', :js => true do
 
     before :each do     
       @user = FactoryGirl.create(:user)
@@ -18,6 +18,7 @@ describe 'Level: ', :js => true do
       # Need to change the harcoded number below to Level.all.count. Some scope issues here.
           10.times { | stage_number |
               it "Level #{stage_number+1} should have a Title on its page" do
+                
                 @level = Level.find_by(:stage_number => stage_number+1)
                 visit "/levels/#{@level.stage_number}"
                 expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(@level.title))

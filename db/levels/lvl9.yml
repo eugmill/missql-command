@@ -1,25 +1,25 @@
-correct_query: "SELECT * FROM cities JOIN missiles on missiles.target_city_id = cities.id;"
+correct_query: "SELECT * FROM cities JOIN missiles on missiles.target_city_id = cities.city_id;"
 level: 
   stage_number: 9
   title: "JOIN Up!"
-  prompt: "Select all the data on <code>cities</code> and <code>missiles</code> targeting them using a JOIN."
+  prompt: "Select all the data on <code>cities</code> and the <code>missiles</code> targeting them using a JOIN."
   database_path: "db/dumps/lvl9.sql"
-  answer: "[{\"id\"=>\"3\", \"name\"=>\"New York\", \"population\"=>\"8337000\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\", \"target_city_id\"=>\"1\"}, {\"id\"=>\"7\", \"name\"=>\"San Francisco\", \"population\"=>\"825000\", \"model_name\"=>\"Dongfeng-5\", \"nationality\"=>\"China\", \"target_city_id\"=>\"3\"}, {\"id\"=>\"4\", \"name\"=>\"London\", \"population\"=>\"8308000\", \"model_name\"=>\"Yars\", \"nationality\"=>\"Russia\", \"target_city_id\"=>\"4\"}, {\"id\"=>\"5\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\", \"model_name\"=>\"Jericho III\", \"nationality\"=>\"Israel\", \"target_city_id\"=>\"5\"}, {\"id\"=>\"2\", \"name\"=>\"Moscow\", \"population\"=>\"11500000\", \"model_name\"=>\"Minuteman\", \"nationality\"=>\"USA\", \"target_city_id\"=>\"5\"}, {\"id\"=>\"8\", \"name\"=>\"Tokyo\", \"population\"=>\"13230000\", \"model_name\"=>\"Dongfeng-31\", \"nationality\"=>\"China\", \"target_city_id\"=>\"6\"}, {\"id\"=>\"6\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\", \"model_name\"=>\"Agni-V\", \"nationality\"=>\"India\", \"target_city_id\"=>\"7\"}, {\"id\"=>\"1\", \"name\"=>\"Shanghai\", \"population\"=>\"24000000\", \"model_name\"=>\"Peacekeeper\", \"nationality\"=>\"USA\", \"target_city_id\"=>\"7\"}]"
+  answer: "[{\"city_id\"=>\"1\", \"city_name\"=>\"New York\", \"population\"=>\"8337000\", \"missile_id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\", \"target_city_id\"=>\"1\"}, {\"city_id\"=>\"3\", \"city_name\"=>\"San Francisco\", \"population\"=>\"825000\", \"missile_id\"=>\"7\", \"model_name\"=>\"Dongfeng-5\", \"nationality\"=>\"China\", \"target_city_id\"=>\"3\"}, {\"city_id\"=>\"4\", \"city_name\"=>\"London\", \"population\"=>\"8308000\", \"missile_id\"=>\"4\", \"model_name\"=>\"Yars\", \"nationality\"=>\"Russia\", \"target_city_id\"=>\"4\"}, {\"city_id\"=>\"5\", \"city_name\"=>\"Moscow\", \"population\"=>\"11500000\", \"missile_id\"=>\"5\", \"model_name\"=>\"Jericho III\", \"nationality\"=>\"Israel\", \"target_city_id\"=>\"5\"}, {\"city_id\"=>\"5\", \"city_name\"=>\"Moscow\", \"population\"=>\"11500000\", \"missile_id\"=>\"2\", \"model_name\"=>\"Minuteman\", \"nationality\"=>\"USA\", \"target_city_id\"=>\"5\"}, {\"city_id\"=>\"6\", \"city_name\"=>\"Tokyo\", \"population\"=>\"13230000\", \"missile_id\"=>\"8\", \"model_name\"=>\"Dongfeng-31\", \"nationality\"=>\"China\", \"target_city_id\"=>\"6\"}, {\"city_id\"=>\"7\", \"city_name\"=>\"Shanghai\", \"population\"=>\"24000000\", \"missile_id\"=>\"6\", \"model_name\"=>\"Agni-V\", \"nationality\"=>\"India\", \"target_city_id\"=>\"7\"}, {\"city_id\"=>\"7\", \"city_name\"=>\"Shanghai\", \"population\"=>\"24000000\", \"missile_id\"=>\"1\", \"model_name\"=>\"Peacekeeper\", \"nationality\"=>\"USA\", \"target_city_id\"=>\"7\"}]" 
   level_type: "read"
 level_pages:
   - page_number: 1
-    content: "<p>Now that you've seen how to get the foreign keys from a table, it's time to use them to find data in a different table using a <code>JOIN</code> statement. A <code>JOIN</code> is essentially a <code>SELECT</code> statement that operates on two or more tables.</p><p>This stage has two tables, <code>cities</code> and <code>missiles</code>. Just like last time, the missiles table holds foreign keys in its <code>target_city_id</code> column.</p><p>These keys can be used to find all of the cities currently being targeted by ICBMs by matching them to the cities' id. There are several types of <code>JOIN</code> in SQL, but the first one we'll be dealing with is an <code>INNER JOIN</code>, which takes two tables and returns results from all rows from both tables that match the joining condition.</p><p>An inner join statement uses the following syntax:</p><p><pre><code>SELECT * FROM cats\n JOIN owners\n ON cats.owner_id = owners.id;</code></pre></p>"
+    content: "<p>Now that you've seen how to get the foreign keys from a table, it's time to use them to find data in a different table using a <code>JOIN</code> statement. A <code>JOIN</code> is essentially a <code>SELECT</code> statement that operates on two or more tables.</p><p>This stage has two tables, <code>cities</code> and <code>missiles</code>. Just like last time, the missiles table holds foreign keys in its <code>target_city_id</code> column.</p><p>These keys can be used to find all of the cities currently being targeted by ICBMs by matching them to the cities' primary key, city_id. There are several types of <code>JOIN</code> in SQL, but the first one we'll be dealing with is an <code>INNER JOIN</code>, which takes two tables and returns results from all rows from both tables that match the joining condition.</p><p>An inner join statement uses the following syntax:</p><p><pre><code>SELECT * FROM cats\n JOIN owners\n ON cats.owner_id = owners.id;</code></pre></p>"
   - page_number: 2
-    content: "<p>Let's break that down. The first part of a <code>JOIN</code> is just a plain old SELECT, telling the database what columns you want to retrieve from the rows matched by the query. You can select any columns from any of the tables in the join, so here we're selecting all rows from both tables. The second part of the statement is the <code>JOIN</code> keyword itself, which is immediately followed by the name of the table you want to <code>JOIN</code>. The <code>ON</code> keyword is followed by a conditional statement (which looks a lot like a <code>WHERE</code> statement) that is used to match rows from the different table. When a row from one table is compared with a row from another and the <code>ON</code> condition is true, the two rows will be joined into one row in the results. Here we're matching cats to owners where the cat's <code>owner_id</code> column is equal to an owner's primary key column, <code>id</code>. They primary key of a table is typically named 'id', or 'tablename_id'. All together, this statment will collate the rows of <code>cats</code> that have an <code>owner_id</code> with any rows of <code>owners</code> that have a matching id column, and then return all columns from both rows as a new table.</p><p>See if you can write a JOIN to get all the information from the cities table, joined to the missile table using the missile table's <code>target_city_id</code> column. Check out the schema about the command input for guidance."
+    content: "<p>Let's break that down. The first part of a <code>JOIN</code> is just a plain old SELECT, telling the database what columns you want to retrieve from the rows matched by the query. You can select any columns from any of the tables in the join, so here we're selecting all rows from both tables. The second part of the statement is the <code>JOIN</code> keyword itself, which is immediately followed by the name of the table you want to <code>JOIN</code>. The <code>ON</code> keyword is followed by a conditional statement (which looks a lot like a <code>WHERE</code> statement) that is used to match rows from the different table. When a row from one table is compared with a row from another and the <code>ON</code> condition is true, the two rows will be joined into one row in the results. Here we're matching cats to owners where the cat's <code>owner_id</code> column is equal to an owner's primary key column, <code>id</code>. They primary key of a table is typically named 'id', or <em>'tablename_id'</em>. All together, this statment will collate the rows of <code>cats</code> that have an <code>owner_id</code> with any rows of <code>owners</code> that have a matching id column, and then return all columns from both rows as a new table.</p><p>See if you can write a JOIN to get all the information from the cities table, joined to the missile table using the missile table's <code>target_city_id</code> column. Check out the schema about the command input for guidance."
 level_schemas: 
   - 
     table_name: cities
     schema_columns: 
       - 
-        column_name: id
+        column_name: city_id
         column_type: serial
       - 
-        column_name: name
+        column_name: city_name
         column_type: varchar(255)
       - 
         column_name: population
@@ -28,7 +28,7 @@ level_schemas:
     table_name: missiles
     schema_columns: 
       - 
-        column_name: id
+        column_name: missile_id
         column_type: serial
       - 
         column_name: model_name
@@ -41,10 +41,10 @@ level_schemas:
         column_type: integer
 level_tests:
   - test_query: "has_col?"
-    expected_output: "id"
+    expected_output: "city_id"
     error_message: "Your results should include the id column"
   - test_query: "has_col?"
-    expected_output: "name"
+    expected_output: "city_name"
     error_message: "Your results should include the name column from the cities table"
   - test_query: "has_col?"
     expected_output: "population"
@@ -59,7 +59,7 @@ level_tests:
     expected_output: "target_city_id"
     error_message: "Your results should include the target_city_id column from the missiles table"
   - test_query: "has_col_count?"
-    expected_output: 6
+    expected_output: 7
     error_message: "Your results should have 6 different columns"
   - test_query: "has_row_count?"
     expected_output: 8

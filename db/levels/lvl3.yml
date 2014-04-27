@@ -1,24 +1,24 @@
-correct_query: "SELECT * FROM cities WHERE name='New York' OR population > 10000000;"
+correct_query: "SELECT * FROM cities WHERE city_name='New York' OR population > 10000000;"
 level: 
   stage_number: 3
   title: "Where were we?"
-  prompt: "Select all data from all rows where the city is named New York, or the population is greater than ten million. Use <code>WHERE</code> and <code>OR</code>."
+  prompt: "Select all data from all rows where the city_name is New York, or the population of the city is greater than 10000000 using <code>WHERE</code> and <code>OR</code>."
   database_path: "db/dumps/lvl3.sql"
-  answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+  answer: "[{\"city_name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"city_name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"city_name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"city_name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
     content: "<p>So now we know how to return a single column, and we know how to return all the columns. But so far our queries have been returning data for every single row in the table.</p><p>This time, let's try getting more specific and returning only the particular rows where certain conditions are met. For instance, what if I just want to get populations, but only for New York or Paris?</p><p>One way to do that is with a <code>WHERE</code> clause. A <code>WHERE</code> clause filters the results based on certain criteria."
   - page_number: 2
-    content: "<p>So how do we use it? The general syntax is:</p><p><code>SELECT <em>columns</em> FROM <em>table</em> WHERE <em>condition</em>;</code></p><p>While it seems pretty basic, you can make the condition as complex as you need it to be. For example, you can combine conditions using boolean operators such as <code>AND</code> , <code>NOT</code> , and <code>OR</code>. For number columns you can also filter by using the <code><</code>,<code>></code>,<code>=</code>,<code><=</code>,<code>>=</code> operators.<p><p>Here is an example:</p><p><code>SELECT * FROM cities WHERE population >8000000;</code></p>"
+    content: "<p>So how do we use it? The general syntax is:</p><p><code>SELECT <em>columns</em> FROM <em>table</em> WHERE <em>condition</em>;</code></p><p>While it seems pretty basic, you can make the condition as complex as you need it to be. For example, you can combine conditions using boolean operators such as <code>AND</code> , <code>NOT</code> , and <code>OR</code>. For number columns you can also filter by using the <code><</code>, <code>></code>, <code>=</code>, <code><=</code>, <code>>=</code> operators.<p><p>Here is an example:</p><p><code>SELECT * FROM cities WHERE population > 8000000;</code></p>"
   - page_number: 3
-    content: "<p>The Following are all valid queries:</p><p><code>SELECT name FROM cities WHERE name='New York' OR name='Paris';</code></p><p><code>SELECT * FROM cities WHERE NOT name='New York'</code></p><p>Now you give it a try. Go ahead and get the list of cities whose name is New York or whose population is over 10,000,000. We'll want all the columns.</p><p>Feel free to break up your query into multiple lines to make it easier.<p><p>Tip: <code>SQL</code> strings (like the <code>VARCHAR</code> datatype) are specified with 'single quotes' rather than \"double quotes\". We'll dive deeper into varchar and other datatypes in the next level. </p>"
-default_text: "name            | population      |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        | 8337000         |\nParis           | 2211000         |\nSan Francisco   | 825000          |\nLondon          | 8308000         |\nMoscow          | 11500000        |\nTokyo           | 13230000        |\nShanghai        | 24000000        |\n"
+    content: "<p>The Following are all valid queries:</p><p><code>SELECT city_name FROM cities WHERE city_name='New York' OR city_name='Paris';</code></p><p><code>SELECT * FROM cities WHERE NOT city_name='New York'</code></p><p>Now you give it a try. Go ahead and get the list of cities whose city_name is New York or whose population is over 10,000,000. We'll want all the columns.</p><p>Feel free to break up your query into multiple lines to make it easier.<p><p><em>Tip: <code>SQL</code> strings (a string is a sequence of text, like the data stored in the city_name column) are entered in queries surrounded with 'single quotes' (rather than \"double quotes\") to seperate them from SQL commands and names. Integers, like the numbers stored in the poulation column, don't need to be surrounded with quotes at all. We'll dive deeper into datatypes in the next level.</em></p>"
+default_text: "city_name       | population      |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        | 8337000         |\nParis           | 2211000         |\nSan Francisco   | 825000          |\nLondon          | 8308000         |\nMoscow          | 11500000        |\nTokyo           | 13230000        |\nShanghai        | 24000000        |\n"
 level_schemas: 
   - 
     schema_columns: 
       - 
-        column_name: name
+        column_name: city_name
         column_type: varchar(255)
       - 
         column_name: population
@@ -26,7 +26,7 @@ level_schemas:
     table_name: cities
 level_tests:
   - test_query: "has_col?"
-    expected_output: "name"
+    expected_output: "city_name"
     error_message: "Your result should have the name column."
   - test_query: "has_col?"
     expected_output: "population"
@@ -38,5 +38,5 @@ level_tests:
     expected_output: 4
     error_message: "Your result should return exactly 4 rows from the cities table."
   - test_query: "has_row?"
-    expected_output: "{\"name\"=>\"New York\", \"population\"=>\"8337000\"}"
+    expected_output: "{\"city_name\"=>\"New York\", \"population\"=>\"8337000\"}"
     error_message: "Your result should include 'New York'."

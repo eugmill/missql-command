@@ -1,10 +1,10 @@
-correct_query: "SELECT * FROM missiles WHERE id=3;"
+correct_query: "SELECT * FROM missiles WHERE missile_id=3;"
 level: 
   stage_number: 6
   title: "Will the real Topol<br> please stand up?"
-  prompt: "Select all the data for the first 'Topol' missile that appears in the <code>missiles</code> table by specifying the missile's <code>ID</code>"
+  prompt: "Select all the data for the first 'Topol' missile that appears in the <code>missiles</code> table by specifying the missile's <code>MISSILE_ID</code>"
   database_path: "db/dumps/lvl6.sql"
-  answer: "[{\"id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}]"
+  answer: "[{\"missile_id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}]"
   level_type: "read"
 level_pages:
   - page_number: 1
@@ -12,15 +12,15 @@ level_pages:
   - page_number: 2
     content: "<p>If you try <code>SELECT * FROM missiles WHERE model_name = 'Topol';</code> you will see that you actually return two missiles! Uh oh! How do get data on just the first?</p> <p>Enter <em>primary keys</em>.</p>"
   - page_number: 3
-    content: "<p>Primary keys are a way to uniquely identify a row of data in a table. In a typical database, each time a record is added the primary key column is automatically incremented, so that each row has a single unique identifier.</p>"
+    content: "<p>Primary keys are a way to uniquely identify a row of data in a table. In a typical database, each time a record is added the primary key column is automatically incremented, so that each row has a single unique number as its identifier.</p>"
   - page_number: 4  
-    content: "<p>Using the primary key, which is usually named something like 'id' or <em>'table_name_id'</em>, we can select just the single row we want. </p> <p> For example, <code>SELECT * from cats where id=1;</code> will return to us all of the info about the cat with ID=1.</p> <p>Complete this challenge by using ID to select all of the info about the first 'Topol' missile listed in the table. </p> <p> <em> Hint: First take a look at the table to the right, to determine the ID of the first 'Topol' missile. </em> </p>"
-default_text: "id    | model_name      | nationality     |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1     | Peacekeeper     | USA             |\n2     | Minuteman       | USA             |\n3     | Topol           | Russia          |\n4     | Yars            | Russia          |\n5     | Jericho III     | Israel          |\n6     | Agni-V          | India           |\n7     | East Wind 5     | China           |\n8     | East Wind 31    | China           |\n9     | Topol           | Russia          |\n"
+    content: "<p>Using the primary key, which is usually named something like 'id' or <em>'table_name_id'</em>, we can select just the single row we want. </p> <p> For example, <code>SELECT * from cats where cat_id=1;</code> will return to us all of the info about the cat with the <code>cat_id</code> of 1.</p> <p>Complete this challenge by using missile_id to select all of the info about the first 'Topol' missile listed in the table. </p> <p> <em> Hint: First take a look at the table to the right, to determine the missile_id of the first 'Topol' missile. </em> </p>"
+default_text: "missile_id | model_name      | nationality     | \n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1          | Peacekeeper     | USA             | \n2          | Minuteman       | USA             | \n3          | Topol           | Russia          | \n4          | Yars            | Russia          | \n5          | Jericho III     | Israel          | \n6          | Agni-V          | India           | \n7          | East Wind 5     | China           | \n8          | East Wind 31    | China           | \n9          | Topol           | Russia          |"
 level_schemas: 
   - 
     schema_columns: 
       - 
-        column_name: id
+        column_name: missile_id
         column_type: serial
       - 
         column_name: model_name
@@ -31,8 +31,8 @@ level_schemas:
     table_name: missiles
 level_tests:
   - test_query: "has_col?"
-    expected_output: "id"
-    error_message: "Your results should include the id column"
+    expected_output: "missile_id"
+    error_message: "Your results should include the missile_id column"
   - test_query: "has_col?"
     expected_output: "model_name"
     error_message: "Your results should include the model_name column"
@@ -46,5 +46,5 @@ level_tests:
     expected_output: 3
     error_message: "Your results should contain data from 3 columns"
   - test_query: "has_row?"
-    expected_output: "{\"id\"=> 3, \"model_name\" => \"Topol\", \"nationality\" => \"Russia\"}"
+    expected_output: "{\"missile_id\"=> 3, \"model_name\" => \"Topol\", \"nationality\" => \"Russia\"}"
     error_message: "Your results should contain the first record for the Topol missile"

@@ -84,6 +84,16 @@ describe "Session" do
       expect(page).to have_content("User name has already been taken")
     end
 
+    it "should redirect you to the homepage if you're logged in" do
+      @user.save
+      visit '/login'
+      fill_in 'email', :with => @user.email
+      fill_in 'Password', :with => @user.password
+      click_button 'Login'
+      visit '/users/new'
+      expect(current_path).to eq("/")
+    end
+
     it "should tell you if your password doesn't match the confirmation" do
       visit '/users/new'
       fill_in 'Username', :with => @user.user_name

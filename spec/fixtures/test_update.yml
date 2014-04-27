@@ -1,0 +1,30 @@
+correct_query: "SELECT city_name from cities;"
+level: 
+  answer: "Test answer"
+  database_path: test.sql
+  level_type: read
+  prompt: "Test prompt"
+  stage_number: 99
+  title: "Test 2"
+level_pages: 
+  - page_number: 1
+    content: "<p>Hello Commander, and welcome to the <code>MISSQL COMMAND</code> console! Your job is to defend the world's cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code>, or <a href='http://en.wikipedia.org/wiki/Sql' target='_blank'>Structured Query Language</a>, is a standarized programming language used to accesss and interact with <a href='http://en.wikipedia.org/wiki/Relational_database' target='_blank'>relational databases</a>.</p><p>So what is a relational database? A relational database is a method of storing data in <em>tables</em>, which have rows and columns. </p>"
+  - page_number: 2
+    content: "<p>Hello Commander, and welcome to the <code>MISSQL COMMAND</code> console! Your job is to defend the world's cities from a missile attack (and learn some <code>SQL</code> along the way!).</p><p><code>SQL</code>, or <a href='http://en.wikipedia.org/wiki/Sql' target='_blank'>Structured Query Language</a>, is a standarized programming language used to accesss and interact with <a href='http://en.wikipedia.org/wiki/Relational_database' target='_blank'>relational databases</a>.</p><p>So what is a relational database? A relational database is a method of storing data in <em>tables</em>, which have rows and columns. </p>"
+level_schemas: 
+  - 
+    schema_columns: 
+      - 
+        column_name: city_name
+        column_type: varchar(255)
+      - 
+        column_name: population
+        column_type: integer
+      - 
+        column_name: name
+        column_type: integer
+    table_name: cities
+level_tests:
+  - test_query: "has_col?"
+    expected_output: "city_name"
+    error_message: "Your results should have the city_name column"

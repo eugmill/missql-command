@@ -2,7 +2,7 @@ correct_query: "INSERT INTO missiles VALUES ('Topol', 'USSR');"
 level: 
   stage_number: 5
   title: "Insertopol"
-  prompt: "Use <code>INSERT</code> to add a record with <code>name</code> 'Topol' and <code>nationality</code> 'USSR' to the <code>missiles</code> table."
+  prompt: "Use <code>INSERT</code> to add a record with <code>model_name</code> 'Topol' and <code>nationality</code> 'USSR' to the <code>missiles</code> table."
   database_path: "db/dumps/lvl5.sql"
   answer: ""
   level_type: "insert"
@@ -16,7 +16,7 @@ level_pages:
 level_tests:
   - test_query: "select count(*) from missiles where model_name = 'Topol' AND nationality='USSR';"
     expected_output: "[{\"count\"=>\"2\"}]"
-    error_message: "There should be two missiles named 'Topol' in the table."
+    error_message: "Your INSERT statement should have added another Topol missile to the table.\nThere should be exactly 2 Topol missiles in the missiles table"
   - test_query: "SELECT count(*) FROM missiles;"
     expected_output: "[{\"count\"=>\"9\"}]"
     error_message: "There should only be 9 rows in the table."

@@ -1,4 +1,4 @@
-correct_query: "CREATE TABLE cities (name VARCHAR(255), population INTEGER);"
+correct_query: "CREATE TABLE cities (city_name VARCHAR(255), population INTEGER);"
 level: 
   stage_number: 4
   title: "Scheming to create"
@@ -14,24 +14,24 @@ level_pages:
   - page_number: 3
     content: "<p>The datatype literally indicates what type of data a column can store, and how much of it. Different SQL databases have different data types available to them, but some generally available datatypes are things like text, numbers, dates, and true/false boolean values.</p>"
   - page_number: 4
-    content: "<p>The first column of the cities table is 'name', and its datatype is <code>varchar(255)</code>. This is just SQL's way of indicating that a column can store text (<em>variable characters</em>), but that the storage is limited to 255 characters. So a <code>varchar(140)</code> column would be able to store exactly a single tweet, but no more.</p><p>The second column, <code>population</code>, is an <code>integer</code> datatype, which stores a number without a decimal value attached.</p><p>So let's put this all together and create our <code>cities</code> table!The basic syntax for a <code>CREATE</code> statement is:</p><p><pre><code>CREATE TABLE <em>tablename</em> (\n  <em>column1 TYPE1,\n  column2 TYPE2</em>\n);</code></pre></p>"
+    content: "<p>The first column of the cities table is 'city_name', and its datatype is <code>varchar(255)</code>. This is just SQL's way of indicating that a column can store text (<em>variable characters</em>), but that the storage is limited to 255 characters. So a <code>varchar(140)</code> column would be able to store exactly a single tweet, but no more.</p><p>The second column, <code>population</code>, is an <code>integer</code> datatype, which stores a number without a decimal value attached.</p><p>So let's put this all together and create our <code>cities</code> table!The basic syntax for a <code>CREATE</code> statement is:</p><p><pre><code>CREATE TABLE <em>tablename</em> (\n  <em>column1 TYPE1,\n  column2 TYPE2</em>\n);</code></pre></p>"
   - page_number: 5
     content: "<p>Here are some examples:</p><p><pre><code>CREATE TABLE people (\n  name VARCHAR(64),\n  age INTEGER\n);</code></pre></p><p><pre><code>CREATE TABLE bank_accounts (\n  account_number INTEGER,\n  balance INTEGER\n);</code></pre></p><p>Now go ahead and try to create the cities table.</p><p>Use the schema to the right if you get stuck.</p>"
 level_tests:
-  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='name';"
-    expected_output: "[{\"column_name\"=>\"name\"}]"
-    error_message: "It looks like you might be missing the name column."
+  - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='city_name';"
+    expected_output: "[{\"column_name\"=>\"city_name\"}]"
+    error_message: "Your table should include a column named city_name"
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities' AND column_name='population';"
     expected_output: "[{\"column_name\"=>\"population\"}]"
-    error_message: "It looks like you might be missing the population column."
+    error_message: "Your table should include a column named population"
   - test_query: "select COUNT(column_name) from INFORMATION_SCHEMA.COLUMNS where table_name = 'cities';"
     expected_output: "[{\"count\"=>\"2\"}]"
-    error_message: "Looks like you might have the wrong number of columns.\nYou should just have 2"
+    error_message: "Your table should have exactly 2 columns"
 level_schemas: 
   - 
     schema_columns: 
       - 
-        column_name: name
+        column_name: city_name
         column_type: varchar(255)
       - 
         column_name: population

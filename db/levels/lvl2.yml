@@ -4,18 +4,18 @@ level:
   title: "Select all the things!"
   prompt: "Select every <em>row</em> and <em>column</em> from <code>cities</code> by using <code>*</code>."
   database_path: "db/dumps/lvl1.sql"
-  answer: "[{\"name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"name\"=>\"London\", \"population\"=>\"8308000\"}, {\"name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
+  answer: "[{\"city_name\"=>\"New York\", \"population\"=>\"8337000\"}, {\"city_name\"=>\"Paris\", \"population\"=>\"2211000\"}, {\"city_name\"=>\"San Francisco\", \"population\"=>\"825000\"}, {\"city_name\"=>\"London\", \"population\"=>\"8308000\"}, {\"city_name\"=>\"Moscow\", \"population\"=>\"11500000\"}, {\"city_name\"=>\"Tokyo\", \"population\"=>\"13230000\"}, {\"city_name\"=>\"Shanghai\", \"population\"=>\"24000000\"}]"
   level_type: "read"
-default_text: "\n\nname            |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        |\nParis           |\nSan Francisco   |\nLondon          |\nMoscow          |\nTokyo           |\nShanghai        |\n"
+default_text: "\n\ncity_name       |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\nNew York        |\nParis           |\nSan Francisco   |\nLondon          |\nMoscow          |\nTokyo           |\nShanghai        |\n"
 level_pages:
   - 
     page_number: 1
-    content: "<p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <code>*</code> character.</p><p><code>*</code> is a wildcard character, it matches every column in the table. Telling a table to <code>SELECT *</code> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with <code>*</code> instead of <code>name</code>. This should return the entire <code>cities</code> table as the result.</p>"
+    content: "<p>So we figured out how to get a list of city names. Cool beans. But what if we want more information? Enter the <code>*</code> character.</p><p><code>*</code> is a wildcard character, it matches every column in the table. Telling a table to <code>SELECT *</code> is telling it to get all the things!</p><p> It will return every column and every row! Give it a try!</p><p>Try using a select query with <code>*</code> instead of <code>city_name</code>. This should return the entire <code>cities</code> table as the result.</p>"
 level_schemas: 
   - 
     schema_columns: 
       - 
-        column_name: name
+        column_name: city_name
         column_type: varchar(255)
       - 
         column_name: population
@@ -23,14 +23,14 @@ level_schemas:
     table_name: cities
 level_tests:
   - test_query: "has_col?"
-    expected_output: "name"
-    error_message: "Your results should have the name column."
+    expected_output: "city_name"
+    error_message: "Your results should include the city_name column"
   - test_query: "has_col?"
     expected_output: "population"
-    error_message: "Your results should have the population column."    
+    error_message: "Your results should include the population column"    
   - test_query: "has_col_count?"
     expected_output: "2"
-    error_message: "Your results should have exactly 2 columns."
+    error_message: "Your results should include exactly 2 columns"
   - test_query: "has_row_count?"
     expected_output: 7
-    error_message: "Your result should return all 7 rows from the cities table."
+    error_message: "Your result should include all 7 rows from the cities table."
