@@ -2,7 +2,7 @@ correct_query: "SELECT missiles.target_city_id FROM missiles;"
 level: 
   stage_number: 8
   title: "Incoming Missiles!"
-  prompt: "Get a list of the <code>ids</code> of the targeted <code>cities</code>. Check the schema to see how!"
+  prompt: "Get a list of the <code>foreign keys</code> of cities in the missiles table"
   database_path: "db/dumps/lvl8.sql"
   answer: "[{\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"1\"}, {\"target_city_id\"=>\"4\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"3\"}, {\"target_city_id\"=>\"6\"}]"
   level_type: "read"
@@ -15,7 +15,7 @@ level_schemas:
     table_name: missiles
     schema_columns: 
       - 
-        column_name: id
+        column_name: missile_id
         column_type: serial
       - 
         column_name: model_name

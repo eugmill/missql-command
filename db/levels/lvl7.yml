@@ -12,17 +12,17 @@ level_pages:
   - page_number: 2
     content: "<p> We've started you off with an empty database and no tables. Your job is to create a missiles table that has unique <em>missile_id</em>'s in it. In the database of MISSQL Command HQ, the convention for primary keys is to use the data type:</p><p><code>INTEGER serial PRIMARY KEY</code></p><p><code> PRIMARY KEY </code> simply means that the column is UNIQUE and NOT NULL. Being UNIQUE is essential so that two rows never have the same primary key, and NOT NULL is important so you never have a row without an <em>id</em>.</p><p><em>Tip: <code>serial</code> means that this column's values will increment by 1 every time a new row is added.</p><p>Different databases use different <em>functions</em> to automatically increment their primary keys. Many use a syntax like <code>INTEGER PRIMARY KEY AUTOINCREMENT</code></em></p>"
   - page_number: 3
-    content: "<p> Here's an example of how to create a table with unique <em>id</em>s. <pre><code>CREATE TABLE cats (\n  cat_id SERIAL PRIMARY KEY,\n  cat_name VARCHAR(64),\n  hair_color VARCHAR(64)\n);</code></pre> </p> <p> Now, can you recreate our <code>missile</code> table with <em>missile_id</em>s? Take a look at the grey <code>missiles</code> tab to the right to inspect the schema you'll need to create.</p>"
+    content: "<p> Here's an example of how to create a table with unique <em>id</em>s. <pre><code>CREATE TABLE cats (\n  cat_id SERIAL PRIMARY KEY,\n  cat_name VARCHAR(64),\n  hair_color VARCHAR(64)\n);</code></pre> </p> <p> Now, can you recreate our <code>missile</code> table with <em>missile_id</em>s? Take a look at the grey <code>missiles</code> table to the right to inspect the schema you'll need to create.</p>"
 level_tests:
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='missile_id';"
     expected_output: "[{\"column_name\"=>\"missile_id\"}]"
-    error_message: "Your table should include a missile_id column"
+    error_message: "Your table should include the missile_id column"
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='model_name';"
     expected_output: "[{\"column_name\"=>\"model_name\"}]"
-    error_message: "Your table should include a model_name column"
+    error_message: "Your table should include the model_name column"
   - test_query: "select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = 'missiles' AND column_name='nationality';"
     expected_output: "[{\"column_name\"=>\"nationality\"}]"
-    error_message: "Your table should include a nationality column"
+    error_message: "Your table should include the nationality column"
 level_schemas: 
   - 
     schema_columns: 
