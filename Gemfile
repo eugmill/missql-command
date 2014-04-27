@@ -41,7 +41,7 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov', :require => false
   gem 'launchy'   
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 group :development do

@@ -2,17 +2,18 @@ namespace :missql do
 	desc "Drop and recreate the development level db"
 	task :reset => :environment do
     User.destroy_all if ActiveRecord::Base.connection.table_exists? 'users'
-		Rake::Task["db:drop"].invoke
+    `dropdb missql-command_#{Rails.env}`
 		Rake::Task["db:create"].invoke
 		Rake::Task["db:migrate"].invoke
-		Rake::Task["db:seed"].invoke
 	end
 
   desc "Updates all the levels from yaml files"
+  
   task :update_all => :environment do
     Dir.glob('db/levels/*.yml') do |yml_file|
       Level.update_from_yaml(yml_file)
     end
+  
   end
 
   desc "Reloads all the levels from their yaml files"
@@ -41,6 +42,16 @@ namespace :missql do
     User.all.where(:guest => true).where("last_logged_in > ?", 1.day.ago).destroy_all
   end
 
+  desc "Clean out all test databases"
+  task :clean_test_databases do
+    db_list = `psql -l`
+    db_list
+    matches = db_list.scan(/user_database_test_\d+/)
+    matches.each do |match|
+      `dropdb #{match}`
+    end
+  end
+
   task :kill_postgres_connections => :environment do
     20.times do |i|
       db_name = "user_database_#{Rails.env}_#{i}"
@@ -52,7 +63,7 @@ namespace :missql do
         | awk '{print $1}' \
         | xargs kill
       EOF
-      puts `#{sh}`
+      `#{sh}`
     end
   end
 end
