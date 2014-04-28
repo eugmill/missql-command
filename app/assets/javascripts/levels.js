@@ -14,15 +14,16 @@ updateView = function(data){
   //clears the output pane
   clearOutput();
 
-  //passes the response attribute of the data to showMessages to display errors and hints
-  showMessages(data.response);
-  
   //does a quick syntax check on the query to alert users to single quote requirement
   if(!data.response.correct && data.query.match(/"/g)){
     
     data.response.errors.push("Make sure you're using single quotes for your strings.\n");
   
   }
+
+  //passes the response attribute of the data to showMessages to display errors and hints
+  showMessages(data.response);
+
   //checks display type property and sends output to the appropriate rendering function
   if (data.response.display_type == "string"){
 
