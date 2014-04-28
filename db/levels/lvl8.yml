@@ -2,10 +2,11 @@ correct_query: "SELECT missiles.target_city_id FROM missiles;"
 level: 
   stage_number: 8
   title: "Incoming Missiles!"
-  prompt: "Get a list of the <code>foreign keys</code> of cities in the missiles table"
+  prompt: "Get the <code>id</code>s of targeted cities by selecting the <code>target_city_id</code> <em>foreign keys</em> in the <code>missiles</code> table."
   database_path: "db/dumps/lvl8.sql"
   answer: "[{\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"1\"}, {\"target_city_id\"=>\"4\"}, {\"target_city_id\"=>\"5\"}, {\"target_city_id\"=>\"7\"}, {\"target_city_id\"=>\"3\"}, {\"target_city_id\"=>\"6\"}]"
   level_type: "read"
+default_text: "missile_id | model_name      | nationality     | target_city_id |\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n1          | Peacekeeper     | USA             | 7              |\n2          | Minuteman       | USA             | 5              |\n3          | Topol           | Russia          | 1              |\n4          | Yars            | Russia          | 4              |\n5          | Jericho III     | Israel          | 5              |\n6          | Agni-V          | India           | 7              |\n7          | Dongfeng-5      | China           | 3              |\n8          | Dongfeng-31     | China           | 6              |\n"  
 level_pages:
   - 
     page_number: 1

@@ -2,7 +2,7 @@ correct_query: "SELECT * FROM missiles WHERE missile_id=3;"
 level: 
   stage_number: 6
   title: "Will the real Topol<br> please stand up?"
-  prompt: "Select all the data for the first 'Topol' missile that appears in the <code>missiles</code> table by specifying the missile's <code>MISSILE_ID</code>"
+  prompt: "Select the first 'Topol' missile by specifying the missile's <code>missile_id</code>."
   database_path: "db/dumps/lvl6.sql"
   answer: "[{\"missile_id\"=>\"3\", \"model_name\"=>\"Topol\", \"nationality\"=>\"Russia\"}]"
   level_type: "read"
