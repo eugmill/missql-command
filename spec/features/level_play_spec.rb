@@ -15,7 +15,7 @@ describe 'Level play: ', :js => true do
     end
 
     describe "Level Prompts, Titles and Level Pages: " do
-      # Need to change the harcoded number below to Level.all.count. Some scope issues here.
+      # Need to change the hardcoded number below to Level.all.count. Some scope issues here.
           10.times { | stage_number |
               it "Level #{stage_number+1} should have a Title on its page" do
                 
@@ -46,8 +46,17 @@ describe 'Level play: ', :js => true do
 
                 page.should have_css("div#next-level-modal.active")
               end
-
           }
-     end
+    end
+
+    describe "Should detect common errors: " do
+      it "Should notify user to use single quotes", :focus => true do
+        visit "/levels/1"
+        fill_in 'sql-command', :with => "a query with \"double quotes\""
+        click_button 'execute'
+        wait_for_ajax
+        expect(page).to have_content("Make sure you're using single quotes for your strings.")
+      end
+    end
 
 end
