@@ -1,14 +1,18 @@
 //takes a string of text and submits it via post to the query route
 submitQuery = function(text) {
 
- $.post('/query', 
-        {sql_command: text},
-        updateView,
-        "json"
-    )
+ $.ajax('/query', 
+        {
+          error: queryError,
+          data: {sql_command: text},
+          type: "post",
+          success: updateView,
+          dataType: "json"
+        }
+    );
 
 }
-
+//sends a post to the gameplay controller to reset the level and get the default text
 resetLevel = function(){
   $.ajax('/reset',
       {
@@ -20,12 +24,17 @@ resetLevel = function(){
     );
 
 }
-
+//error handler for reset level's ajax loop
 resetError = function(jqXHR, textStatus, errorThrown){
   clearOutput();
   appendToOutput("<span class=\"message\">Sorry : (, try again \n\n" + textStatus + ":\n" + errorThrown + "</span>");
 };
 
+//error handler for query loop
+queryError = function(){
+  appendToOutput("<span class=\"message\">Sorry there was a server error. Reset the level and try again.</span>");
+};
+//success handler for reset level's ajax loop
 resetSuccess = function(data){
   clearOutput();
   appendToOutput(data.message)
@@ -120,7 +129,7 @@ getHeader = function(row){
 
 //takes in the length of a string and spits out a string of overscores and new lines to create an
 //underline string
-function underlineString(length){
+underlineString = function(length){
 
   var overScores = "\n",
       i=0;
