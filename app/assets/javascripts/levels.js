@@ -7,7 +7,8 @@ submitQuery = function(text) {
           data: {sql_command: text},
           success: updateView,
           dataType: "json"
-    )
+        }
+    );
 
 }
 //sends a post to the gameplay controller to reset the level and get the default text
