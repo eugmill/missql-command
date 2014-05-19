@@ -28,7 +28,7 @@ body{
   background-color: black;
  }
 
- body.repl{
+ body.levels{
   min-width: 832px;
   min-height: 600px;
 }

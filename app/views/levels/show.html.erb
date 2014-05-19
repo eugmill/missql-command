@@ -25,7 +25,10 @@
 	</div>
 	<div id="command-input" class="pane">
 		<textarea id="sql-command" autofocus></textarea>
+		<div id="button-container">
+		<button type="button" id="reset">RESET LEVEL</button>
 		<button type="button" id="execute">EXECUTE</button>
+		</div>
 		<div id="next-level-modal">
 			<div class="modal-content">
 				<h4>Congratulations, you passed this challenge! <%= link_to "Move on to the next level >","/levels/#{@level.next_level.stage_number}" if @level.next_level %></h4>	

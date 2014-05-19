@@ -9,6 +9,29 @@ submitQuery = function(text) {
 
 }
 
+resetLevel = function(){
+  $.ajax('/reset',
+      {
+        error: resetError,
+        success: resetSuccess,
+        type: "post",
+        dataType: "json"
+      }
+    );
+
+}
+
+resetError = function(jqXHR, textStatus, errorThrown){
+  clearOutput();
+  appendToOutput("Sorry : (, try again: \n" + textStatus + ":\n" + errorThrown);
+};
+
+resetSuccess = function(data){
+  clearOutput();
+  appendToOutput(data.displayText);
+};
+
+
 //receives the returned data from submitQuery and adds it to the REPL
 updateView = function(data){
   //clears the output pane
@@ -313,6 +336,10 @@ $("body.levels").ready(function() {
       submitQuery(text);
     
     });
+
+  $('#reset').on("click", function(){
+      resetLevel();
+  });
 
   //bind keyboard shortcuts for the excute button of the REPL
   Mousetrap.bindGlobal(['ctrl+enter','command+return'], function(e){

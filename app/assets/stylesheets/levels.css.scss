@@ -206,13 +206,22 @@ div#repl div#output{
 	outline: none;
 	border: none;
 }
-#command-input #execute{
-	font-family: Consolas, monaco, monotoype;
+#command-input #button-container{
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	z-index: 3;
 	display: block;
+	width: auto;
+}
+
+#command-input #execute, #command-input #reset{
+	font-family: Consolas, monaco, monotoype;
+	position: relative;
+	bottom: 10px;
+	right: 10px;
+	z-index: 3;
+	display: inline-block;
 	width: auto;
 	@include border-box;
 	box-shadow: -2px 0px 0px 0px #66ff33, 0px -2px 0px 0px #66ff33, 0px 2px 0px 0px #66ff33, 2px 0px 0px 0px #66ff33;
@@ -223,7 +232,10 @@ div#repl div#output{
 	background-color: #004000;
 	border-radius: 2px;
 	color: #66ff33;
+	margin: 0 0 0 .5em;
 }
+
+
 
 span.error, span.message{
 	position: relative;
