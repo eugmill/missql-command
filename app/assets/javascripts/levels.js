@@ -23,7 +23,7 @@ resetLevel = function(){
 
 resetError = function(jqXHR, textStatus, errorThrown){
   clearOutput();
-  appendToOutput("Sorry : (, try again: \n" + textStatus + ":\n" + errorThrown);
+  appendToOutput("<span class=\"message\">Sorry : (, try again \n\n" + textStatus + ":\n" + errorThrown + "</span>");
 };
 
 resetSuccess = function(data){
