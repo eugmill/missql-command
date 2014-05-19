@@ -28,6 +28,7 @@ resetError = function(jqXHR, textStatus, errorThrown){
 
 resetSuccess = function(data){
   clearOutput();
+  appendToOutput(data.message)
   appendToOutput(data.displayText);
 };
 

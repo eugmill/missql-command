@@ -24,7 +24,7 @@ class GameplayController < ApplicationController
     @text = current_user.current_level.default_text || ""
     respond_to do |format|
       format.json {
-        render json: "{\"displayText\": #{@text.to_json}}"
+        render json: "{\"message\": \"Successfully reset database ✓\", \"displayText\": #{@text.to_json}}"
       }
     end
   end
