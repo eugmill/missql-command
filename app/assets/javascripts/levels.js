@@ -5,6 +5,7 @@ submitQuery = function(text) {
         {
           error: queryError,
           data: {sql_command: text},
+          type: "post",
           success: updateView,
           dataType: "json"
         }
@@ -31,7 +32,7 @@ resetError = function(jqXHR, textStatus, errorThrown){
 
 //error handler for query loop
 queryError = function(){
-  appendToOutput("<span class=\"message\">Sorry there was a server error. Reset the level and try again.\"</span>");
+  appendToOutput("<span class=\"message\">Sorry there was a server error. Reset the level and try again.</span>");
 };
 //success handler for reset level's ajax loop
 resetSuccess = function(data){
