@@ -82,6 +82,10 @@ class UserDatabase < ActiveRecord::Base
     self.save
   end
 
+  def reset
+    load_level(self.level)
+  end
+
   def empty_self
   	connection.exec("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
   end

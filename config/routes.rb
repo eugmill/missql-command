@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
 
   post 'query' => 'gameplay#execute', as: :query
+  post 'reset' => 'gameplay#reset_current'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

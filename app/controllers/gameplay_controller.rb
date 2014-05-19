@@ -18,4 +18,15 @@ class GameplayController < ApplicationController
       }
     end
   end
+
+  def reset_current
+    current_user.user_database.reset
+    @text = current_user.current_level.default_text || ""
+    respond_to do |format|
+      format.json {
+        render json: "{\"message\": \"Successfully reset database ✓\", \"displayText\": #{@text.to_json}}"
+      }
+    end
+  end
+
 end
